@@ -5,15 +5,12 @@ import Link from "next/link"
 import { Github, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-
-const navLinks = [
-  { href: "#como-usar", label: "Como Usar" },
-  { href: "https://github.com/fecarrico/A11Y.md", label: "Documentacao", external: true },
-]
+import { useLang } from "@/lib/language-context"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { lang, setLang, t } = useLang()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,19 +20,24 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const navLinks = [
+    { href: "#como-usar", label: t("nav.howToUse") },
+    { href: "https://github.com/fecarrico/A11Y.md", label: t("nav.docs"), external: true },
+  ]
+
   return (
-    <header 
+    <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled 
-          ? "bg-background/80 backdrop-blur-lg border-b border-border" 
+        isScrolled
+          ? "bg-background/80 backdrop-blur-lg border-b border-border"
           : "bg-transparent"
       )}
     >
       <nav className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link 
-          href="/" 
+        <Link
+          href="/"
           className="text-2xl font-bold text-primary hover:opacity-80 transition-opacity"
           style={{ fontFamily: "var(--font-pixel)" }}
         >
@@ -43,7 +45,7 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -55,10 +57,19 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          
-          <Button 
+
+          {/* Language Toggle */}
+          <button
+            onClick={() => setLang(lang === "pt" ? "en" : "pt")}
+            className="text-xs font-mono px-2 py-1 rounded border border-border text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors"
+            aria-label={lang === "pt" ? "Switch to English" : "Mudar para Português"}
+          >
+            {lang === "pt" ? "EN" : "PT"}
+          </button>
+
+          <Button
             asChild
-            size="sm" 
+            size="sm"
             className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2"
           >
             <Link href="https://github.com/fecarrico/A11Y.md" target="_blank" rel="noopener noreferrer">
@@ -68,15 +79,24 @@ export function Header() {
           </Button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden p-2 text-foreground"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
-          aria-expanded={isMobileMenuOpen}
-        >
-          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Mobile: Language Toggle + Menu Button */}
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={() => setLang(lang === "pt" ? "en" : "pt")}
+            className="text-xs font-mono px-2 py-1 rounded border border-border text-muted-foreground hover:text-foreground transition-colors"
+            aria-label={lang === "pt" ? "Switch to English" : "Mudar para Português"}
+          >
+            {lang === "pt" ? "EN" : "PT"}
+          </button>
+          <button
+            className="p-2 text-foreground"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={isMobileMenuOpen}
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Menu */}
@@ -95,10 +115,10 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            
-            <Button 
+
+            <Button
               asChild
-              size="sm" 
+              size="sm"
               className="w-full bg-primary text-primary-foreground hover:bg-primary/90 gap-2"
             >
               <Link href="https://github.com/fecarrico/A11Y.md" target="_blank" rel="noopener noreferrer">

@@ -2,61 +2,58 @@
 
 import { motion } from "motion/react"
 import { X, Check } from "lucide-react"
+import { useLang } from "@/lib/language-context"
 
-const comparisons = [
+const codeSnippets = [
   {
-    title: "O Falso Botao",
-    description: "Elementos visiveis clicaveis usando div sao invisiveis para teclado e leitores de tela.",
-    bad: {
-      label: "Sem A11Y.md",
-      code: `<div onClick={() => navigate('/components')}>
+    bad: `<div onClick={() => navigate('/components')}>
   Explorar Componentes
-</div>`
-    },
-    good: {
-      label: "Com A11Y.md",
-      code: `<button onClick={() => navigate('/components')}>
+</div>`,
+    good: `<button onClick={() => navigate('/components')}>
   Explorar Componentes
-</button>`
-    }
+</button>`,
   },
   {
-    title: "Formularios Silenciosos",
-    description: "Leitores de tela navegam entre campos ignorando conteudo ao redor. Sem associacao, o usuario nao sabe o que o campo representa.",
-    bad: {
-      label: "Sem A11Y.md",
-      code: `<label>Email</label>
-<input type="email" />`
-    },
-    good: {
-      label: "Com A11Y.md",
-      code: `<label htmlFor="email">Email</label>
-<input id="email" type="email" />`
-    }
+    bad: `<label>Email</label>
+<input type="email" />`,
+    good: `<label htmlFor="email">Email</label>
+<input id="email" type="email" />`,
   },
   {
-    title: "Feedback Invisivel",
-    description: "Mensagens de erro aparecem na tela, mas nao sao anunciadas. Para leitores de tela, nada aconteceu.",
-    bad: {
-      label: "Sem A11Y.md",
-      code: `{error && (
+    bad: `{error && (
   <div className="text-red-700">
     {error}
   </div>
-)}`
-    },
-    good: {
-      label: "Com A11Y.md",
-      code: `{error && (
+)}`,
+    good: `{error && (
   <div role="alert" aria-live="assertive">
     {error}
   </div>
-)}`
-    }
-  }
+)}`,
+  },
 ]
 
 export function CodeComparison() {
+  const { t } = useLang()
+
+  const comparisons = [
+    {
+      title: t("code.1.title"),
+      description: t("code.1.desc"),
+      ...codeSnippets[0],
+    },
+    {
+      title: t("code.2.title"),
+      description: t("code.2.desc"),
+      ...codeSnippets[1],
+    },
+    {
+      title: t("code.3.title"),
+      description: t("code.3.desc"),
+      ...codeSnippets[2],
+    },
+  ]
+
   return (
     <section className="py-24 px-4 relative">
       <div className="max-w-6xl mx-auto">
@@ -67,19 +64,19 @@ export function CodeComparison() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-mono text-sm mb-4 block">IMPACTO PRATICO</span>
+          <span className="text-primary font-mono text-sm mb-4 block">{t("code.label")}</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Antes vs Depois
+            {t("code.heading")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A diferenca entre codigo gerado aleatoriamente e codigo guiado pelo A11Y.md
+            {t("code.intro")}
           </p>
         </motion.div>
 
         <div className="space-y-12">
           {comparisons.map((comparison, index) => (
             <motion.div
-              key={comparison.title}
+              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -94,27 +91,27 @@ export function CodeComparison() {
                   {comparison.description}
                 </p>
               </div>
-              
+
               <div className="grid md:grid-cols-2">
                 {/* Bad code */}
                 <div className="border-r border-border">
                   <div className="flex items-center gap-2 px-4 py-3 bg-destructive/10 border-b border-border">
                     <X className="w-4 h-4 text-destructive" />
-                    <span className="text-sm font-medium text-destructive">{comparison.bad.label}</span>
+                    <span className="text-sm font-medium text-destructive">{t("code.without")}</span>
                   </div>
                   <pre className="p-4 overflow-x-auto">
-                    <code className="text-sm font-mono text-muted-foreground">{comparison.bad.code}</code>
+                    <code className="text-sm font-mono text-muted-foreground">{comparison.bad}</code>
                   </pre>
                 </div>
-                
+
                 {/* Good code */}
                 <div>
                   <div className="flex items-center gap-2 px-4 py-3 bg-green-500/10 border-b border-border">
                     <Check className="w-4 h-4 text-green-500" />
-                    <span className="text-sm font-medium text-green-500">{comparison.good.label}</span>
+                    <span className="text-sm font-medium text-green-500">{t("code.with")}</span>
                   </div>
                   <pre className="p-4 overflow-x-auto">
-                    <code className="text-sm font-mono text-foreground">{comparison.good.code}</code>
+                    <code className="text-sm font-mono text-foreground">{comparison.good}</code>
                   </pre>
                 </div>
               </div>

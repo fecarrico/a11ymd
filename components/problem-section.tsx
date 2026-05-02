@@ -2,26 +2,31 @@
 
 import { motion } from "motion/react"
 import { AlertTriangle, Zap, Scale } from "lucide-react"
+import { useLang } from "@/lib/language-context"
 
-const problems = [
-  {
-    icon: AlertTriangle,
-    title: "Acessibilidade Reativa",
-    description: "Hoje, a acessibilidade e tratada como a ultima etapa: projeta, desenvolve (ou a IA desenvolve), depois valida. O erro ja escalou antes de abrirmos o validador."
-  },
-  {
-    icon: Zap,
-    title: "IA Improvisando",
-    description: "Sem contexto, a IA improvisa. E o improviso em acessibilidade e a receita para a exclusao. A IA vai preferir o caminho visualmente bonito em detrimento do funcionalmente inclusivo."
-  },
-  {
-    icon: Scale,
-    title: "Escalando Exclusao",
-    description: "Estamos escalando a exclusao digital mais rapido do que nunca. Quem fica de fora quando a IA funciona, mas nao e acessivel?"
-  }
-]
+const problemIcons = [AlertTriangle, Zap, Scale]
 
 export function ProblemSection() {
+  const { t } = useLang()
+
+  const problems = [
+    {
+      icon: problemIcons[0],
+      title: t("problem.1.title"),
+      description: t("problem.1.desc"),
+    },
+    {
+      icon: problemIcons[1],
+      title: t("problem.2.title"),
+      description: t("problem.2.desc"),
+    },
+    {
+      icon: problemIcons[2],
+      title: t("problem.3.title"),
+      description: t("problem.3.desc"),
+    },
+  ]
+
   return (
     <section className="py-24 px-4 relative">
       <div className="max-w-6xl mx-auto">
@@ -33,18 +38,17 @@ export function ProblemSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            O Problema
+            {t("problem.heading")}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            De um lado, certificacao e conformidade legal — necessaria, mas lenta. 
-            Do outro, vibe coding e IAs gerando interfaces em velocidade absurda.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+            {t("problem.intro")}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {problems.map((problem, index) => (
             <motion.div
-              key={problem.title}
+              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}

@@ -3,29 +3,34 @@
 import { motion } from "motion/react"
 import { Download, FileCode, MessageSquare } from "lucide-react"
 import { AnimatedSpan, Terminal, TypingAnimation } from "@/components/magicui/terminal"
+import { useLang } from "@/lib/language-context"
 
-const steps = [
-  {
-    number: "01",
-    icon: Download,
-    title: "Baixe as Regras",
-    description: "Copie o conteudo da pasta /docs/pt-BR para a raiz do repositorio do seu projeto."
-  },
-  {
-    number: "02",
-    icon: FileCode,
-    title: "Injete no Prompt",
-    description: "Adicione ao seu arquivo de regras globais (.cursorrules, GEMINI.md ou outro sistema de contexto)."
-  },
-  {
-    number: "03",
-    icon: MessageSquare,
-    title: "Use como Revisor",
-    description: "Chame o A11Y.md a qualquer momento direto no seu agente para analisar codigo ou telas do Figma."
-  }
-]
+const stepIcons = [Download, FileCode, MessageSquare]
 
 export function HowToUseSection() {
+  const { t } = useLang()
+
+  const steps = [
+    {
+      number: "01",
+      icon: stepIcons[0],
+      title: t("howto.1.title"),
+      description: t("howto.1.desc"),
+    },
+    {
+      number: "02",
+      icon: stepIcons[1],
+      title: t("howto.2.title"),
+      description: t("howto.2.desc"),
+    },
+    {
+      number: "03",
+      icon: stepIcons[2],
+      title: t("howto.3.title"),
+      description: t("howto.3.desc"),
+    },
+  ]
+
   return (
     <section id="como-usar" className="py-24 px-4 relative bg-card/30 scroll-mt-20">
       <div className="max-w-6xl mx-auto">
@@ -36,13 +41,12 @@ export function HowToUseSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-mono text-sm mb-4 block">QUICK START</span>
+          <span className="text-primary font-mono text-sm mb-4 block">{t("howto.label")}</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Como Usar
+            {t("howto.heading")}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Comece em menos de 2 minutos. Ler sobre acessibilidade e o primeiro passo, 
-            injetar no seu codigo e o objetivo real.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+            {t("howto.intro")}
           </p>
         </motion.div>
 
@@ -84,34 +88,27 @@ export function HowToUseSection() {
             viewport={{ once: true }}
           >
             <Terminal className="max-h-[500px]">
-              <TypingAnimation>&gt; Adicione ao seu .cursorrules:</TypingAnimation>
-
-              <AnimatedSpan delay={1500} className="text-muted-foreground">
-                <span className="text-primary">&quot;Ao desenvolver interfaces, siga</span>
+              <TypingAnimation>{t("howto.terminal.1")}</TypingAnimation>
+              <AnimatedSpan delay={1500}>
+                <span className="text-primary">{t("howto.terminal.2")}</span>
               </AnimatedSpan>
-
-              <AnimatedSpan delay={2000} className="text-muted-foreground">
-                <span className="text-primary">estritamente as regras de desenvolvimento</span>
+              <AnimatedSpan delay={2000}>
+                <span className="text-primary">{t("howto.terminal.3")}</span>
               </AnimatedSpan>
-
-              <AnimatedSpan delay={2500} className="text-muted-foreground">
-                <span className="text-primary">definidas no arquivo A11Y.md.&quot;</span>
+              <AnimatedSpan delay={2500}>
+                <span className="text-primary">{t("howto.terminal.4")}</span>
               </AnimatedSpan>
-
               <AnimatedSpan delay={3500} className="text-green-500">
-                <span>✔ Contexto de acessibilidade carregado</span>
+                <span>{t("howto.terminal.5")}</span>
               </AnimatedSpan>
-
               <AnimatedSpan delay={4000} className="text-green-500">
-                <span>✔ Regras WCAG 2.2 AA ativadas</span>
+                <span>{t("howto.terminal.6")}</span>
               </AnimatedSpan>
-
               <AnimatedSpan delay={4500} className="text-green-500">
-                <span>✔ Validacao semantica habilitada</span>
+                <span>{t("howto.terminal.7")}</span>
               </AnimatedSpan>
-
               <TypingAnimation delay={5500} className="text-muted-foreground">
-                Seu ambiente agora sabe que acessibilidade e requisito basico.
+                {t("howto.terminal.8")}
               </TypingAnimation>
             </Terminal>
           </motion.div>

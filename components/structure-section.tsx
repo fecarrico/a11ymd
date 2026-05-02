@@ -2,35 +2,41 @@
 
 import { motion } from "motion/react"
 import { Zap, BookOpen, FileText, Code } from "lucide-react"
+import { useLang } from "@/lib/language-context"
 
-const sections = [
-  {
-    icon: Zap,
-    title: "Centro de Comando",
-    file: "A11Y.md",
-    description: "Onde residem a Matriz de Severidade, o framework comportamental para IAs, regras estritas para SPA e o Protocolo de Componentes Complexos."
-  },
-  {
-    icon: BookOpen,
-    title: "Biblioteca de Suporte",
-    file: "references/",
-    description: "A 'Deep Web' de solucoes. Guias de engenharia rapida para UX e Percepcao, UI Interativa, Fluxos e Temporizacao, e Governanca."
-  },
-  {
-    icon: FileText,
-    title: "Templates",
-    file: "templates/",
-    description: "Modelos de fallback e garantias de conclusao: REPORT.md para checklist final e EXCEPTIONS.md para log estruturado de divida tecnica."
-  },
-  {
-    icon: Code,
-    title: "Exemplos",
-    file: "EXAMPLES.md",
-    description: "Exemplos praticos de erros reais encontrados em sistemas gerados com IA, junto com suas correcoes sugeridas pelo A11Y.md."
-  }
-]
+const sectionIcons = [Zap, BookOpen, FileText, Code]
+const sectionFiles = ["A11Y.md", "references/", "templates/", "EXAMPLES.md"]
 
 export function StructureSection() {
+  const { t } = useLang()
+
+  const sections = [
+    {
+      icon: sectionIcons[0],
+      file: sectionFiles[0],
+      title: t("structure.1.title"),
+      description: t("structure.1.desc"),
+    },
+    {
+      icon: sectionIcons[1],
+      file: sectionFiles[1],
+      title: t("structure.2.title"),
+      description: t("structure.2.desc"),
+    },
+    {
+      icon: sectionIcons[2],
+      file: sectionFiles[2],
+      title: t("structure.3.title"),
+      description: t("structure.3.desc"),
+    },
+    {
+      icon: sectionIcons[3],
+      file: sectionFiles[3],
+      title: t("structure.4.title"),
+      description: t("structure.4.desc"),
+    },
+  ]
+
   return (
     <section className="py-24 px-4 relative">
       <div className="max-w-6xl mx-auto">
@@ -41,19 +47,19 @@ export function StructureSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-mono text-sm mb-4 block">ESTRUTURA</span>
+          <span className="text-primary font-mono text-sm mb-4 block">{t("structure.label")}</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Explorando a Base de Conhecimento
+            {t("structure.heading")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Organizamos as solucoes para atuar como documentacao viva
+            {t("structure.intro")}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6">
           {sections.map((section, index) => (
             <motion.div
-              key={section.title}
+              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}

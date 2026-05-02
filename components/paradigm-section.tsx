@@ -2,29 +2,35 @@
 
 import { motion } from "motion/react"
 import { User, Bot, Shield } from "lucide-react"
+import { useLang } from "@/lib/language-context"
 
-const pillars = [
-  {
-    icon: User,
-    title: "Human-Centric",
-    subtitle: "Focado no Humano",
-    description: "Estritamente projetado para garantir autonomia real aos usuarios com deficiencia."
-  },
-  {
-    icon: Bot,
-    title: "AI-Ready",
-    subtitle: "Pronto para IA",
-    description: "Diretrizes deterministicas especificamente criadas para ancorar o comportamento de agentes de codigo, eliminando 'invencoes' (alucinacoes tecnicas)."
-  },
-  {
-    icon: Shield,
-    title: "Certifiable",
-    subtitle: "Certificavel",
-    description: "Cada diretriz no A11Y.md e estritamente mapeada para criterios WCAG 2.2, permitindo rastreabilidade direta para auditorias externas."
-  }
-]
+const pillarIcons = [User, Bot, Shield]
+const pillarTitles = ["Human-Centric", "AI-Ready", "Certifiable"]
 
 export function ParadigmSection() {
+  const { t } = useLang()
+
+  const pillars = [
+    {
+      icon: pillarIcons[0],
+      title: pillarTitles[0],
+      subtitle: t("paradigm.1.subtitle"),
+      description: t("paradigm.1.desc"),
+    },
+    {
+      icon: pillarIcons[1],
+      title: pillarTitles[1],
+      subtitle: t("paradigm.2.subtitle"),
+      description: t("paradigm.2.desc"),
+    },
+    {
+      icon: pillarIcons[2],
+      title: pillarTitles[2],
+      subtitle: t("paradigm.3.subtitle"),
+      description: t("paradigm.3.desc"),
+    },
+  ]
+
   return (
     <section className="py-24 px-4 relative bg-card/30">
       <div className="max-w-6xl mx-auto">
@@ -35,13 +41,12 @@ export function ParadigmSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-mono text-sm mb-4 block">O PARADIGMA</span>
+          <span className="text-primary font-mono text-sm mb-4 block">{t("paradigm.label")}</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Tres Pilares Fundamentais
+            {t("paradigm.heading")}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Nossa filosofia dita que acessibilidade web nunca deve ser um &quot;polimento posterior&quot;, 
-            mas uma precondicao tecnica para uso.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+            {t("paradigm.intro")}
           </p>
         </motion.div>
 
