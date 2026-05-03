@@ -95,7 +95,7 @@ export function HeroSection() {
             asChild
             variant="outline"
             size="lg"
-            className="gap-2 text-base px-8 border-border hover:bg-card"
+            className="gap-2 text-base px-8 border-border hover:bg-white hover:text-black"
           >
             <Link
               href="https://github.com/fecarrico/A11Y.md/archive/refs/heads/main.zip"
