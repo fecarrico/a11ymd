@@ -111,11 +111,11 @@ export function HeroSection() {
             asChild
             variant="ghost"
             size="lg"
-            className="gap-2 text-base px-8 hover:bg-card"
+            className="group gap-2 text-base px-8 hover:bg-transparent"
           >
             <Link href="#como-usar">
               {t("hero.cta.howToUse")}
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
           </Button>
         </motion.div>
