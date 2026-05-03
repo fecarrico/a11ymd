@@ -129,8 +129,8 @@ export const Terminal = ({ children, className }: TerminalProps) => {
             <div className="h-2 w-2 rounded-full bg-green-500"></div>
           </div>
         </div>
-        <pre className="p-4">
-          <code className="grid gap-y-1 overflow-auto"></code>
+        <pre className="p-4 overflow-hidden">
+          <code className="grid gap-y-1 overflow-x-hidden overflow-y-auto"></code>
         </pre>
       </div>
     )
@@ -150,8 +150,8 @@ export const Terminal = ({ children, className }: TerminalProps) => {
           <div className="h-2 w-2 rounded-full bg-green-500"></div>
         </div>
       </div>
-      <pre className="p-4">
-        <code className="grid gap-y-1 overflow-auto">{children}</code>
+      <pre className="p-4 overflow-hidden">
+        <code className="grid gap-y-1 overflow-x-hidden overflow-y-auto">{children}</code>
       </pre>
     </div>
   )
