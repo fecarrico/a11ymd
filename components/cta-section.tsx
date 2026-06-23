@@ -10,7 +10,7 @@ export function CTASection() {
   const { t } = useLang()
 
   return (
-    <section className="py-24 px-4 relative bg-card/30">
+    <section aria-labelledby="cta-heading" className="py-24 px-4 relative bg-card/30">
       <div className="max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -19,6 +19,7 @@ export function CTASection() {
           viewport={{ once: true }}
         >
           <h2
+            id="cta-heading"
             className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary mb-6"
             style={{ fontFamily: "var(--font-pixel)" }}
           >

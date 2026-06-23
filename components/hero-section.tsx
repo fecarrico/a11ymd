@@ -10,7 +10,10 @@ export function HeroSection() {
   const { t } = useLang()
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20">
+    <section
+      aria-labelledby="hero-heading"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20"
+    >
       {/* Background grid effect */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
 
@@ -37,6 +40,7 @@ export function HeroSection() {
           className="mb-6"
         >
           <h1
+            id="hero-heading"
             className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-primary tracking-tight"
             style={{ fontFamily: "var(--font-pixel)" }}
           >

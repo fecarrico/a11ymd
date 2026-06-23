@@ -32,7 +32,11 @@ export function HowToUseSection() {
   ]
 
   return (
-    <section id="como-usar" className="py-24 px-4 relative bg-card/30 scroll-mt-20">
+    <section
+      id="como-usar"
+      aria-labelledby="howto-heading"
+      className="py-24 px-4 relative bg-card/30 scroll-mt-20"
+    >
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -42,7 +46,7 @@ export function HowToUseSection() {
           className="text-center mb-16"
         >
           <span className="text-primary font-mono text-sm mb-4 block">{t("howto.label")}</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <h2 id="howto-heading" className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             {t("howto.heading")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">

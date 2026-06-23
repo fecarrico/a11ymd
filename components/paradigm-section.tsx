@@ -32,7 +32,7 @@ export function ParadigmSection() {
   ]
 
   return (
-    <section className="py-24 px-4 relative bg-card/30">
+    <section aria-labelledby="paradigm-heading" className="py-24 px-4 relative bg-card/30">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -42,7 +42,7 @@ export function ParadigmSection() {
           className="text-center mb-16"
         >
           <span className="text-primary font-mono text-sm mb-4 block">{t("paradigm.label")}</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <h2 id="paradigm-heading" className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             {t("paradigm.heading")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">

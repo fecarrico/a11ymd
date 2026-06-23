@@ -28,7 +28,7 @@ export function ProblemSection() {
   ]
 
   return (
-    <section className="py-24 px-4 relative">
+    <section aria-labelledby="problem-heading" className="py-24 px-4 relative">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,7 +37,7 @@ export function ProblemSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <h2 id="problem-heading" className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             {t("problem.heading")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">

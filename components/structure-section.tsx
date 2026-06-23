@@ -38,7 +38,7 @@ export function StructureSection() {
   ]
 
   return (
-    <section className="py-24 px-4 relative">
+    <section aria-labelledby="structure-heading" className="py-24 px-4 relative">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -48,7 +48,7 @@ export function StructureSection() {
           className="text-center mb-16"
         >
           <span className="text-primary font-mono text-sm mb-4 block">{t("structure.label")}</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <h2 id="structure-heading" className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             {t("structure.heading")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
