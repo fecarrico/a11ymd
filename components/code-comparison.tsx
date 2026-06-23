@@ -99,12 +99,7 @@ export function CodeComparison() {
                     <X className="w-4 h-4 text-destructive" aria-hidden="true" />
                     <span className="text-sm font-medium text-destructive">{t("code.without")}</span>
                   </div>
-                  <pre
-                    className="p-4 overflow-x-auto"
-                    tabIndex={0}
-                    role="region"
-                    aria-label={`${t("code.without")}: ${comparison.title}`}
-                  >
+                  <pre className="p-4 whitespace-pre-wrap break-words">
                     <code className="text-sm font-mono text-muted-foreground">{comparison.bad}</code>
                   </pre>
                 </div>
@@ -115,12 +110,7 @@ export function CodeComparison() {
                     <Check className="w-4 h-4 text-green-500" aria-hidden="true" />
                     <span className="text-sm font-medium text-green-500">{t("code.with")}</span>
                   </div>
-                  <pre
-                    className="p-4 overflow-x-auto"
-                    tabIndex={0}
-                    role="region"
-                    aria-label={`${t("code.with")}: ${comparison.title}`}
-                  >
+                  <pre className="p-4 whitespace-pre-wrap break-words">
                     <code className="text-sm font-mono text-foreground">{comparison.good}</code>
                   </pre>
                 </div>
