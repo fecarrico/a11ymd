@@ -1,6 +1,7 @@
 "use client"
 
 import { createContext, useContext, useState, useEffect, ReactNode } from "react"
+import { MotionConfig } from "motion/react"
 
 export type Language = "pt" | "en"
 
@@ -300,16 +301,19 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   return (
     <LanguageContext.Provider value={{ lang, setLang, t }}>
-      {children}
-      {/* A11Y: Live region for dynamic feedback */}
-      <div
-        role="status"
-        aria-live="polite"
-        aria-atomic="true"
-        className="sr-only"
-      >
-        {announcement}
-      </div>
+      {/* A11Y: Respect the user's prefers-reduced-motion setting for all motion/react animations */}
+      <MotionConfig reducedMotion="user">
+        {children}
+        {/* A11Y: Live region for dynamic feedback */}
+        <div
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          className="sr-only"
+        >
+          {announcement}
+        </div>
+      </MotionConfig>
     </LanguageContext.Provider>
   )
 }

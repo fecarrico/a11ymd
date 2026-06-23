@@ -12,16 +12,18 @@ import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
-    <main id="main-content" className="min-h-screen" tabIndex={-1}>
+    <>
       <Header />
-      <HeroSection />
-      <ProblemSection />
-      <ParadigmSection />
-      <CodeComparison />
-      <HowToUseSection />
-      <StructureSection />
-      <CTASection />
+      <main id="main-content" className="min-h-screen" tabIndex={-1}>
+        <HeroSection />
+        <ProblemSection />
+        <ParadigmSection />
+        <CodeComparison />
+        <HowToUseSection />
+        <StructureSection />
+        <CTASection />
+      </main>
       <Footer />
-    </main>
+    </>
   )
 }

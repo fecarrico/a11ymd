@@ -67,7 +67,7 @@ export function Header() {
           {/* Language Toggle */}
           <button
             onClick={() => setLang(lang === "pt" ? "en" : "pt")}
-            className="text-xs font-mono px-2 py-1 rounded border border-border text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors"
+            className="text-xs font-mono min-w-[44px] min-h-[44px] px-3 rounded border border-border text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors"
             aria-label={lang === "pt" ? "Switch to English" : "Mudar para Português"}
           >
             {lang === "pt" ? "EN" : "PT"}
@@ -89,7 +89,7 @@ export function Header() {
         <div className="md:hidden flex items-center gap-2">
           <button
             onClick={() => setLang(lang === "pt" ? "en" : "pt")}
-            className="text-xs font-mono px-2 py-1 rounded border border-border text-muted-foreground hover:text-foreground transition-colors"
+            className="text-xs font-mono min-w-[44px] min-h-[44px] px-3 rounded border border-border text-muted-foreground hover:text-foreground transition-colors"
             aria-label={lang === "pt" ? "Switch to English" : "Mudar para Português"}
           >
             {lang === "pt" ? "EN" : "PT"}

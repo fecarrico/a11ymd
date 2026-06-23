@@ -94,23 +94,33 @@ export function CodeComparison() {
 
               <div className="grid md:grid-cols-2">
                 {/* Bad code */}
-                <div className="border-r border-border" role="region" aria-label={`${t("code.without")}: ${comparison.title}`}>
+                <div className="border-r border-border">
                   <div className="flex items-center gap-2 px-4 py-3 bg-destructive/10 border-b border-border">
                     <X className="w-4 h-4 text-destructive" aria-hidden="true" />
                     <span className="text-sm font-medium text-destructive">{t("code.without")}</span>
                   </div>
-                  <pre className="p-4 overflow-x-auto" tabIndex={0}>
+                  <pre
+                    className="p-4 overflow-x-auto"
+                    tabIndex={0}
+                    role="region"
+                    aria-label={`${t("code.without")}: ${comparison.title}`}
+                  >
                     <code className="text-sm font-mono text-muted-foreground">{comparison.bad}</code>
                   </pre>
                 </div>
 
                 {/* Good code */}
-                <div role="region" aria-label={`${t("code.with")}: ${comparison.title}`}>
+                <div>
                   <div className="flex items-center gap-2 px-4 py-3 bg-green-500/10 border-b border-border">
                     <Check className="w-4 h-4 text-green-500" aria-hidden="true" />
                     <span className="text-sm font-medium text-green-500">{t("code.with")}</span>
                   </div>
-                  <pre className="p-4 overflow-x-auto" tabIndex={0}>
+                  <pre
+                    className="p-4 overflow-x-auto"
+                    tabIndex={0}
+                    role="region"
+                    aria-label={`${t("code.with")}: ${comparison.title}`}
+                  >
                     <code className="text-sm font-mono text-foreground">{comparison.good}</code>
                   </pre>
                 </div>

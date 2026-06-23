@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { motion, type MotionProps } from "motion/react"
+import { motion, useReducedMotion, type MotionProps } from "motion/react"
 import { useEffect, useRef, useState } from "react"
 
 interface AnimatedSpanProps extends MotionProps {
@@ -59,6 +59,7 @@ export const TypingAnimation = ({
   const [started, setStarted] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
   const elementRef = useRef<HTMLElement | null>(null)
+  const prefersReducedMotion = useReducedMotion()
 
   useEffect(() => {
     setIsMounted(true)
@@ -66,14 +67,19 @@ export const TypingAnimation = ({
 
   useEffect(() => {
     if (!isMounted) return
+    // A11Y: Skip the typing animation entirely when reduced motion is preferred
+    if (prefersReducedMotion) {
+      setDisplayedText(children)
+      return
+    }
     const startTimeout = setTimeout(() => {
       setStarted(true)
     }, delay)
     return () => clearTimeout(startTimeout)
-  }, [delay, isMounted])
+  }, [delay, isMounted, prefersReducedMotion, children])
 
   useEffect(() => {
-    if (!started) return
+    if (!started || prefersReducedMotion) return
 
     let i = 0
     const typingEffect = setInterval(() => {
