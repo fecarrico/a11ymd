@@ -1,35 +1,68 @@
-# v0-a11y-landing
+# Landing do A11Y.md
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+Site do [Projeto A11Y.md](https://github.com/fecarrico/A11Y.md) — o sistema de contexto persistente que faz agentes de IA seguirem WCAG 2.2 AA desde a primeira linha de interface gerada.
 
-## Built with v0
+**No ar:** https://v0-projecta11y.vercel.app
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
+---
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_PtCmwQssACiEsl93Ht7GCA4Kpp9K)
+## A página é a prova do produto
 
-## Getting Started
+Esta landing é construída **seguindo o próprio A11Y.md**, no perfil **🛡️ Shield (AAA)**. Não é retórica: um site sobre acessibilidade que falha em acessibilidade desmente o produto na primeira impressão.
 
-First, run the development server:
+Os três artefatos do protocolo ficam na raiz, públicos:
+
+| Arquivo | O que registra |
+|---|---|
+| [`REPORT.md`](./REPORT.md) | Verificação de conformidade — o que foi medido, com números, e **o que falta validar com uma pessoa** |
+| [`EXCEPTIONS.md`](./EXCEPTIONS.md) | Desvios aceitos. Declarado e vazio: nenhum critério do nível-alvo foi pulado |
+| [`A11Y-DECISIONS.md`](./A11Y-DECISIONS.md) | Escolhas entre alternativas igualmente conformes, indexadas por padrão |
+
+Status atual: **⚠️ CONDICIONAL** — passa em toda a verificação automatizável e por teclado; falta o teste com leitor de tela, que exige uma pessoa.
+
+## Stack
+
+- **Next.js 15** (App Router) — Server Components por padrão; só três ilhas de cliente: cabeçalho, revelação de seção e botão de copiar
+- **Tailwind CSS 3** com a escala tipográfica cortada em 14px, o piso do Shield
+- **TypeScript strict**, sem `ignoreBuildErrors`
+- **ESLint** com `eslint-plugin-jsx-a11y`
+
+## Como rodar
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+pnpm install
+pnpm dev            # http://localhost:3000 → redireciona para /pt-BR ou /en
+pnpm verify         # typecheck + lint + build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Arquitetura
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/
+  [lang]/           # pt-BR e en, pré-renderizados
+  globals.css       # tokens de tema, foco, movimento reduzido, fallback sem JS
+  sitemap.ts robots.ts
+content/
+  types.ts          # Locale e os contratos de conteúdo
+  pt-BR.ts          # dicionário canônico — o tipo Dictionary é derivado dele
+  en.ts             # espelho: faltou chave, não compila
+  product.ts        # ponto único de verdade sobre o A11Y.md (versão, contagens, URLs)
+  evidence.ts       # dados de campo — o tipo exige fonte e URL
+  mentions.ts       # menções públicas — o tipo exige fonte e URL
+components/         # seções (Server Components) + as três ilhas de cliente
+middleware.ts       # negocia o idioma na raiz pelo Accept-Language
+```
 
-## Learn More
+### Duas decisões que explicam o resto
 
-To learn more, take a look at the following resources:
+**O idioma é rota, não estado.** A versão anterior guardava o idioma em `useState` e devolvia `null` até montar no cliente: o HTML servido saía com `<body>` vazio, sem SEO, sem card de compartilhamento e sem nada para quem não executa JavaScript. Agora `/pt-BR` e `/en` são páginas pré-renderizadas, com `hreflang` e `<html lang>` corretos no primeiro byte.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+**Fonte é obrigação de tipo.** `Evidence` e `Mention` exigem `url`. Uma afirmação numérica ou uma citação sem link **não compila**. A diretriz de sustentar o discurso em evidência citada vira restrição do compilador, não disciplina de quem edita.
 
-<a href="https://v0.app/chat/api/kiro/clone/fecarrico/v0-a11y-landing" alt="Open in Kiro"><img src="https://pdgvvgmkdvyeydso.public.blob.vercel-storage.com/open%20in%20kiro.svg?sanitize=true" /></a>
+## Manutenção
+
+Ao publicar uma versão nova do A11Y.md, atualize [`content/product.ts`](./content/product.ts) — versão, número de regras do contrato, número de guias. A página já desatualizou duas vezes em relação ao repositório (o método de instalação mudou para *rule-first* na v1.1.0; o `EXAMPLES.md` virou `showcase4humans.md` na v1.0.0) porque esses fatos estavam espalhados pelo texto.
+
+## Licença
+
+MIT — como o projeto que ele divulga.
