@@ -73,8 +73,8 @@ export const en: Dictionary = {
     label: "THE PROOF",
     heading: "This page follows its own standard",
     text: "This page was built following A11Y.md itself, under its most demanding profile (Shield). It passed every automated test: zero violations, full keyboard navigation, 200% zoom without breaking anything. But machines don't close the loop: AI gets things wrong, and A11Y.md itself requires a person to validate with a screen reader before the page can be declared approved. The report shows what passed, what's missing, and why.",
-    cta: "Read the verification report",
-    url: product.landing.report.en,
+    cta: "See the full verification",
+    url: product.landing.readme.en,
   },
 
   howto: {

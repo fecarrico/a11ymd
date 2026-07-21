@@ -66,8 +66,9 @@ const config: Config = {
           from: { opacity: '0', transform: 'translateY(-4px)' },
           to: { opacity: '1', transform: 'none' },
         },
+        // Anti-horário: acompanha o sentido de leitura ocidental do anel.
         'badge-spin': {
-          to: { transform: 'rotate(360deg)' },
+          to: { transform: 'rotate(-360deg)' },
         },
       },
       animation: {

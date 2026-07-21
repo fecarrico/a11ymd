@@ -77,8 +77,8 @@ export const ptBR = {
     label: "A PROVA",
     heading: "Esta página segue o próprio padrão",
     text: "Esta página foi construída seguindo o próprio A11Y.md, no perfil mais exigente (Shield). Passou em todos os testes automáticos: zero violações, navegação completa por teclado, zoom de 200% sem quebrar nada. Mas máquina não fecha o ciclo: a IA erra, e o próprio A11Y.md exige que uma pessoa valide com leitor de tela antes de declarar a página aprovada. O relatório mostra o que passou, o que falta e por quê.",
-    cta: "Ler o relatório de verificação",
-    url: product.landing.report["pt-BR"],
+    cta: "Ver a verificação completa",
+    url: product.landing.readme["pt-BR"],
   },
 
   howto: {

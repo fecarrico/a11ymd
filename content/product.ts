@@ -49,6 +49,12 @@ export const product = {
   /** O repositório DESTA landing — onde vivem os artefatos do dogfooding. */
   landing: {
     repo: "https://github.com/fecarrico/v0-a11y-landing",
+    /** A antessala da prova: o README explica como o A11Y.md rodou e
+        distribui para REPORT, EXCEPTIONS e DECISIONS com contexto. */
+    readme: {
+      "pt-BR": "https://github.com/fecarrico/v0-a11y-landing/blob/main/README.md",
+      en: "https://github.com/fecarrico/v0-a11y-landing/blob/main/README.en.md",
+    },
     report: {
       "pt-BR": "https://github.com/fecarrico/v0-a11y-landing/blob/main/REPORT.md",
       en: "https://github.com/fecarrico/v0-a11y-landing/blob/main/REPORT.en.md",
