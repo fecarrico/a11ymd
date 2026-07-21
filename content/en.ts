@@ -81,7 +81,7 @@ export const en: Dictionary = {
     label: "QUICK START",
     heading: "Under two minutes",
     intro:
-      "You don't copy any files: the AI reads A11Y.md straight from the source and fetches the extra guides only when it needs them — always the latest version.",
+      "AI tools read files like CLAUDE.md and AGENTS.md automatically. Accessibility doesn't have a canonical file like that yet — your rule creates that layer. And you don't copy anything: the AI reads A11Y.md straight from the source, always the latest version.",
     steps: [
       {
         title: "Point your AI to the standard",
@@ -202,6 +202,8 @@ export const en: Dictionary = {
     version: `v${product.version}`,
     changelog: "CHANGELOG",
     wiki: "Wiki",
+    independence:
+      "An independent open source project, backed by the Claude for Open Source program — not an official Anthropic product.",
     aria: {
       github: "GitHub",
       linkedin: "LinkedIn",

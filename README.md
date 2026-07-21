@@ -6,6 +6,8 @@ Site oficial do [Projeto A11Y.md](https://github.com/fecarrico/A11Y.md) — o ar
 
 **No ar:** https://v0-projecta11y.vercel.app
 
+*Projeto independente e open source, apoiado pelo programa Claude for Open Source — não é um produto oficial da Anthropic.*
+
 ---
 
 ## Esta página segue o próprio padrão

@@ -49,6 +49,12 @@ export function Footer({ dict }: { dict: Dictionary }) {
 
         <p className="mt-8 text-center text-muted-foreground">{dict.footer.tagline}</p>
 
+        {/* Âncora de precisão: apoiado pelo programa ≠ produto oficial.
+            Evita a inferência que o selo do Claude no hero poderia criar. */}
+        <p className="mt-3 text-center text-sm text-muted-foreground">
+          {dict.footer.independence}
+        </p>
+
         {/* A versão e o changelog moram aqui — quem já adotou sabe onde procurar. */}
         <p className="mt-4 text-center font-mono text-sm text-muted-foreground">
           A11Y.md {dict.footer.version} ·{" "}

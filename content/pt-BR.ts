@@ -85,7 +85,7 @@ export const ptBR = {
     label: "QUICK START",
     heading: "Menos de dois minutos",
     intro:
-      "Você não copia arquivo nenhum: a IA lê o A11Y.md direto da fonte e busca os guias extras só quando precisa — sempre na versão mais atual.",
+      "Ferramentas de IA leem arquivos como CLAUDE.md e AGENTS.md automaticamente. Acessibilidade ainda não tem um arquivo canônico assim — a sua regra cria essa camada. E você não copia nada: a IA lê o A11Y.md direto da fonte, sempre na versão mais atual.",
     steps: [
       {
         title: "Aponte a IA para o padrão",
@@ -207,6 +207,8 @@ export const ptBR = {
     version: `v${product.version}`,
     changelog: "CHANGELOG",
     wiki: "Wiki",
+    independence:
+      "Projeto independente e open source, apoiado pelo programa Claude for Open Source — não é um produto oficial da Anthropic.",
     aria: {
       github: "GitHub",
       linkedin: "LinkedIn",
