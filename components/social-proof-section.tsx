@@ -11,6 +11,7 @@ import { htmlLang, type Dictionary, type Locale } from "@/content"
  * resto vira uma linha de nomes com link. A lista completa segue na Wiki.
  */
 const FEATURED = "smashing-newsletter-564"
+const INSTITUTION = "ozewai"
 const VITOR = "vitor-david"
 const ALSO = [
   "ozewai",
@@ -29,11 +30,14 @@ const byId = (id: string) => mentions.find((m) => m.id === id)
 
 export function SocialProofSection({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const featured = byId(FEATURED)
+  const institution = byId(INSTITUTION)
   const vitor = byId(VITOR)
   const roger = byId("roger-wong")
-  const also = ALSO.map(byId).filter((m): m is NonNullable<typeof m> => Boolean(m))
+  const also = ALSO.filter((id) => id !== INSTITUTION)
+    .map(byId)
+    .filter((m): m is NonNullable<typeof m> => Boolean(m))
 
-  if (!featured || !vitor || !roger) return null
+  if (!featured || !institution || !vitor || !roger) return null
 
   // A11Y (SC 3.1.2): citação exibida no idioma da página quando há tradução;
   // caso contrário, o texto original carrega o próprio atributo lang.
@@ -93,10 +97,41 @@ export function SocialProofSection({ dict, lang }: { dict: Dictionary; lang: Loc
         </Reveal>
 
         {/*
-          Dois apoios com contexto — quem fala e por que o peso importa.
-          Altura natural (sem esticar) e alinhamento pelo topo.
+          Três apoios em grid assimétrico: o institucional ocupa dois terços,
+          os dois individuais empilham ao lado. A hierarquia é de tipo de fonte,
+          não de entusiasmo — uma organização de acessibilidade e duas pessoas.
         */}
-        <div className="mt-14 grid gap-6 md:grid-cols-2 md:items-start">
+        <div className="mt-14 grid gap-6 lg:grid-cols-3 lg:items-start">
+          {/*
+            Bloco institucional. SEM aspas de propósito: a OZeWAI listou o
+            projeto, não escreveu uma frase sobre ele. Tratar listagem como
+            citação seria inflar a prova — a regra do mentions.ts vale aqui.
+          */}
+          <Reveal className="lg:col-span-2">
+            <div className="h-full rounded-xl border border-primary/30 bg-primary/5 p-8">
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-primary">
+                {dict.social.institutionLabel}
+              </p>
+              <p className="mt-5 text-2xl font-semibold tracking-tight text-foreground">
+                {institution.author}
+              </p>
+              <p className="mt-2 text-pretty text-lg leading-relaxed text-muted-foreground">
+                {institution.role?.[lang]}
+              </p>
+              <p className="mt-6 border-t border-primary/20 pt-5 text-pretty leading-relaxed text-foreground">
+                {institution.translation?.[lang] ?? institution.quote}
+              </p>
+              <ExternalLink
+                href={institution.url}
+                newTabLabel={dict.footer.aria.externalLink}
+                className="mt-3 inline-block text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground hover:no-underline"
+              >
+                {dict.social.institutionDetail}
+              </ExternalLink>
+            </div>
+          </Reveal>
+
+          <div className="grid gap-6">
           {supporting.map(({ mention, detail, delay }) => {
             const isForeign = mention.quoteLang !== htmlLang[lang]
             const quote = isForeign ? (mention.translation?.[lang] ?? mention.quote) : mention.quote
@@ -104,11 +139,11 @@ export function SocialProofSection({ dict, lang }: { dict: Dictionary; lang: Loc
 
             return (
               <Reveal key={mention.id} delay={delay}>
-                <figure className="rounded-xl border border-border bg-card/50 p-6">
+                <figure className="rounded-xl border border-border bg-card/50 p-5">
                   <blockquote>
                     <p
                       lang={showOriginalLang ? mention.quoteLang : undefined}
-                      className="text-pretty text-lg font-medium leading-relaxed text-foreground"
+                      className="text-pretty font-medium leading-relaxed text-foreground"
                     >
                       “{quote}”
                     </p>
@@ -132,6 +167,7 @@ export function SocialProofSection({ dict, lang }: { dict: Dictionary; lang: Loc
               </Reveal>
             )
           })}
+          </div>
         </div>
 
         {/* O resto vira nomes com link — a lista completa segue na Wiki. */}
