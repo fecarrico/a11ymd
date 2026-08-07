@@ -169,6 +169,8 @@ export const ptBR = {
     featuredDetail: "Smashing Newsletter #564 · junho de 2026",
     rogerDetail: "rogerwong.me · resenha sobre o A11Y.md · junho de 2026",
     vitorDetail: "LinkedIn · post sobre o A11Y.md · maio de 2026",
+    institutionLabel: "Apoio institucional",
+    institutionDetail: "Weekly Reading List · 27 de julho de 2026",
     alsoLabel: "Também no radar de",
     translationLabel: "tradução",
   },
