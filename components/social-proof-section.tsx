@@ -13,10 +13,13 @@ import { htmlLang, type Dictionary, type Locale } from "@/content"
 const FEATURED = "smashing-newsletter-564"
 const VITOR = "vitor-david"
 const ALSO = [
+  "ozewai",
+  "frontend-focus-751",
   "enable-desigram",
   "jury-vetrov-digest",
   "design-fragments-131",
   "frontend-dogma",
+  "muzli",
   "accessibility-md-comparisons",
   "inclusion-md",
   "radar-diyor-khakimov",

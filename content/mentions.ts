@@ -110,6 +110,27 @@ export const mentions: Mention[] = [
     url: "https://www.linkedin.com/posts/vitordavid_ia-n%C3%A3o-conserta-sistemas-inacess%C3%ADveis-ugcPost-7461505441290833922-ugXp/",
     date: "2026-05",
   },
+  // Listagem de curadoria: não há citação de terceiro, e sim o fato registrado
+  // na Wiki. Peso alto porque a fonte é uma ORGANIZAÇÃO DE ACESSIBILIDADE, e
+  // não um veículo de notícias de desenvolvimento — é endosso de domínio.
+  {
+    id: "ozewai",
+    author: "OZeWAI",
+    role: {
+      "pt-BR": "Organização australiana de acessibilidade e inclusão na web",
+      en: "The Australian organisation for web accessibility and inclusion",
+    },
+    quote:
+      "OZeWAI listed A11Y.md in its Weekly Reading List of 27 July 2026.",
+    quoteLang: "en",
+    translation: {
+      "pt-BR":
+        "A OZeWAI listou o A11Y.md na sua Weekly Reading List de 27 de julho de 2026.",
+      en: "OZeWAI listed A11Y.md in its Weekly Reading List of 27 July 2026.",
+    },
+    url: "https://ozewai.org/blog/ozewai-news/weekly-reading-list-27-july-2026/",
+    date: "2026-07",
+  },
   // Camada complementar do ecossistema, não concorrente — leitura que a própria
   // comparação adota e que o projeto compartilha.
   {
@@ -144,6 +165,24 @@ export const mentions: Mention[] = [
     url: "https://www.branon.dev/projects/posts/inclusion-md",
     date: "2026-05",
   },
+  {
+    id: "frontend-focus-751",
+    author: "Frontend Focus",
+    role: {
+      "pt-BR": "Newsletter da Cooper Press, edição #751",
+      en: "Cooper Press newsletter, issue #751",
+    },
+    quote:
+      "A11Y.md: A Context System for Building Accessible Software by Default — Integrates with your AI agents (Cursor, Claude, etc.), based on “enforceable rules” aligned with WCAG guidelines.",
+    quoteLang: "en",
+    translation: {
+      "pt-BR":
+        "A11Y.md: um sistema de contexto para construir software acessível por padrão — integra-se aos seus agentes de IA (Cursor, Claude etc.), baseado em “regras aplicáveis” alinhadas às diretrizes WCAG.",
+      en: "A11Y.md: A Context System for Building Accessible Software by Default — Integrates with your AI agents (Cursor, Claude, etc.), based on “enforceable rules” aligned with WCAG guidelines.",
+    },
+    url: "https://frontendfoc.us/issues/751",
+    date: "2026-07",
+  },
   // Listagem de curadoria: não há citação de terceiro, e sim o fato registrado
   // na Wiki — a data da listagem é a data em que o repositório ficou público.
   {
@@ -163,6 +202,24 @@ export const mentions: Mention[] = [
     },
     url: "https://frontenddogma.com/topics/accessibility/",
     date: "2026-04-26",
+  },
+  {
+    id: "muzli",
+    author: "Muzli",
+    role: {
+      "pt-BR": "Plataforma de descoberta e inspiração para design",
+      en: "Design discovery and inspiration platform",
+    },
+    quote:
+      "Claude Open Source Program selected a Brazilian accessibility project called A11Y.md. by Felipe Carriço — now trending on Muzli Me",
+    quoteLang: "en",
+    translation: {
+      "pt-BR":
+        "O Claude Open Source Program selecionou um projeto brasileiro de acessibilidade chamado A11Y.md, de Felipe Carriço — agora em alta no Muzli Me.",
+      en: "Claude Open Source Program selected a Brazilian accessibility project called A11Y.md. by Felipe Carriço — now trending on Muzli Me",
+    },
+    url: "https://www.instagram.com/p/DbBZuKXl8IJ/",
+    date: "2026-07",
   },
   // Digest russo. A Wiki descreve a entrada sem aspas: o texto abaixo é essa
   // descrição factual, não uma fala do autor.
