@@ -165,6 +165,8 @@ export const en: Dictionary = {
     featuredDetail: "Smashing Newsletter #564 · June 2026",
     rogerDetail: "rogerwong.me · review of A11Y.md · June 2026",
     vitorDetail: "LinkedIn · post about A11Y.md · May 2026",
+    institutionLabel: "Institutional endorsement",
+    institutionDetail: "Weekly Reading List · 27 July 2026",
     alsoLabel: "Also on the radar of",
     translationLabel: "translation",
   },
