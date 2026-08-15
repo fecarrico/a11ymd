@@ -1,10 +1,12 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Reveal } from "@/components/reveal"
 import { TimelineList } from "@/components/timeline-list"
-import { getDictionary, otherLocale } from "@/content"
+import { ExternalLink } from "@/components/external-link"
+import { getDictionary, otherLocale, product } from "@/content"
 import { htmlLang, isLocale, locales, type Locale } from "@/content/types"
 import { SITE_URL } from "@/content/site"
 
@@ -84,6 +86,21 @@ export default async function TimelinePage({
             <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
               {dict.timeline.page.intro}
             </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href={`/${locale}#como-usar`}
+                className="inline-flex min-h-[44px] items-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+              >
+                {dict.timeline.page.ctaSetup}
+              </Link>
+              <ExternalLink
+                href={`${product.repo}/blob/main/CONTRIBUTING.md`}
+                newTabLabel={dict.footer.aria.externalLink}
+                className="inline-flex min-h-[44px] items-center gap-2 rounded-md border border-border px-6 text-sm font-medium text-foreground hover:border-primary/60"
+              >
+                {dict.timeline.page.ctaContribute}
+              </ExternalLink>
+            </div>
           </Reveal>
 
           <TimelineList dict={dict} lang={locale} />

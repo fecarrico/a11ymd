@@ -212,11 +212,12 @@ export const en: Dictionary = {
       label: "History",
       heading: "Timeline",
       intro:
-        "Releases and field events, together and in chronological order — because in this project one doesn't exist without the other.",
+        "Here you'll find every version and milestone of the project in chronological order, from the idea to today. Be part of this story.",
+      ctaSetup: "Get started",
+      ctaContribute: "Contribute to the project",
       listLabel: "Project timeline, in chronological order",
       kinds: {
         release: "Release",
-        field: "Field",
         milestone: "Milestone",
       },
     },

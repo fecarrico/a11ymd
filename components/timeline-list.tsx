@@ -1,4 +1,4 @@
-import { Milestone, Radio, Tag } from "lucide-react"
+import { Milestone, Tag } from "lucide-react"
 import { ClaudeBadge } from "@/components/claude-badge"
 import { Reveal } from "@/components/reveal"
 import { ExternalLink } from "@/components/external-link"
@@ -33,7 +33,6 @@ type TimelineListProps = {
 
 const KIND_ICON: Record<TimelineKind, typeof Tag> = {
   release: Tag,
-  field: Radio,
   milestone: Milestone,
 }
 

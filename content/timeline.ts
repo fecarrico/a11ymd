@@ -19,7 +19,7 @@ import type { Locale } from "./types"
  * inclui esta atualização no checklist.
  */
 
-export type TimelineKind = "release" | "field" | "milestone"
+export type TimelineKind = "release" | "milestone"
 
 export type TimelineEntry = {
   id: string
@@ -79,7 +79,7 @@ export const timeline: TimelineEntry[] = [
   {
     id: "first-mention",
     date: "2026-04-26",
-    kind: "field",
+    kind: "milestone",
     title: {
       "pt-BR": "Primeira menção pública — no mesmo dia",
       en: "First public mention — on the same day",
@@ -125,7 +125,7 @@ export const timeline: TimelineEntry[] = [
   {
     id: "vitor-david",
     date: "2026-05",
-    kind: "field",
+    kind: "milestone",
     title: {
       "pt-BR": "“A IA não conserta sistemas inacessíveis. Ela escala o que encontra.”",
       en: "“AI doesn't fix inaccessible systems. It scales what it finds.”",
@@ -143,7 +143,7 @@ export const timeline: TimelineEntry[] = [
   {
     id: "independent-test",
     date: "2026-06-16",
-    kind: "field",
+    kind: "milestone",
     title: {
       "pt-BR": "Primeiro teste independente",
       en: "First independent test",
@@ -249,7 +249,7 @@ export const timeline: TimelineEntry[] = [
   {
     id: "ceu-sao-paulo",
     date: "2026-07",
-    kind: "field",
+    kind: "milestone",
     title: {
       "pt-BR": "O padrão chega a um prédio de verdade",
       en: "The standard reaches a real building",

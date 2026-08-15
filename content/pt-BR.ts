@@ -217,11 +217,12 @@ export const ptBR = {
       label: "História",
       heading: "Linha do tempo",
       intro:
-        "Releases e acontecimentos de campo, juntos e em ordem cronológica — porque neste projeto um não existe sem o outro.",
+        "Aqui você encontra todas as versões e marcos do projeto em ordem cronológica, da ideia aos dias de hoje. Faça parte desta história.",
+      ctaSetup: "Comece a usar",
+      ctaContribute: "Contribua com o projeto",
       listLabel: "Linha do tempo do projeto, em ordem cronológica",
       kinds: {
         release: "Release",
-        field: "Campo",
         milestone: "Marco",
       },
     },
