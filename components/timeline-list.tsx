@@ -23,10 +23,12 @@ type TimelineListProps = {
  *   nunca só por cor (SC 1.4.1).
  * - Datas em <time dateTime> com formatação por Intl no locale da rota, em
  *   UTC, para o dia não escorregar por fuso.
- * - Logotipos flutuando na diagonal superior são DECORATIVOS (aria-hidden):
- *   o texto da entrada já nomeia a organização. Logos escuros (Sem Parar,
- *   CEU) vão sobre chip claro para não sumirem no fundo; o starburst coral
- *   flutua sem chip, como no hero.
+ * - Logotipos são DECORATIVOS (aria-hidden): o texto da entrada já nomeia a
+ *   organização. Direção de arte do autor (15/08): marca d'água atrás da
+ *   entrada, como o selo do hero atrás do nome — sem chip, tamanho dobrado,
+ *   com máscara de esmaecimento na diagonal em que o logo encosta no texto,
+ *   e base alinhada à base do título (o wrapper relativo de data+título é a
+ *   âncora, então o alinhamento sobrevive a títulos de duas linhas).
  */
 
 const KIND_ICON: Record<TimelineKind, typeof Tag> = {
@@ -80,52 +82,59 @@ export function TimelineList({ dict, lang }: TimelineListProps) {
                     : "lg:col-start-1 lg:pr-14 lg:text-right",
                 )}
               >
-                {entry.logo && (
-                  <span
-                    aria-hidden="true"
-                    className={cn(
-                      "absolute -top-7 right-0 z-10",
-                      onRight ? "lg:-right-3 lg:rotate-3" : "lg:right-auto lg:-left-3 lg:-rotate-3",
-                    )}
-                  >
-                    {"claudeSeal" in entry.logo ? (
-                      <ClaudeBadge className="block h-16 w-16" />
-                    ) : (
-                      <span className="inline-flex rounded-lg border border-border bg-white p-1.5 shadow-sm">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                {/* Wrapper relativo: âncora do logo — a base do logo cola na
+                    base do título, mesmo quando o título quebra em 2 linhas. */}
+                <div className="relative">
+                  {entry.logo && (
+                    <span
+                      aria-hidden="true"
+                      className={cn(
+                        "absolute bottom-0 -z-10",
+                        // mobile: canto direito; desktop: lado externo do card,
+                        // com o esmaecimento apontando para o texto
+                        "right-0 [mask-image:linear-gradient(225deg,black_20%,transparent_78%)]",
+                        onRight
+                          ? "lg:-right-6"
+                          : "lg:right-auto lg:-left-6 lg:[mask-image:linear-gradient(135deg,black_20%,transparent_78%)]",
+                      )}
+                    >
+                      {"claudeSeal" in entry.logo ? (
+                        <ClaudeBadge className="block h-32 w-32" />
+                      ) : (
+                        // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={`${BASE_PATH}/${entry.logo.src}`}
                           alt=""
                           width={entry.logo.width}
                           height={entry.logo.height}
-                          className="h-9 w-auto"
+                          className="h-[4.5rem] w-auto"
                           loading="lazy"
                         />
-                      </span>
-                    )}
-                  </span>
-                )}
-                <div
-                  className={cn(
-                    "mb-2 flex flex-wrap items-center gap-x-3 gap-y-1",
-                    !onRight && "lg:justify-end",
+                      )}
+                    </span>
                   )}
-                >
-                  <time
-                    dateTime={entry.date}
-                    className="font-mono text-sm text-muted-foreground"
+                  <div
+                    className={cn(
+                      "mb-2 flex flex-wrap items-center gap-x-3 gap-y-1",
+                      !onRight && "lg:justify-end",
+                    )}
                   >
-                    {formatDate(entry.date, lang)}
-                  </time>
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-2.5 py-0.5 font-mono text-xs uppercase tracking-wide text-muted-foreground">
-                    <Icon className="h-3 w-3" aria-hidden="true" />
-                    {dict.timeline.page.kinds[entry.kind]}
-                  </span>
-                </div>
+                    <time
+                      dateTime={entry.date}
+                      className="font-mono text-sm text-muted-foreground"
+                    >
+                      {formatDate(entry.date, lang)}
+                    </time>
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-2.5 py-0.5 font-mono text-xs uppercase tracking-wide text-muted-foreground">
+                      <Icon className="h-3 w-3" aria-hidden="true" />
+                      {dict.timeline.page.kinds[entry.kind]}
+                    </span>
+                  </div>
 
-                <h2 className="text-balance text-lg font-semibold tracking-tight text-foreground">
-                  {entry.title[lang]}
-                </h2>
+                  <h2 className="text-balance text-lg font-semibold tracking-tight text-foreground">
+                    {entry.title[lang]}
+                  </h2>
+                </div>
                 <p className="mt-2 text-pretty leading-relaxed text-muted-foreground">
                   {entry.description[lang]}
                 </p>
