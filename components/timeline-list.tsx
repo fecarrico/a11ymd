@@ -62,7 +62,7 @@ export function TimelineList({ dict, lang }: TimelineListProps) {
           const onRight = index % 2 === 1
 
           return (
-            <li key={entry.id} className="relative lg:grid lg:grid-cols-2 lg:gap-x-14">
+            <li key={entry.id} className="relative lg:grid lg:grid-cols-2 lg:gap-x-12">
               {/* O ponto na linha. */}
               <span
                 aria-hidden="true"
@@ -77,8 +77,8 @@ export function TimelineList({ dict, lang }: TimelineListProps) {
                 className={cn(
                   "relative pl-8 lg:pl-0",
                   onRight
-                    ? "lg:col-start-2 lg:pl-14"
-                    : "lg:col-start-1 lg:pr-14 lg:text-right",
+                    ? "lg:col-start-2 lg:pl-4"
+                    : "lg:col-start-1 lg:pr-4 lg:text-right",
                 )}
               >
                 {/* Wrapper relativo: âncora do logo — a base do logo cola na
