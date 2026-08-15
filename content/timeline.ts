@@ -56,7 +56,7 @@ export const timeline: TimelineEntry[] = [
       href: "https://thedevconf.com/tdc/2026/summit-sao-paulo/community-lounge",
       label: { "pt-BR": "Ver o Community Lounge do TDC", en: "View TDC's Community Lounge" },
     },
-    logo: { src: "logo_tdc.png", width: 400, height: 400 },
+    logo: { src: "logo_tdc.png", width: 387, height: 335 },
   },
   {
     id: "repo-public",
