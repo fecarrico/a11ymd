@@ -12,6 +12,7 @@ Conformance report for the project's own landing page, built under the standard 
 - **Standard applied:** `A11Y.md` v1.1.0
 - **Compliance profile:** 🛡️ **Shield (AAA)** — 7:1 text / 3:1 components, 14px† typographic floor, 44×44 targets (SC 2.5.5)
 - **Test date:** 2026-07-20
+- **Revision 2026-08-15 (content-only, no structural change):** footer version string updated from v1.1.0 to v1.8.0 and `product.ts` counts (18 rules, 29 guides) synced with the repository. No component, style or behavior changed — no checkpoint in this report is invalidated by the change.
 - **Tooling:** axe-core 4.x via headless Chrome (150.0), ESLint with `eslint-plugin-jsx-a11y`, TypeScript 5.9, contrast measured on computed tokens
 - **Scope:** `/pt-BR` and `/en` routes, 1280px, 390px and 320px viewports
 - **Compliance status:** ⚠️ **CONDITIONAL** — passes all automatable and keyboard verification; **human screen reader validation is still missing** (see §3)

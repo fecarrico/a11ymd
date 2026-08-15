@@ -12,6 +12,7 @@ Relatório de conformidade da própria landing do projeto, construída sob o pad
 - **Padrão aplicado:** `A11Y.md` v1.1.0
 - **Perfil de conformidade:** 🛡️ **Shield (AAA)** — 7:1 texto / 3:1 componentes, piso tipográfico 14px†, alvo 44×44 (SC 2.5.5)
 - **Data do teste:** 2026-07-20
+- **Revisão 2026-08-15 (conteúdo, sem mudança estrutural):** versão exibida no rodapé atualizada de v1.1.0 para v1.8.0 e contagens do `product.ts` (18 regras, 29 guias) sincronizadas com o repositório. Nenhum componente, estilo ou comportamento alterado — nenhum checkpoint deste relatório é invalidado pela mudança.
 - **Ferramentas:** axe-core 4.x via Chrome headless (150.0), ESLint com `eslint-plugin-jsx-a11y`, TypeScript 5.9, medição de contraste sobre os tokens computados
 - **Escopo:** rotas `/pt-BR` e `/en`, viewports de 1280px, 390px e 320px
 - **Status de conformidade:** ⚠️ **CONDICIONAL** — passa em toda a verificação automatizável e por teclado; **falta validação humana com leitor de tela** (ver §3)
