@@ -8,11 +8,23 @@
  * prefers-reduced-motion pela regra global. Fonte do anel em 14 unidades do
  * viewBox — renderizado ≥ 14px, o piso do Shield.
  */
-export function ClaudeBadge({ phrase }: { phrase: string }) {
+export function ClaudeBadge({
+  phrase,
+  className,
+}: {
+  /** Frase do anel giratório. Sem ela, só o starburst — para usos pequenos
+   *  (na timeline), onde o texto do anel ficaria abaixo do piso tipográfico. */
+  phrase?: string
+  /** Sobrescreve o posicionamento do hero para reuso em outros contextos. */
+  className?: string
+}) {
   return (
     <span
       data-hero-rest
-      className="absolute bottom-[calc(100%-9rem)] left-[calc(100%-4.5rem)] -z-10 hidden h-48 w-48 md:block"
+      className={
+        className ??
+        "absolute bottom-[calc(100%-9rem)] left-[calc(100%-4.5rem)] -z-10 hidden h-48 w-48 md:block"
+      }
     >
       <svg viewBox="0 0 200 200" className="h-full w-full">
         <defs>
@@ -31,12 +43,14 @@ export function ClaudeBadge({ phrase }: { phrase: string }) {
         </g>
 
         {/* O anel de texto — gira devagar, estilo carimbo. */}
-        <g className="animate-badge-spin [transform-box:view-box] [transform-origin:center]">
-          {/* 15 unidades × (192/200 do render) = 14,4px — o piso do Shield. */}
-          <text className="fill-foreground font-mono text-[15px] uppercase tracking-[0.1em]">
-            <textPath href="#claude-badge-ring">{phrase} •</textPath>
-          </text>
-        </g>
+        {phrase && (
+          <g className="animate-badge-spin [transform-box:view-box] [transform-origin:center]">
+            {/* 15 unidades × (192/200 do render) = 14,4px — o piso do Shield. */}
+            <text className="fill-foreground font-mono text-[15px] uppercase tracking-[0.1em]">
+              <textPath href="#claude-badge-ring">{phrase} •</textPath>
+            </text>
+          </g>
+        )}
       </svg>
     </span>
   )

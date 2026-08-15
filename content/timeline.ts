@@ -30,12 +30,34 @@ export type TimelineEntry = {
   description: Record<Locale, string>
   /** rótulo curto do link, quando houver destino público */
   link?: { href: string; label: Record<Locale, string> }
+  /** logotipo decorativo flutuando na diagonal superior do card (o texto da
+   *  entrada já nomeia a organização — por isso decorativo, ver DECISIONS) */
+  logo?: { src: string; width: number; height: number } | { claudeSeal: true }
 }
 
 const changelog = (anchor: string) =>
   `https://github.com/fecarrico/A11Y.md/blob/main/CHANGELOG.md#${anchor}`
 
 export const timeline: TimelineEntry[] = [
+  {
+    id: "tdc-origin",
+    date: "2026-04-24",
+    kind: "milestone",
+    title: {
+      "pt-BR": "O incômodo que virou projeto",
+      en: "The discomfort that became a project",
+    },
+    description: {
+      "pt-BR":
+        "Na roda de conversa “Quem fica de fora quando a IA funciona?”, no Community Lounge do TDC Summit São Paulo, a acessibilidade aparece tratada como conformidade e punição. O incômodo sai da sala com uma pergunta: e se as regras entrassem no contexto da IA antes da primeira resposta?",
+      en: "At the “Who's left out when AI works?” roundtable in the TDC Summit São Paulo Community Lounge, accessibility keeps being framed as compliance and punishment. The discomfort leaves the room as a question: what if the rules entered the AI's context before its first answer?",
+    },
+    link: {
+      href: "https://thedevconf.com/tdc/2026/summit-sao-paulo/community-lounge",
+      label: { "pt-BR": "Ver o Community Lounge do TDC", en: "View TDC's Community Lounge" },
+    },
+    logo: { src: "logo_tdc.png", width: 400, height: 400 },
+  },
   {
     id: "repo-public",
     date: "2026-04-26",
@@ -137,6 +159,25 @@ export const timeline: TimelineEntry[] = [
     },
   },
   {
+    id: "first-talk",
+    date: "2026-06-23",
+    kind: "milestone",
+    title: {
+      "pt-BR": "A primeira palestra em nome do projeto",
+      en: "The first talk in the project's name",
+    },
+    description: {
+      "pt-BR":
+        "No Meetup Design Imparável (Sem Parar + IxDF São Paulo), numa noite de chuva forte, o projeto é apresentado em público pela primeira vez — da roda do TDC à tese de que acessibilidade se decide antes de qualquer prompt.",
+      en: "At the Design Imparável meetup (Sem Parar + IxDF São Paulo), on a night of heavy rain, the project is presented publicly for the first time — from the TDC roundtable to the thesis that accessibility is decided before any prompt.",
+    },
+    link: {
+      href: "https://www.youtube.com/watch?v=j3tB6CgNwYo&t=1352s",
+      label: { "pt-BR": "Assistir à palestra", en: "Watch the talk" },
+    },
+    logo: { src: "logo-sem-parar-descolorido.png", width: 300, height: 275 },
+  },
+  {
     id: "v1-0-0",
     date: "2026-07-03",
     kind: "release",
@@ -167,6 +208,7 @@ export const timeline: TimelineEntry[] = [
         "O projeto entra no programa da Anthropic de apoio a mantenedores de código aberto no mundo todo.",
       en: "The project joins Anthropic's program supporting open-source maintainers worldwide.",
     },
+    logo: { claudeSeal: true },
   },
   {
     id: "v1-1-0",
@@ -203,6 +245,25 @@ export const timeline: TimelineEntry[] = [
       href: "https://github.com/fecarrico/a11ymd",
       label: { "pt-BR": "Ver o código desta página", en: "View this page's code" },
     },
+  },
+  {
+    id: "ceu-sao-paulo",
+    date: "2026-07",
+    kind: "field",
+    title: {
+      "pt-BR": "O padrão chega a um prédio de verdade",
+      en: "The standard reaches a real building",
+    },
+    description: {
+      "pt-BR":
+        "O portal dos CEUs de São Paulo (Faculdade Phorte × Prefeitura, design de Marcelo Vignola) nasce com o A11Y.md nas regras de trabalho da IA — e a conversa transborda da tela: o time passa a estudar melhorias físicas de acessibilidade nos próprios centros educacionais.",
+      en: "The São Paulo CEUs portal (Faculdade Phorte × City Hall, design by Marcelo Vignola) is born with A11Y.md in the AI's working rules — and the conversation spills off the screen: the team starts studying physical accessibility improvements in the educational centers themselves.",
+    },
+    link: {
+      href: "https://www.marcelovignola.com/pt/projetos/projeto-ceu",
+      label: { "pt-BR": "Ver o case de design", en: "View the design case" },
+    },
+    logo: { src: "logo-ceu.svg", width: 1392, height: 487 },
   },
   {
     id: "benchmark-prereg",

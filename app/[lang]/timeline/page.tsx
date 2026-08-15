@@ -66,8 +66,14 @@ export default async function TimelinePage({
       />
 
       {/* tabIndex -1: o skip link precisa de um alvo focável (SC 2.4.1) */}
-      <main id="main-content" tabIndex={-1} className="text-foreground">
-        <section className="mx-auto max-w-4xl px-8 pb-24 pt-32 sm:pt-36">
+      <main id="main-content" tabIndex={-1} className="relative text-foreground">
+        {/* O mesmo quadriculado com esmaecimento do hero da home — a página
+            de história abre com a assinatura visual do projeto. Decorativo. */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[32rem] bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"
+        />
+        <section className="relative mx-auto max-w-4xl px-8 pb-24 pt-32 sm:pt-36">
           <Reveal className="mx-auto mb-16 max-w-2xl text-center">
             <p className="mb-4 font-mono text-sm uppercase tracking-[0.2em] text-primary">
               {dict.timeline.page.label}
