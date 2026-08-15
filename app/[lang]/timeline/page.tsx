@@ -1,10 +1,12 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { notFound } from "next/navigation"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Reveal } from "@/components/reveal"
 import { TimelineList } from "@/components/timeline-list"
-import { getDictionary, otherLocale } from "@/content"
+import { ExternalLink } from "@/components/external-link"
+import { getDictionary, otherLocale, product } from "@/content"
 import { htmlLang, isLocale, locales, type Locale } from "@/content/types"
 import { SITE_URL } from "@/content/site"
 
@@ -66,7 +68,14 @@ export default async function TimelinePage({
       />
 
       {/* tabIndex -1: o skip link precisa de um alvo focável (SC 2.4.1) */}
-      <main id="main-content" tabIndex={-1} className="relative text-foreground">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        // overflow-x-clip: logos largos (CEU) escapam para fora do card por
+        // desenho; clip corta só o eixo horizontal sem criar contêiner de
+        // rolagem — nada de scroll lateral na página (SC 1.4.10).
+        className="relative overflow-x-clip text-foreground"
+      >
         {/* O mesmo quadriculado com esmaecimento do hero da home — a página
             de história abre com a assinatura visual do projeto. Decorativo. */}
         <div
@@ -84,6 +93,24 @@ export default async function TimelinePage({
             <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
               {dict.timeline.page.intro}
             </p>
+            {/* Mobile: grade de 2 colunas mantém os botões lado a lado, com a
+                mesma altura mesmo quando um rótulo quebra em duas linhas.
+                A partir de sm, voltam a fluir centralizados. */}
+            <div className="mt-8 grid grid-cols-2 items-stretch gap-3 sm:flex sm:flex-wrap sm:justify-center sm:gap-4">
+              <Link
+                href={`/${locale}#como-usar`}
+                className="inline-flex min-h-[44px] items-center justify-center rounded-md bg-primary px-4 py-2 text-center text-sm font-medium text-primary-foreground hover:bg-primary/90 sm:px-6"
+              >
+                {dict.timeline.page.ctaSetup}
+              </Link>
+              <ExternalLink
+                href={`${product.repo}/blob/main/CONTRIBUTING.md`}
+                newTabLabel={dict.footer.aria.externalLink}
+                className="inline-flex min-h-[44px] items-center justify-center rounded-md border border-border px-4 py-2 text-center text-sm font-medium text-foreground hover:border-primary/60 sm:px-6"
+              >
+                {dict.timeline.page.ctaContribute}
+              </ExternalLink>
+            </div>
           </Reveal>
 
           <TimelineList dict={dict} lang={locale} />
