@@ -93,10 +93,10 @@ export function TimelineList({ dict, lang }: TimelineListProps) {
                         // qualquer ganho de largura cresce para fora do card,
                         // nunca por cima do texto. O esmaecimento aponta para
                         // o lado em que o logo encosta no texto.
-                        "left-[calc(100%-4.5rem)] [mask-image:linear-gradient(225deg,black_20%,transparent_78%)]",
+                        "left-[calc(100%-6rem)] [mask-image:linear-gradient(225deg,black_45%,transparent_95%)]",
                         onRight
-                          ? "lg:left-[calc(100%-3rem)]"
-                          : "lg:left-auto lg:right-[calc(100%-3rem)] lg:[mask-image:linear-gradient(135deg,black_20%,transparent_78%)]",
+                          ? "lg:left-[calc(100%-6rem)]"
+                          : "lg:left-auto lg:right-[calc(100%-6rem)] lg:[mask-image:linear-gradient(135deg,black_45%,transparent_95%)]",
                       )}
                     >
                       {"claudeSeal" in entry.logo ? (
@@ -108,7 +108,15 @@ export function TimelineList({ dict, lang }: TimelineListProps) {
                           alt=""
                           width={entry.logo.width}
                           height={entry.logo.height}
-                          className="h-[10.5rem] w-auto"
+                          className={
+                            // Logo largo (ex.: CEU, ~3:1) dimensiona pela
+                            // LARGURA — altura proporcional; quadrado, pela
+                            // altura de 10,5rem. Os dois caminhos preservam
+                            // a proporção; nenhum estica.
+                            entry.logo.width / entry.logo.height > 1.5
+                              ? "w-[15rem] h-auto"
+                              : "h-[10.5rem] w-auto"
+                          }
                           loading="lazy"
                         />
                       )}
