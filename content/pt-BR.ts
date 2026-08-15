@@ -20,6 +20,7 @@ export const ptBR = {
   nav: {
     howToUse: "Como usar",
     evidence: "Evidência",
+    timeline: "Linha do tempo",
     github: "GitHub",
     aria: {
       main: "Principal",
@@ -199,6 +200,31 @@ export const ptBR = {
     ],
     quote:
       "Acessibilidade não pode ser um selo no final do processo. Precisa ser a restrição no começo.",
+  },
+
+  timeline: {
+    invite: {
+      label: "História",
+      heading: "Cada regra tem uma história",
+      description:
+        "Este padrão não evolui por roadmap; evolui por resposta. Um post-mortem de campo virou release, um teste independente virou anti-pattern, uma pergunta da comunidade virou regra. A linha do tempo mostra essa conversa inteira — da primeira estrela até hoje.",
+      action: "Conhecer a história do projeto",
+    },
+    page: {
+      metaTitle: "Linha do tempo — A11Y.md",
+      metaDescription:
+        "A evolução viva do A11Y.md: cada release, cada marco e cada resposta ao campo — do primeiro commit ao padrão de hoje.",
+      label: "História",
+      heading: "Linha do tempo",
+      intro:
+        "Releases e acontecimentos de campo, juntos e em ordem cronológica — porque neste projeto um não existe sem o outro.",
+      listLabel: "Linha do tempo do projeto, em ordem cronológica",
+      kinds: {
+        release: "Release",
+        field: "Campo",
+        milestone: "Marco",
+      },
+    },
   },
 
   footer: {

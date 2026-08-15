@@ -10,9 +10,12 @@ type HeaderProps = {
   dict: Dictionary
   lang: Locale
   otherLang: Locale
+  /** Destino do seletor de idioma. Padrão: home do outro idioma. Páginas
+   *  internas passam a própria rota para a troca não expulsar a pessoa. */
+  otherLangHref?: string
 }
 
-export function Header({ dict, lang, otherLang }: HeaderProps) {
+export function Header({ dict, lang, otherLang, otherLangHref }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
@@ -43,9 +46,11 @@ export function Header({ dict, lang, otherLang }: HeaderProps) {
     menuRef.current?.querySelector<HTMLElement>("a, button")?.focus()
   }, [isMenuOpen])
 
+  // Prefixadas com o idioma para funcionarem também fora da home (ex.: /timeline).
   const navLinks = [
-    { href: "#como-usar", label: dict.nav.howToUse },
-    { href: "#evidencia", label: dict.nav.evidence },
+    { href: `/${lang}#como-usar`, label: dict.nav.howToUse },
+    { href: `/${lang}#evidencia`, label: dict.nav.evidence },
+    { href: `/${lang}/timeline`, label: dict.nav.timeline },
   ]
 
   // Alvo de 44×44 é normativo sob o perfil Shield (SC 2.5.5).
@@ -76,13 +81,13 @@ export function Header({ dict, lang, otherLang }: HeaderProps) {
 
           <div className="hidden items-center gap-1 md:flex">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className={cn(target, "px-3 text-sm text-muted-foreground hover:text-foreground")}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
 
             {/* i18n por rota: trocar de idioma é navegar, não mudar estado.
@@ -90,7 +95,7 @@ export function Header({ dict, lang, otherLang }: HeaderProps) {
                 visível ("EN — Mudar para inglês") em vez de substituí-lo por
                 aria-label — controle por voz aciona por "EN". */}
             <Link
-              href={`/${otherLang}`}
+              href={otherLangHref ?? `/${otherLang}`}
               hrefLang={otherLang}
               className={cn(
                 target,
@@ -118,7 +123,7 @@ export function Header({ dict, lang, otherLang }: HeaderProps) {
 
           <div className="flex items-center gap-1 md:hidden">
             <Link
-              href={`/${otherLang}`}
+              href={otherLangHref ?? `/${otherLang}`}
               hrefLang={otherLang}
               className={cn(
                 target,
@@ -161,14 +166,14 @@ export function Header({ dict, lang, otherLang }: HeaderProps) {
           >
             <div className="flex flex-col gap-1 px-4 py-3">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
                   className="flex min-h-[44px] items-center text-foreground hover:text-primary"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
               <a
                 href={product.repo}

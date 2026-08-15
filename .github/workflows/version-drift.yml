@@ -38,6 +38,7 @@ jobs:
 
             - [ ] `content/product.ts` — `version`, `versionDate`, and the counts **verified against the repository tree** (`behaviorContractRules` against §2 of `docs/en/A11Y.md`, `referenceGuides` against `docs/en/references/guide-*.md`) — the counts are human-verified by design, never assumed
             - [ ] Check the [CHANGELOG](https://github.com/fecarrico/A11Y.md/blob/main/CHANGELOG.md) for anything between the two versions that changes page *copy* (a renamed feature, a new headline capability)
+            - [ ] New entry in `content/timeline.ts` for the release (summary smaller than the release note, never different from it; link to the CHANGELOG anchor)
             - [ ] Dated content-revision note in `REPORT.md` and `REPORT.en.md` (one-living-report rule, governance §4.4) — and if anything beyond text changed, revisit the affected checkpoints
 
             *Opened automatically by `.github/workflows/version-drift.yml` — it will close this issue on its own when the versions match again.*
