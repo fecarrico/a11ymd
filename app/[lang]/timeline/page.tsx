@@ -68,7 +68,14 @@ export default async function TimelinePage({
       />
 
       {/* tabIndex -1: o skip link precisa de um alvo focável (SC 2.4.1) */}
-      <main id="main-content" tabIndex={-1} className="relative text-foreground">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        // overflow-x-clip: logos largos (CEU) escapam para fora do card por
+        // desenho; clip corta só o eixo horizontal sem criar contêiner de
+        // rolagem — nada de scroll lateral na página (SC 1.4.10).
+        className="relative overflow-x-clip text-foreground"
+      >
         {/* O mesmo quadriculado com esmaecimento do hero da home — a página
             de história abre com a assinatura visual do projeto. Decorativo. */}
         <div

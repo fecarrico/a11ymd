@@ -89,16 +89,18 @@ export function TimelineList({ dict, lang }: TimelineListProps) {
                       aria-hidden="true"
                       className={cn(
                         "absolute bottom-0 -z-10",
-                        // mobile: canto direito; desktop: lado externo do card,
-                        // com o esmaecimento apontando para o texto
-                        "right-0 [mask-image:linear-gradient(225deg,black_20%,transparent_78%)]",
+                        // Âncora pela borda INTERNA (a mais próxima do texto):
+                        // qualquer ganho de largura cresce para fora do card,
+                        // nunca por cima do texto. O esmaecimento aponta para
+                        // o lado em que o logo encosta no texto.
+                        "left-[calc(100%-4.5rem)] [mask-image:linear-gradient(225deg,black_20%,transparent_78%)]",
                         onRight
-                          ? "lg:-right-6"
-                          : "lg:right-auto lg:-left-6 lg:[mask-image:linear-gradient(135deg,black_20%,transparent_78%)]",
+                          ? "lg:left-[calc(100%-3rem)]"
+                          : "lg:left-auto lg:right-[calc(100%-3rem)] lg:[mask-image:linear-gradient(135deg,black_20%,transparent_78%)]",
                       )}
                     >
                       {"claudeSeal" in entry.logo ? (
-                        <ClaudeBadge className="block h-32 w-32" />
+                        <ClaudeBadge className="block h-[10.5rem] w-[10.5rem]" />
                       ) : (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
@@ -106,7 +108,7 @@ export function TimelineList({ dict, lang }: TimelineListProps) {
                           alt=""
                           width={entry.logo.width}
                           height={entry.logo.height}
-                          className="h-[4.5rem] w-auto"
+                          className="h-[10.5rem] w-auto"
                           loading="lazy"
                         />
                       )}
@@ -130,7 +132,9 @@ export function TimelineList({ dict, lang }: TimelineListProps) {
                     </span>
                   </div>
 
-                  <h2 className="text-balance text-lg font-semibold tracking-tight text-foreground">
+                  {/* O halo na cor exata do fundo não lê como sombra — só
+                      apaga o logo atrás dos glifos, protegendo a leitura. */}
+                  <h2 className="text-balance text-lg font-semibold tracking-tight text-foreground [text-shadow:0_0_6px_hsl(var(--background)),0_0_12px_hsl(var(--background)),0_0_20px_hsl(var(--background)),0_0_28px_hsl(var(--background))]">
                     {entry.title[lang]}
                   </h2>
                 </div>
