@@ -16,6 +16,7 @@ export const en: Dictionary = {
   nav: {
     howToUse: "How to use",
     evidence: "Evidence",
+    timeline: "Timeline",
     github: "GitHub",
     aria: {
       main: "Main",
@@ -194,6 +195,31 @@ export const en: Dictionary = {
     ],
     quote:
       "Accessibility cannot be a badge at the end of the process. It needs to be the constraint at the beginning.",
+  },
+
+  timeline: {
+    invite: {
+      label: "History",
+      heading: "Every rule has a story",
+      description:
+        "This standard doesn't evolve by roadmap; it evolves by response. A field post-mortem became a release, an independent test became an anti-pattern, a community question became a rule. The timeline shows that whole conversation — from the first star to today.",
+      action: "Explore the project's history",
+    },
+    page: {
+      metaTitle: "Timeline — A11Y.md",
+      metaDescription:
+        "The living evolution of A11Y.md: every release, every milestone and every response to the field — from the first commit to today's standard.",
+      label: "History",
+      heading: "Timeline",
+      intro:
+        "Releases and field events, together and in chronological order — because in this project one doesn't exist without the other.",
+      listLabel: "Project timeline, in chronological order",
+      kinds: {
+        release: "Release",
+        field: "Field",
+        milestone: "Milestone",
+      },
+    },
   },
 
   footer: {

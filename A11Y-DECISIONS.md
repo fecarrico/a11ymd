@@ -54,3 +54,11 @@ Indexado por **padrão**, nunca por tela. Antes de construir qualquer componente
 - **Fluxograma (Como funciona)** → `<ol>` semântico: a sequência dos estágios vem da lista, não do desenho. Setas (`→`, `↓`) são decorativas e `aria-hidden`; cada item lê naturalmente como estágio → condição → ação. Nada de SVG com texto pintado nem imagem do diagrama — o fluxo é texto real, traduzível e re-fluível. *(2026-07-20)*
 
 - **Easter egg de hover no nome** → expansão A11Y.md → ACCESSIBILITY.md só no hover, em elemento não interativo. Não transporta informação exclusiva (a intro já conta a piada uma vez para todos; para quem usa `prefers-reduced-motion`, o significado do numerônimo segue disponível no conteúdo) — por isso não exige paridade de teclado. Se o nome virar link, esta decisão precisa ser revista para incluir `:focus-visible`. *(2026-07-20)*
+
+- **Linha do tempo: DOM cronológico, alternância só visual** → a página /timeline é um `<ol>` com `aria-label`, em ordem cronológica ascendente; o zigue-zague esquerda/direita do desktop é grid puro (nth-child), nunca reordenação de DOM. Leitor de tela e teclado percorrem a história na ordem em que aconteceu. Alternativa igualmente conforme seria duas colunas independentes — rejeitada porque quebra a ordem de leitura da narrativa. *(2026-08-15)*
+
+- **Tipo de entrada da timeline** (release/campo/marco) → badge com ícone + **texto**, nunca só cor ou só ícone (SC 1.4.1); o ponto na linha varia de preenchimento como reforço decorativo (`aria-hidden`), sem carregar significado sozinho. *(2026-08-15)*
+
+- **Datas na timeline** → `<time dateTime>` com ISO na precisão real da fonte (dia quando a fonte data o dia, mês quando só data o mês) e formatação via `Intl` no locale da rota, em UTC — o dia nunca escorrega por fuso. Números que envelhecem (estrelas, contagens) aparecem sempre **datados** no texto, nunca como estado presente. *(2026-08-15)*
+
+- **Seletor de idioma em página interna** → o `Header` ganhou `otherLangHref` opcional: em /timeline, trocar de idioma leva a /[outro]/timeline, não à home. Troca de idioma nunca é troca de lugar. *(2026-08-15)*
