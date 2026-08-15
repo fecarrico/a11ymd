@@ -263,7 +263,7 @@ export const timeline: TimelineEntry[] = [
       href: "https://www.marcelovignola.com/pt/projetos/projeto-ceu",
       label: { "pt-BR": "Ver o case de design", en: "View the design case" },
     },
-    logo: { src: "logo-ceu.svg", width: 1392, height: 487 },
+    logo: { src: "logo-ceu.svg", width: 487, height: 487 },
   },
   {
     id: "benchmark-prereg",
