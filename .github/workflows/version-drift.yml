@@ -31,6 +31,16 @@ jobs:
       - name: Compare product.ts with the latest standard tag
         env:
           GH_TOKEN: ${{ github.token }}
+          ISSUE_CHECKLIST: |
+            `content/product.ts` is the single source of truth for every product fact on this page, and its header carries the obligation this issue is the trigger for: *update this file on every release*.
+
+            **The fix, in one PR:**
+
+            - [ ] `content/product.ts` — `version`, `versionDate`, and the counts **verified against the repository tree** (`behaviorContractRules` against §2 of `docs/en/A11Y.md`, `referenceGuides` against `docs/en/references/guide-*.md`) — the counts are human-verified by design, never assumed
+            - [ ] Check the [CHANGELOG](https://github.com/fecarrico/A11Y.md/blob/main/CHANGELOG.md) for anything between the two versions that changes page *copy* (a renamed feature, a new headline capability)
+            - [ ] Dated content-revision note in `REPORT.md` and `REPORT.en.md` (one-living-report rule, governance §4.4) — and if anything beyond text changed, revisit the affected checkpoints
+
+            *Opened automatically by `.github/workflows/version-drift.yml` — it will close this issue on its own when the versions match again.*
         run: |
           set -euo pipefail
 
@@ -56,19 +66,11 @@ jobs:
             exit 0
           fi
 
+          {
+            printf '%s\n\n' "The footer is displaying **v${landing}** while [fecarrico/A11Y.md](https://github.com/fecarrico/A11Y.md) has tagged **v${latest}**."
+            printf '%s\n' "$ISSUE_CHECKLIST"
+          } > /tmp/issue-body.md
+
           gh issue create \
             --title "⚠️ Landing shows v${landing}, the standard is at v${latest}" \
-            --body "$(cat <<EOF
-The footer is displaying **v${landing}** while [fecarrico/A11Y.md](https://github.com/fecarrico/A11Y.md) has tagged **v${latest}**.
-
-\`content/product.ts\` is the single source of truth for every product fact on this page, and its header carries the obligation this issue is the trigger for: *update this file on every release*.
-
-**The fix, in one PR:**
-
-- [ ] \`content/product.ts\` — \`version\`, \`versionDate\`, and the counts **verified against the repository tree** (\`behaviorContractRules\` against §2 of \`docs/en/A11Y.md\`, \`referenceGuides\` against \`docs/en/references/guide-*.md\`) — the counts are human-verified by design, never assumed
-- [ ] Check the [CHANGELOG](https://github.com/fecarrico/A11Y.md/blob/main/CHANGELOG.md) for anything between the two versions that changes page *copy* (a renamed feature, a new headline capability)
-- [ ] Dated content-revision note in \`REPORT.md\` and \`REPORT.en.md\` (one-living-report rule, governance §4.4) — and if anything beyond text changed, revisit the affected checkpoints
-
-*Opened automatically by \`.github/workflows/version-drift.yml\` — it will close this issue on its own when the versions match again.*
-EOF
-          )"
+            --body-file /tmp/issue-body.md
