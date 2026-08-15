@@ -23,6 +23,7 @@ export function TimelineInviteSection({ dict, lang }: TimelineInviteSectionProps
 
   return (
     <section
+      id="historia"
       aria-labelledby="timeline-invite-heading"
       className="border-y border-primary/20 bg-primary/5"
     >
