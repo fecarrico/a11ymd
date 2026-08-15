@@ -1,0 +1,74 @@
+name: Version drift
+
+# On 2026-08-15 the footer displayed v1.1.0 while the standard had reached
+# v1.8.0 — seven releases of drift, found by hand, on the exact field
+# content/product.ts exists to centralize. The file's own header says
+# "update this file on every release"; the obligation existed, the trigger
+# did not. Same failure class as the standard's 1.2.0 post-mortem, so it
+# gets the same treatment: a check that fires on its own.
+#
+# Daily compare of product.ts against the latest tag of fecarrico/A11Y.md.
+# On drift: opens one issue (never duplicates). Back in sync: closes it.
+
+on:
+  schedule:
+    - cron: "17 9 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [content/product.ts]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compare product.ts with the latest standard tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          landing=$(grep -oP 'version: "\K[0-9]+\.[0-9]+\.[0-9]+' content/product.ts)
+          latest=$(git ls-remote --tags https://github.com/fecarrico/A11Y.md.git 'v*' \
+                   | awk '{print $2}' | grep -v '\^{}' | sed 's|refs/tags/v||' | sort -V | tail -1)
+          echo "landing=v${landing} · standard=v${latest}"
+
+          open_issue=$(gh issue list --state open --search "Landing shows in:title" \
+                       --json number --jq '.[0].number // empty')
+
+          if [ "$landing" = "$latest" ]; then
+            if [ -n "$open_issue" ]; then
+              gh issue close "$open_issue" \
+                --comment "product.ts is back in sync (v${latest}). Closing automatically."
+            fi
+            echo "In sync ✓"
+            exit 0
+          fi
+
+          if [ -n "$open_issue" ]; then
+            echo "Drift already reported in #${open_issue} — not duplicating."
+            exit 0
+          fi
+
+          gh issue create \
+            --title "⚠️ Landing shows v${landing}, the standard is at v${latest}" \
+            --body "$(cat <<EOF
+The footer is displaying **v${landing}** while [fecarrico/A11Y.md](https://github.com/fecarrico/A11Y.md) has tagged **v${latest}**.
+
+\`content/product.ts\` is the single source of truth for every product fact on this page, and its header carries the obligation this issue is the trigger for: *update this file on every release*.
+
+**The fix, in one PR:**
+
+- [ ] \`content/product.ts\` — \`version\`, \`versionDate\`, and the counts **verified against the repository tree** (\`behaviorContractRules\` against §2 of \`docs/en/A11Y.md\`, \`referenceGuides\` against \`docs/en/references/guide-*.md\`) — the counts are human-verified by design, never assumed
+- [ ] Check the [CHANGELOG](https://github.com/fecarrico/A11Y.md/blob/main/CHANGELOG.md) for anything between the two versions that changes page *copy* (a renamed feature, a new headline capability)
+- [ ] Dated content-revision note in \`REPORT.md\` and \`REPORT.en.md\` (one-living-report rule, governance §4.4) — and if anything beyond text changed, revisit the affected checkpoints
+
+*Opened automatically by \`.github/workflows/version-drift.yml\` — it will close this issue on its own when the versions match again.*
+EOF
+          )"
