@@ -88,7 +88,7 @@ export function TimelineList({ dict, lang }: TimelineListProps) {
                     <span
                       aria-hidden="true"
                       className={cn(
-                        "absolute bottom-0 -z-10",
+                        "absolute bottom-0 -z-10 w-max",
                         // Âncora pela borda INTERNA (a mais próxima do texto):
                         // qualquer ganho de largura cresce para fora do card,
                         // nunca por cima do texto. O esmaecimento aponta para
@@ -108,15 +108,10 @@ export function TimelineList({ dict, lang }: TimelineListProps) {
                           alt=""
                           width={entry.logo.width}
                           height={entry.logo.height}
-                          className={
-                            // Logo largo (ex.: CEU, ~3:1) dimensiona pela
-                            // LARGURA — altura proporcional; quadrado, pela
-                            // altura de 10,5rem. Os dois caminhos preservam
-                            // a proporção; nenhum estica.
-                            entry.logo.width / entry.logo.height > 1.5
-                              ? "w-[15rem] h-auto"
-                              : "h-[10.5rem] w-auto"
-                          }
+                          // Mesma altura para todos; max-w-none solta o
+                          // limite global de max-width:100% que espremia a
+                          // largura dentro do wrapper absoluto.
+                          className="h-[10.5rem] w-auto max-w-none"
                           loading="lazy"
                         />
                       )}
