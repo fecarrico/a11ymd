@@ -41,7 +41,7 @@ export const evidence: Evidence[] = [
       en: "of A11Y.md journeys documented their own process unprompted — zero without it.",
     },
     source: "A11Y.md Efficacy Benchmark (2026)",
-    url: "https://fecarrico.github.io/a11ymd/estudo/",
+    url: "/pt-BR/estudo/",
     response: {
       "pt-BR":
         "É a primeira avaliação pré-registrada, cega e controlada por placebo de um arquivo de convenção de contexto: 400 gerações e 30 jornadas de agentes reais, dados abertos com DOI, quatro defeitos de instrumento documentados em público — e os empates publicados sem desconto.",

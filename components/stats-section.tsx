@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Reveal } from "@/components/reveal"
 import { ExternalLink } from "@/components/external-link"
 import { evidence } from "@/content/evidence"
@@ -9,7 +10,12 @@ import { product, type Dictionary, type Locale } from "@/content"
  * que contam a história em um scroll; a profundidade vive na página
  * Evidence & Research da Wiki, que é a fonte destes dados.
  */
-const BAND = ["webaim-million-2026", "accessibility-tree-ai-agents", "ai-generated-code-inaccessible"]
+const BAND = [
+  "webaim-million-2026",
+  "accessibility-tree-ai-agents",
+  "ai-generated-code-inaccessible",
+  "a11ymd-benchmark-2026",
+]
 
 export function StatsSection({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const items = BAND.map((id) => evidence.find((e) => e.id === id)).filter(
@@ -38,7 +44,7 @@ export function StatsSection({ dict, lang }: { dict: Dictionary; lang: Locale })
           </p>
         </Reveal>
 
-        <ul className="grid gap-12 text-center sm:grid-cols-3 sm:gap-8">
+        <ul className="grid gap-12 text-center sm:grid-cols-2 sm:gap-10 lg:grid-cols-4 lg:gap-8">
           {items.map((item, index) => {
             // Figura numérica ("95,9%") aguenta o corpo display; figura textual
             // ("Inacessível por padrão") um degrau abaixo — no mesmo tamanho ela
@@ -61,13 +67,24 @@ export function StatsSection({ dict, lang }: { dict: Dictionary; lang: Locale })
                   </span>
                 </p>
                 <p className="mt-3 text-sm text-muted-foreground">
-                  <ExternalLink
-                    href={item.url}
-                    newTabLabel={dict.footer.aria.externalLink}
-                    className="underline underline-offset-4 hover:text-foreground hover:no-underline"
-                  >
-                    {item.source}
-                  </ExternalLink>
+                  {/* Fonte interna (o benchmark do projeto) navega na mesma aba,
+                      sem aviso de link externo — o aviso mentiria. */}
+                  {item.url.startsWith("/") ? (
+                    <Link
+                      href={item.url}
+                      className="underline underline-offset-4 hover:text-foreground hover:no-underline"
+                    >
+                      {item.source}
+                    </Link>
+                  ) : (
+                    <ExternalLink
+                      href={item.url}
+                      newTabLabel={dict.footer.aria.externalLink}
+                      className="underline underline-offset-4 hover:text-foreground hover:no-underline"
+                    >
+                      {item.source}
+                    </ExternalLink>
+                  )}
                 </p>
               </Reveal>
             </li>

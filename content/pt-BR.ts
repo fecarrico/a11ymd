@@ -17,6 +17,12 @@ export const ptBR = {
     ogAlt: "A11Y.md — o sistema de contexto persistente para acessibilidade",
   },
 
+  studyPage: {
+    metaTitle: "O remédio, o placebo e a frase mágica",
+    metaDescription:
+      "Dois estudos pré-registrados, com placebo e julgamento cego, medem o que o A11Y.md muda em interfaces geradas por IA — e o que uma frase no prompt já compra. Dados abertos, erros documentados, resultados sem desconto.",
+    languageNotice: "",
+  },
   nav: {
     howToUse: "Como usar",
     evidence: "Evidência",
