@@ -17,8 +17,6 @@ export const en: Dictionary = {
     metaTitle: "The remedy, the placebo and the magic phrase",
     metaDescription:
       "Two preregistered, placebo-controlled, blind-judged studies measure what A11Y.md changes in AI-generated interfaces — and what a one-line prompt already buys. Open data, documented defects, undiscounted results.",
-    languageNotice:
-      "This report is currently available in Portuguese. An English version will follow the peer-review process.",
   },
   nav: {
     howToUse: "How to use",
