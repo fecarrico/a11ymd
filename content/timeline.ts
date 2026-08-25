@@ -423,7 +423,7 @@ export const timeline: TimelineEntry[] = [
       en: "Two preregistered studies with a placebo control and blinded judgment: 400 generations and 30 real-agent journeys. The full account — wins, ties, and four documented instrument defects — becomes a permanent page on this site.",
     },
     link: {
-      href: "https://fecarrico.github.io/a11ymd/estudo/",
+      href: "/pt-BR/estudo/",
       label: { "pt-BR": "Ler o estudo completo", en: "Read the full study" },
     },
   },

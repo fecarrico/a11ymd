@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Milestone, Tag } from "lucide-react"
 import { ClaudeBadge } from "@/components/claude-badge"
 import { Reveal } from "@/components/reveal"
@@ -145,15 +146,23 @@ export function TimelineList({ dict, lang }: TimelineListProps) {
                   {entry.description[lang]}
                 </p>
 
-                {entry.link && (
-                  <ExternalLink
-                    href={entry.link.href}
-                    newTabLabel={dict.footer.aria.externalLink}
-                    className="mt-3 inline-flex min-h-[44px] items-center text-sm font-medium text-primary underline-offset-4 hover:underline"
-                  >
-                    {entry.link.label[lang]}
-                  </ExternalLink>
-                )}
+                {entry.link &&
+                  (entry.link.href.startsWith("/") ? (
+                    <Link
+                      href={entry.link.href}
+                      className="mt-3 inline-flex min-h-[44px] items-center text-sm font-medium text-primary underline-offset-4 hover:underline"
+                    >
+                      {entry.link.label[lang]}
+                    </Link>
+                  ) : (
+                    <ExternalLink
+                      href={entry.link.href}
+                      newTabLabel={dict.footer.aria.externalLink}
+                      className="mt-3 inline-flex min-h-[44px] items-center text-sm font-medium text-primary underline-offset-4 hover:underline"
+                    >
+                      {entry.link.label[lang]}
+                    </ExternalLink>
+                  ))}
               </Reveal>
             </li>
           )
