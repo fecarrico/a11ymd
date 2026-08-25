@@ -25,6 +25,30 @@ export type Evidence = {
 
 export const evidence: Evidence[] = [
   {
+    id: "a11ymd-benchmark-2026",
+    figure: {
+      "pt-BR": "10 de 10",
+      en: "10 of 10",
+    },
+    claim: {
+      "pt-BR":
+        "jornadas com o A11Y.md produziram relatório de verificação e registro de decisões espontâneos — contra zero em 20 jornadas sem ele, incluindo as 10 que receberam só o pedido \"make it accessible\".",
+      en: 'A11Y.md journeys spontaneously produced a verification report and a decision log — against zero in 20 journeys without it, including the 10 that only got "make it accessible".',
+    },
+    short: {
+      "pt-BR":
+        "das jornadas com o A11Y.md documentaram o próprio processo sem ninguém pedir — zero sem ele.",
+      en: "of A11Y.md journeys documented their own process unprompted — zero without it.",
+    },
+    source: "A11Y.md Efficacy Benchmark (2026)",
+    url: "https://fecarrico.github.io/a11ymd/estudo/",
+    response: {
+      "pt-BR":
+        "É a primeira avaliação pré-registrada, cega e controlada por placebo de um arquivo de convenção de contexto: 400 gerações e 30 jornadas de agentes reais, dados abertos com DOI, quatro defeitos de instrumento documentados em público — e os empates publicados sem desconto.",
+      en: "The first preregistered, blinded, placebo-controlled evaluation of a context convention file: 400 generations plus 30 real-agent journeys, open data with a DOI, four instrument defects documented in public — and the ties published without discount.",
+    },
+  },
+  {
     id: "webaim-million-2026",
     figure: {
       "pt-BR": "95,9%",

@@ -17,6 +17,7 @@ export const en: Dictionary = {
     howToUse: "How to use",
     evidence: "Evidence",
     timeline: "Timeline",
+    study: "The study",
     github: "GitHub",
     aria: {
       main: "Main",
