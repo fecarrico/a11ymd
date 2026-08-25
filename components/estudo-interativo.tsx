@@ -1,6 +1,12 @@
 "use client"
 
 import { useEffect } from "react"
+import type { Locale } from "@/content/types"
+
+const rotulos: Record<Locale, { ampliar: string; fechar: string; ampliada: string; figura: string }> = {
+  "pt-BR": { ampliar: "Ampliar imagem: ", fechar: "Fechar imagem ampliada", ampliada: "Imagem ampliada: ", figura: "figura" },
+  en: { ampliar: "Enlarge image: ", fechar: "Close enlarged image", ampliada: "Enlarged image: ", figura: "figure" },
+}
 
 /**
  * Camada interativa da página do estudo, por cima do HTML editorial:
@@ -14,10 +20,11 @@ import { useEffect } from "react"
  * Tudo com guarda de re-execução (client-side navigation monta de novo) e
  * limpeza no unmount.
  */
-export function EstudoInterativo() {
+export function EstudoInterativo({ lang }: { lang: Locale }) {
   useEffect(() => {
     const raiz = document.querySelector<HTMLElement>(".estudo")
     if (!raiz) return
+    const r = rotulos[lang]
 
     const limpezas: Array<() => void> = []
 
@@ -27,7 +34,7 @@ export function EstudoInterativo() {
       const dlg = document.createElement("dialog")
       dlg.className = "lightbox"
       dlg.innerHTML =
-        '<button class="lb-close" type="button" autofocus aria-label="Fechar imagem ampliada">✕</button><img alt=""><p class="lb-cap"></p>'
+        `<button class="lb-close" type="button" autofocus aria-label="${r.fechar}">✕</button><img alt=""><p class="lb-cap"></p>`
       document.body.appendChild(dlg)
       limpezas.push(() => dlg.remove())
 
@@ -40,11 +47,11 @@ export function EstudoInterativo() {
 
       imgs.forEach((img) => {
         if (img.closest(".zoom")) return // já embrulhada (re-mount)
-        const rotulo = img.alt || "figura"
+        const rotulo = img.alt || r.figura
         const btn = document.createElement("button")
         btn.type = "button"
         btn.className = "zoom"
-        btn.setAttribute("aria-label", "Ampliar imagem: " + rotulo)
+        btn.setAttribute("aria-label", r.ampliar + rotulo)
         if (img.getAttribute("style")) btn.setAttribute("style", "border-radius:8px")
         img.parentNode!.insertBefore(btn, img)
         btn.appendChild(img)
@@ -52,7 +59,7 @@ export function EstudoInterativo() {
           dimg.src = img.currentSrc || img.src
           dimg.alt = ""
           dcap.textContent = rotulo
-          dlg.setAttribute("aria-label", "Imagem ampliada: " + rotulo)
+          dlg.setAttribute("aria-label", r.ampliada + rotulo)
           dlg.showModal()
         })
       })
@@ -85,7 +92,7 @@ export function EstudoInterativo() {
     }
 
     return () => limpezas.forEach((fn) => fn())
-  }, [])
+  }, [lang])
 
   return null
 }
