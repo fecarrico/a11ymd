@@ -37,7 +37,11 @@ export function Footer({ dict }: { dict: Dictionary }) {
                   rel="noopener noreferrer"
                   className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-md text-muted-foreground hover:text-foreground"
                 >
-                  <Icon className="h-5 w-5" />
+                  {/* A11Y (SC 1.1.1/4.1.2): o nome do link vem do sr-only ao
+                      lado. O ícone é redundante, então sai da árvore de
+                      acessibilidade — sem isto o SVG do lucide entra nela sem
+                      nome. O MediumIcon local já nascia com o atributo. */}
+                  <Icon className="h-5 w-5" aria-hidden="true" focusable="false" />
                   <span className="sr-only">
                     {label} ({dict.footer.aria.externalLink})
                   </span>

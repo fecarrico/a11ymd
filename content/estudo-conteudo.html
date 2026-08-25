@@ -382,7 +382,7 @@ independente já está no plano.)</p>
 <div class="fig">
 <p class="fig-title">Figura 3 · O que "aparência de acessível" significa, em código</p>
 <div class="code2">
-<pre class="bad"><span class="tag">Reprovado às cegas</span>&lt;div class="modal"
+<pre class="bad" tabindex="0"><span class="tag">Reprovado às cegas</span>&lt;div class="modal"
      role="dialog"
      aria-modal="true"&gt;
   …
@@ -390,7 +390,7 @@ independente já está no plano.)</p>
 <em>promessa de acessível no atributo;
 nenhuma linha de teclado no arquivo.
 Tab vaza, Esc não existe, foco se perde</em></pre>
-<pre class="good"><span class="tag">Aprovado às cegas</span>&lt;dialog aria-labelledby="titulo"&gt;
+<pre class="good" tabindex="0"><span class="tag">Aprovado às cegas</span>&lt;dialog aria-labelledby="titulo"&gt;
   …
 &lt;/dialog&gt;
 dialog.showModal()
@@ -478,7 +478,7 @@ próprio estudo vai corrigi-la adiante.</p>
 lado a lado com a frase mágica, e num dos agentes a condição "sem nada" produziu as páginas mais
 uniformes de todas. Fica publicado assim, porque foi assim que a régua mediu.</p>
 
-<div class="scroll"><table><caption>Tabela 4 · A régua registrada do Estudo 2 — excesso de variantes por agente (menor = mais uniforme)</caption>
+<div class="scroll" tabindex="0" role="region" aria-labelledby="cap-tabela-4"><table><caption id="cap-tabela-4">Tabela 4 · A régua registrada do Estudo 2 — excesso de variantes por agente (menor = mais uniforme)</caption>
 <thead><tr><th scope="col">Agente</th><th scope="col">Nada</th><th scope="col">Frase</th><th scope="col">A11Y.md</th></tr></thead>
 <tbody>
 <tr><th scope="row">Claude Code<span class="sub">soma das 5 jornadas</span></th><td class="num">21</td><td class="num">18</td><td class="num">18</td></tr>
@@ -585,7 +585,7 @@ pé. As outras linhas são leituras que eu construí depois de ver as páginas, 
 assim. Nenhuma separa as condições com certeza estatística. São direções e mecanismos, não
 vitórias.)</p>
 
-<div class="scroll"><table class="t-reguas"><caption>Tabela 5 · Placar do Estudo 2 no modelo pequeno — cinco réguas, cada uma com seu status</caption>
+<div class="scroll" tabindex="0" role="region" aria-labelledby="cap-tabela-5"><table class="t-reguas"><caption id="cap-tabela-5">Tabela 5 · Placar do Estudo 2 no modelo pequeno — cinco réguas, cada uma com seu status</caption>
 <thead><tr><th scope="col">Régua</th><th scope="col">Nada</th><th scope="col">Frase</th><th scope="col">A11Y.md</th><th scope="col">É a régua…</th></tr></thead>
 <tbody>
 <tr><th scope="row">Consistência entre telas<span class="sub">régua registrada · primária</span></th><td class="num">carimbo uniforme</td><td class="num">empate</td><td class="num">empate, com adaptação</td><td class="num">de quem mantém</td></tr>
@@ -633,7 +633,7 @@ juiz declarados antes da próxima rodada.</p>
 <div class="fig">
 <p class="fig-title">Figura 8 · "Composição quase-certa" em código real — e o conserto de um atributo</p>
 <div class="code2">
-<pre class="bad"><span class="tag">O que o modelo montou (jornada real)</span>&lt;ul role="menu" hidden&gt;
+<pre class="bad" tabindex="0"><span class="tag">O que o modelo montou (jornada real)</span>&lt;ul role="menu" hidden&gt;
   &lt;li&gt;
     &lt;a role="menuitem"&gt;All Categories&lt;/a&gt;
   &lt;/li&gt;
@@ -642,7 +642,7 @@ juiz declarados antes da próxima rodada.</p>
 mas o &lt;li&gt; pelado entre o menu e o
 menuitem quebra a hierarquia ARIA:
 98 elementos apontados nas 7 telas</em></pre>
-<pre class="good"><span class="tag">O que faltava</span>&lt;ul role="menu" hidden&gt;
+<pre class="good" tabindex="0"><span class="tag">O que faltava</span>&lt;ul role="menu" hidden&gt;
   &lt;li <strong>role="none"</strong>&gt;
     &lt;a role="menuitem"&gt;All Categories&lt;/a&gt;
   &lt;/li&gt;
@@ -692,7 +692,7 @@ trabalhar ao longo do tempo. No site inteiro do Estudo 2, a posologia é a real:
 A11Y.md uma vez, no começo da sessão, e o efeito dura a sessão inteira, com o cache do modelo
 fazendo o resto.</p>
 
-<div class="scroll"><table><caption>Tabela 7 · A conta de tokens — dose por tarefa × dose única por sessão</caption>
+<div class="scroll" tabindex="0" role="region" aria-labelledby="cap-tabela-7"><table><caption id="cap-tabela-7">Tabela 7 · A conta de tokens — dose por tarefa × dose única por sessão</caption>
 <thead><tr><th scope="col">Regime medido</th><th scope="col">Nada</th><th scope="col">Frase</th><th scope="col">O placebo</th><th scope="col">A11Y.md</th></tr></thead>
 <tbody>
 <tr><th scope="row">Estudo 1 · dose cheia por tarefa<span class="sub">o teto do custo — mediana por geração</span></th><td class="num">2,6 mil</td><td class="num">3,0 mil</td><td class="num">50,4 mil</td><td class="num">26,1 mil</td></tr>

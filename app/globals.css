@@ -145,6 +145,21 @@ html.intro [data-brand] {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
+  /*
+    Encurtar a duração não bastava: `reducedMotion="user"` do MotionConfig
+    poupa a opacidade — ela é considerada movimento seguro — então o estado
+    inicial `opacity: 0` dos [data-reveal] continuava de pé até o
+    IntersectionObserver disparar. Medido em 2026-08-25: 35 dos 38 blocos da
+    home e 20 dos 23 da linha do tempo seguiam invisíveis para quem pediu
+    movimento reduzido e não rolou a página. Mesma cura do caminho sem JS.
+  */
+  [data-reveal],
+  .animate-terminal-line {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
 }
 
 ::-webkit-scrollbar {
