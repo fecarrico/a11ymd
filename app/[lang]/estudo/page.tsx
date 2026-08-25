@@ -10,19 +10,24 @@ import { htmlLang, isLocale, locales, type Locale } from "@/content/types"
 import { SITE_URL } from "@/content/site"
 
 /**
- * /[lang]/estudo — o relato completo dos dois estudos pré-registrados.
+ * /[lang]/estudo — o relato completo dos dois estudos pré-registrados,
+ * disponível integralmente nos dois idiomas.
  *
- * O conteúdo é o HTML editorial gerado a partir da fonte única do relato
- * (figuras embutidas, tabelas, TOC), com todo o CSS escopado em `.estudo`
- * para não vazar no restante do site. Header, Footer, fontes e utilitários
- * globais são os reais — nenhuma réplica. O texto existe em pt-BR; a rota
- * em inglês serve o mesmo relato com um aviso de idioma (o contêiner
- * declara lang="pt-BR", SC 3.1.2).
+ * O conteúdo é o HTML editorial gerado a partir da fonte única de cada
+ * idioma (figuras embutidas compartilhadas, tabelas, TOC), com todo o CSS
+ * escopado em `.estudo` para não vazar no restante do site. Header, Footer,
+ * fontes e utilitários globais são os reais — nenhuma réplica.
  */
-const conteudo = readFileSync(
-  path.join(process.cwd(), "content", "estudo-conteudo.html"),
-  "utf8",
-)
+const conteudoPorIdioma: Record<Locale, string> = {
+  "pt-BR": readFileSync(
+    path.join(process.cwd(), "content", "estudo-conteudo.html"),
+    "utf8",
+  ),
+  en: readFileSync(
+    path.join(process.cwd(), "content", "estudo-conteudo.en.html"),
+    "utf8",
+  ),
+}
 
 export async function generateMetadata({
   params,
@@ -75,14 +80,8 @@ export default async function EstudoPage({
       />
 
       <main id="main-content" tabIndex={-1} className="relative overflow-x-clip">
-        {locale === "en" && (
-          <p className="mx-auto mt-24 -mb-16 max-w-3xl px-6 text-center text-sm text-muted-foreground">
-            {dict.studyPage.languageNotice}
-          </p>
-        )}
-        {/* lang="pt-BR": o relato é em português nas duas rotas (SC 3.1.2) */}
-        <div lang="pt-BR" dangerouslySetInnerHTML={{ __html: conteudo }} />
-        <EstudoInterativo />
+        <div dangerouslySetInnerHTML={{ __html: conteudoPorIdioma[locale] }} />
+        <EstudoInterativo lang={locale} />
       </main>
 
       <Footer dict={dict} />
