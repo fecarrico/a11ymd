@@ -21,6 +21,7 @@ export const ptBR = {
     howToUse: "Como usar",
     evidence: "Evidência",
     timeline: "Linha do tempo",
+    study: "O estudo",
     github: "GitHub",
     aria: {
       main: "Principal",

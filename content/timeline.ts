@@ -409,4 +409,22 @@ export const timeline: TimelineEntry[] = [
       label: { "pt-BR": "Entrar na conversa", en: "Join the conversation" },
     },
   },
+  {
+    id: "efficacy-studies-published",
+    date: "2026-08-25",
+    kind: "milestone",
+    title: {
+      "pt-BR": "Os dois estudos de eficácia são publicados",
+      en: "The two efficacy studies are published",
+    },
+    description: {
+      "pt-BR":
+        "Dois estudos pré-registrados, com placebo e julgamento cego: 400 gerações e 30 jornadas de agentes reais. O relato completo — vitórias, empates e quatro defeitos de instrumento documentados — vira página permanente do site.",
+      en: "Two preregistered studies with a placebo control and blinded judgment: 400 generations and 30 real-agent journeys. The full account — wins, ties, and four documented instrument defects — becomes a permanent page on this site.",
+    },
+    link: {
+      href: "https://fecarrico.github.io/a11ymd/estudo/",
+      label: { "pt-BR": "Ler o estudo completo", en: "Read the full study" },
+    },
+  },
 ]

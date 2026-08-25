@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Github, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { product, type Dictionary, type Locale } from "@/content"
+import { BASE_PATH } from "@/content/site"
 
 type HeaderProps = {
   dict: Dictionary
@@ -51,6 +52,8 @@ export function Header({ dict, lang, otherLang, otherLangHref }: HeaderProps) {
     { href: `/${lang}#como-usar`, label: dict.nav.howToUse },
     { href: `/${lang}#evidencia`, label: dict.nav.evidence },
     { href: `/${lang}/timeline`, label: dict.nav.timeline },
+    // Página estática servida de public/ — <a> puro, fora do router (ver map abaixo).
+    { href: `${BASE_PATH}/estudo/`, label: dict.nav.study, plain: true },
   ]
 
   // Alvo de 44×44 é normativo sob o perfil Shield (SC 2.5.5).
@@ -80,15 +83,25 @@ export function Header({ dict, lang, otherLang, otherLangHref }: HeaderProps) {
           </Link>
 
           <div className="hidden items-center gap-1 md:flex">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(target, "px-3 text-sm text-muted-foreground hover:text-foreground")}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) =>
+              link.plain ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={cn(target, "px-3 text-sm text-muted-foreground hover:text-foreground")}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(target, "px-3 text-sm text-muted-foreground hover:text-foreground")}
+                >
+                  {link.label}
+                </Link>
+              ),
+            )}
 
             {/* i18n por rota: trocar de idioma é navegar, não mudar estado.
                 A11Y (SC 2.5.3, Label in Name): o nome acessível CONTÉM o texto
@@ -165,16 +178,27 @@ export function Header({ dict, lang, otherLang, otherLangHref }: HeaderProps) {
             className="border-b border-border bg-background md:hidden"
           >
             <div className="flex flex-col gap-1 px-4 py-3">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="flex min-h-[44px] items-center text-foreground hover:text-primary"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) =>
+                link.plain ? (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex min-h-[44px] items-center text-foreground hover:text-primary"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex min-h-[44px] items-center text-foreground hover:text-primary"
+                  >
+                    {link.label}
+                  </Link>
+                ),
+              )}
               <a
                 href={product.repo}
                 target="_blank"
