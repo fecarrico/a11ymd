@@ -427,4 +427,22 @@ export const timeline: TimelineEntry[] = [
       label: { "pt-BR": "Ler o estudo completo", en: "Read the full study" },
     },
   },
+  {
+    id: "v2-0-0",
+    date: "2026-08-26",
+    kind: "release",
+    title: {
+      "pt-BR": "v2.0.0 — o marco pós-estudo",
+      en: "v2.0.0 — the post-benchmark milestone",
+    },
+    description: {
+      "pt-BR":
+        "Cada mudança grande nasceu de um número dos estudos: contraste calculado por ferramenta determinística, a norma brasileira NBR 17225 mapeada, um guia pioneiro para tradutores de Libras, a camada da web agêntica — e uma dieta de tokens guiada por evidência que pagou todo o crescimento.",
+      en: "Every major change traces to a number in the studies: contrast computed by deterministic tooling, the Brazilian NBR 17225 norm mapped, a pioneer guide for automatic Libras translators, the agentic-web layer — and an evidence-gated token diet that paid for all the growth.",
+    },
+    link: {
+      href: changelog("200---2026-08-26"),
+      label: { "pt-BR": "Notas da versão", en: "Release notes" },
+    },
+  },
 ]
