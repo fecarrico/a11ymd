@@ -18,8 +18,7 @@ font:18px/1.75 Georgia,"Times New Roman",serif;-webkit-font-smoothing:antialiase
 .estudo strong{color:#fff;font-weight:640}
 .estudo em{color:var(--coral)}
 .estudo .aparte{color:var(--dim);font-size:16.5px}
-.estudo ul{list-style:disc;max-width:var(--measure);margin:0 0 20px;padding-left:22px}
-.estudo ol{list-style:decimal;max-width:var(--measure);margin:0 0 20px;padding-left:22px}
+.estudo ul{max-width:var(--measure);margin:0 0 20px;padding-left:22px}
 .estudo li{margin-bottom:10px}
 .estudo li::marker{color:var(--coral-dim)}
 .estudo blockquote{margin:30px 0;padding:6px 0 6px 22px;border-left:3px solid var(--coral-dim);
@@ -178,14 +177,14 @@ the full standard is published in the <a href="https://github.com/fecarrico/A11Y
 repository</a>.</li>
 </ul>
 
-<p>The entire protocol was registered publicly <em>before</em> the first data point existed, at the
+<p class="aparte">The entire protocol was registered publicly <em>before</em> the first data point existed, at the
 <a href="https://osf.io/pg6r5">OSF</a>. Every generated page went through an automated
 accessibility auditor (axe-core, the most used checker in the world, frozen by cryptographic
 verification so nobody could swap the measuring stick along the way), and the part that required
 human judgment I judged blind: the pages were renamed to codes, and I only learned which
 condition each one came from after the last verdict. Including my own rejections.</p>
 
-<p>Every piece of that apparatus (the placebo, the blinding, the analysis decided before seeing the
+<p class="aparte">Every piece of that apparatus (the placebo, the blinding, the analysis decided before seeing the
 data, the registration out of my reach) exists for a single purpose: <strong>to strip the author
 of the power to fool himself</strong>.</p>
 
@@ -381,7 +380,7 @@ second independent judge is already in the plan.)</p>
 <div class="fig">
 <p class="fig-title">Figure 3 · What "the look of accessible" means, in code</p>
 <div class="code2">
-<pre class="bad" tabindex="0"><span class="tag">Failed blind</span>&lt;div class="modal"
+<pre class="bad"><span class="tag">Failed blind</span>&lt;div class="modal"
      role="dialog"
      aria-modal="true"&gt;
   …
@@ -389,7 +388,7 @@ second independent judge is already in the plan.)</p>
 <em>the promise of accessible in the attribute;
 not one line of keyboard in the file.
 Tab leaks, Esc doesn't exist, focus is lost</em></pre>
-<pre class="good" tabindex="0"><span class="tag">Passed blind</span>&lt;dialog aria-labelledby="titulo"&gt;
+<pre class="good"><span class="tag">Passed blind</span>&lt;dialog aria-labelledby="titulo"&gt;
   …
 &lt;/dialog&gt;
 dialog.showModal()
@@ -427,7 +426,7 @@ the wrong information, or go silent where it should speak. It's a control that l
 person. The fix is one line of code; the harm, until it comes, repeats on every visit. Hold on
 to this pattern of systematic error, because it comes back in Study 2 with a name and a figure.</p>
 
-<p>And two things happened in these runs that no violation counter captures.</p>
+<p class="aparte">And two things happened in these runs that no violation counter captures.</p>
 
 <p><strong>The first is about where the work ended up:</strong> With A11Y.md present in the project
 folder (the folder where the site is being built, where the user expects to receive the files),
@@ -478,7 +477,7 @@ side by side with the magic phrase, and on one of the agents the "nothing" condi
 the most uniform pages of all. It gets published like this, because this is how the ruler
 measured it.</p>
 
-<div class="scroll" tabindex="0" role="region" aria-labelledby="cap-tabela-4"><table><caption id="cap-tabela-4">Table 4 · Study 2's registered ruler — variant excess per agent (lower = more uniform)</caption>
+<div class="scroll"><table><caption>Table 4 · Study 2's registered ruler — variant excess per agent (lower = more uniform)</caption>
 <thead><tr><th scope="col">Agent</th><th scope="col">Nothing</th><th scope="col">Phrase</th><th scope="col">A11Y.md</th></tr></thead>
 <tbody>
 <tr><th scope="row">Claude Code<span class="sub">sum of the 5 journeys</span></th><td class="num">21</td><td class="num">18</td><td class="num">18</td></tr>
@@ -587,7 +586,7 @@ result stands. The other rows are readings I built after seeing the pages, and t
 as such. None of them separates the conditions with statistical certainty. They are directions
 and mechanisms, not victories.)</p>
 
-<div class="scroll" tabindex="0" role="region" aria-labelledby="cap-tabela-5"><table><caption id="cap-tabela-5">Table 5 · Study 2 scoreboard on the small model — five rulers, each with its status</caption>
+<div class="scroll"><table><caption>Table 5 · Study 2 scoreboard on the small model — five rulers, each with its status</caption>
 <thead><tr><th scope="col">Ruler</th><th scope="col">Nothing</th><th scope="col">Phrase</th><th scope="col">A11Y.md</th><th scope="col">Whose ruler is it…</th></tr></thead>
 <tbody>
 <tr><th scope="row">Cross-screen consistency<span class="sub">registered ruler · primary</span></th><td class="num">uniform stamp</td><td class="num">tie</td><td class="num">tie, with adaptation</td><td class="num">the maintainer's</td></tr>
@@ -636,7 +635,7 @@ commissioned with its hierarchy and judge declared before the next round.</p>
 <div class="fig">
 <p class="fig-title">Figure 8 · "Near-miss composition" in real code — and the one-attribute fix</p>
 <div class="code2">
-<pre class="bad" tabindex="0"><span class="tag">What the model built (real journey)</span>&lt;ul role="menu" hidden&gt;
+<pre class="bad"><span class="tag">What the model built (real journey)</span>&lt;ul role="menu" hidden&gt;
   &lt;li&gt;
     &lt;a role="menuitem"&gt;All Categories&lt;/a&gt;
   &lt;/li&gt;
@@ -645,7 +644,7 @@ commissioned with its hierarchy and judge declared before the next round.</p>
 but the bare &lt;li&gt; between menu and
 menuitem breaks the ARIA hierarchy:
 98 flagged elements across 7 screens</em></pre>
-<pre class="good" tabindex="0"><span class="tag">What was missing</span>&lt;ul role="menu" hidden&gt;
+<pre class="good"><span class="tag">What was missing</span>&lt;ul role="menu" hidden&gt;
   &lt;li <strong>role="none"</strong>&gt;
     &lt;a role="menuitem"&gt;All Categories&lt;/a&gt;
   &lt;/li&gt;
@@ -696,7 +695,7 @@ work over time. In Study 2's whole site, the dosage is the real one: the agent r
 once, at the start of the session, and the effect lasts the whole session, with the model's
 cache doing the rest.</p>
 
-<div class="scroll" tabindex="0" role="region" aria-labelledby="cap-tabela-7"><table><caption id="cap-tabela-7">Table 7 · The token bill — dose per task × single dose per session</caption>
+<div class="scroll"><table><caption>Table 7 · The token bill — dose per task × single dose per session</caption>
 <thead><tr><th scope="col">Measured regime</th><th scope="col">Nothing</th><th scope="col">Phrase</th><th scope="col">The placebo</th><th scope="col">A11Y.md</th></tr></thead>
 <tbody>
 <tr><th scope="row">Study 1 · full dose per task<span class="sub">the cost ceiling — median per generation</span></th><td class="num">2.6k</td><td class="num">3.0k</td><td class="num">50.4k</td><td class="num">26.1k</td></tr>
@@ -863,6 +862,17 @@ governance and decision memory.</li>
 fixed and published with both measurements preserved. This is how I wanted the study to be
 judged.</li>
 </ul>
+<p class="aparte">A note from August 29, 2026, after publication. The deviations journal gained a
+fifth entry, found by the methodological review that prepared the second round: in the large-model
+arm, my machine's environment named the A11Y.md to every session, and the generic-phrase runs tried
+to hunt for the standard on their own. Every attempt visible in the captures was denied, and one
+read channel into my personal notes cannot be excluded. The bias direction is the one that
+disfavors me: an informed generic condition could only move toward the standard, shrinking the
+separations this report describes. The full entry sits in the
+<a href="https://github.com/fecarrico/A11Y.md/blob/main/benchmark/study2/DEVIATIONS.md">public
+deviations journal</a>, like the other four — and the second round is born with the isolated
+environment this finding ordered.</p>
+
 
 <h2 id="the-plan-to-become-unnecessary">The plan to become unnecessary</h2>
 
