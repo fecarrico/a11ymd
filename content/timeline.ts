@@ -428,6 +428,25 @@ export const timeline: TimelineEntry[] = [
     },
   },
   {
+    id: "natura-panel",
+    date: "2026-08-26",
+    kind: "milestone",
+    title: {
+      "pt-BR": "A conversa entra na Natura",
+      en: "The conversation reaches Natura",
+    },
+    description: {
+      "pt-BR":
+        "Painel sobre acessibilidade e inclusão dentro da Natura, ao lado de Vitor David e de Simone Freire, fundadora do movimento Web para Todos. O tema saindo do círculo de especialistas e entrando nas decisões e na cultura das organizações — exatamente a aposta deste projeto.",
+      en: "An accessibility and inclusion panel inside Natura, alongside Vitor David and Simone Freire, founder of the Web para Todos movement. The subject stepping out of the specialists' circle and into organizational decisions and culture — precisely this project's bet.",
+    },
+    link: {
+      href: "https://www.linkedin.com/posts/vitordavid_ontem-tive-oportunidade-de-participar-de-activity-7498703489691394048-JpXN",
+      label: { "pt-BR": "Ver o relato do painel", en: "See the panel recap" },
+    },
+    logo: { src: "logo-natura.png", width: 599, height: 456 },
+  },
+  {
     id: "v2-0-0",
     date: "2026-08-26",
     kind: "release",
