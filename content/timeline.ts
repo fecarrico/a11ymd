@@ -437,8 +437,8 @@ export const timeline: TimelineEntry[] = [
     },
     description: {
       "pt-BR":
-        "Painel sobre acessibilidade e inclusão dentro da Natura, ao lado de Vitor David e de Simone Freire, fundadora do movimento Web para Todos. O tema saindo do círculo de especialistas e entrando nas decisões e na cultura das organizações — exatamente a aposta deste projeto.",
-      en: "An accessibility and inclusion panel inside Natura, alongside Vitor David and Simone Freire, founder of the Web para Todos movement. The subject stepping out of the specialists' circle and into organizational decisions and culture — precisely this project's bet.",
+        "Painel sobre acessibilidade e inclusão dentro da Natura, ao lado de Vitor David, designer de produto especialista em acessibilidade digital, e de Simone Freire, fundadora do movimento Web para Todos. O tema saindo do círculo de especialistas e entrando nas decisões e na cultura das organizações — exatamente a aposta deste projeto.",
+      en: "An accessibility and inclusion panel inside Natura, alongside Vitor David, product designer specializing in digital accessibility, and Simone Freire, founder of the Web para Todos movement. The subject stepping out of the specialists' circle and into organizational decisions and culture — precisely this project's bet.",
     },
     link: {
       href: "https://www.linkedin.com/posts/vitordavid_ontem-tive-oportunidade-de-participar-de-activity-7498703489691394048-JpXN",
