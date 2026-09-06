@@ -59,7 +59,7 @@ export function HowItWorksSection({ dict }: { dict: Dictionary }) {
                     {/* overflow-wrap:anywhere: sob zoom 200% o chip quebra em
                         vez de estourar a viewport (SC 1.4.4) */}
                     {step.artifact && (
-                      <code className="ml-2 rounded bg-muted px-2 py-0.5 font-mono text-sm text-primary [overflow-wrap:anywhere]">
+                      <code className="ml-2 rounded border border-border bg-card px-2 py-0.5 font-mono text-sm text-primary [overflow-wrap:anywhere]">
                         {step.artifact}
                       </code>
                     )}

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
-import { Github, Menu, X } from "lucide-react"
+import { ChevronDown, Github, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { product, type Dictionary, type Locale } from "@/content"
 
@@ -18,8 +18,11 @@ type HeaderProps = {
 export function Header({ dict, lang, otherLang, otherLangHref }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isStudiesOpen, setIsStudiesOpen] = useState(false)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
+  const studiesRef = useRef<HTMLDivElement>(null)
+  const studiesButtonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 20)
@@ -46,11 +49,35 @@ export function Header({ dict, lang, otherLang, otherLangHref }: HeaderProps) {
     menuRef.current?.querySelector<HTMLElement>("a, button")?.focus()
   }, [isMenuOpen])
 
+  // A11Y (SC 2.1.1, 2.4.3): o disclosure dos estudos fecha com Escape (foco de
+  // volta ao botão) e com clique/toque fora — padrão APG de disclosure navigation.
+  useEffect(() => {
+    if (!isStudiesOpen) return
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsStudiesOpen(false)
+        studiesButtonRef.current?.focus()
+      }
+    }
+    const onPointerDown = (event: PointerEvent) => {
+      if (!studiesRef.current?.contains(event.target as Node)) setIsStudiesOpen(false)
+    }
+    document.addEventListener("keydown", onKeyDown)
+    document.addEventListener("pointerdown", onPointerDown)
+    return () => {
+      document.removeEventListener("keydown", onKeyDown)
+      document.removeEventListener("pointerdown", onPointerDown)
+    }
+  }, [isStudiesOpen])
+
   // Prefixadas com o idioma para funcionarem também fora da home (ex.: /timeline).
   const navLinks = [
     { href: `/${lang}#como-usar`, label: dict.nav.howToUse },
     { href: `/${lang}#evidencia`, label: dict.nav.evidence },
     { href: `/${lang}/timeline`, label: dict.nav.timeline },
+  ]
+
+  const studyLinks = [
     { href: `/${lang}/estudo`, label: dict.nav.study },
     { href: `/${lang}/estudo3`, label: dict.nav.study3 },
   ]
@@ -91,6 +118,40 @@ export function Header({ dict, lang, otherLang, otherLangHref }: HeaderProps) {
                 {link.label}
               </Link>
             ))}
+
+            <div className="relative" ref={studiesRef}>
+              <button
+                ref={studiesButtonRef}
+                type="button"
+                className={cn(target, "gap-1 px-3 text-sm text-muted-foreground hover:text-foreground")}
+                aria-expanded={isStudiesOpen}
+                aria-controls="studies-menu"
+                onClick={() => setIsStudiesOpen((open) => !open)}
+              >
+                {dict.nav.studies}
+                <ChevronDown
+                  className={cn("h-4 w-4 transition-transform", isStudiesOpen && "rotate-180")}
+                  aria-hidden="true"
+                />
+              </button>
+              {isStudiesOpen && (
+                <div
+                  id="studies-menu"
+                  className="absolute right-0 top-full mt-1 min-w-44 rounded-md border border-border bg-background py-1 shadow-lg"
+                >
+                  {studyLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setIsStudiesOpen(false)}
+                      className="flex min-h-[44px] items-center px-4 text-sm text-muted-foreground hover:text-foreground"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* i18n por rota: trocar de idioma é navegar, não mudar estado.
                 A11Y (SC 2.5.3, Label in Name): o nome acessível CONTÉM o texto
@@ -173,6 +234,21 @@ export function Header({ dict, lang, otherLang, otherLangHref }: HeaderProps) {
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
                   className="flex min-h-[44px] items-center text-foreground hover:text-primary"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              {/* No drawer não há o que "abrir": o grupo vira rótulo estático
+                  com os dois estudos indentados — um nível visual, zero interação extra. */}
+              <p className="flex min-h-[44px] items-center font-mono text-sm uppercase tracking-wider text-muted-foreground">
+                {dict.nav.studies}
+              </p>
+              {studyLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex min-h-[44px] items-center pl-4 text-foreground hover:text-primary"
                 >
                   {link.label}
                 </Link>
