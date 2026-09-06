@@ -52,6 +52,7 @@ export function Header({ dict, lang, otherLang, otherLangHref }: HeaderProps) {
     { href: `/${lang}#evidencia`, label: dict.nav.evidence },
     { href: `/${lang}/timeline`, label: dict.nav.timeline },
     { href: `/${lang}/estudo`, label: dict.nav.study },
+    { href: `/${lang}/estudo3`, label: dict.nav.study3 },
   ]
 
   // Alvo de 44×44 é normativo sob o perfil Shield (SC 2.5.5).
