@@ -1,3 +1,5 @@
+import { TerminalRegion } from "@/components/terminal-region"
+
 type TerminalProps = {
   lines: readonly string[]
   /** A11Y: nome acessível da região rolável. */
@@ -28,10 +30,8 @@ export function Terminal({ lines, label, window, className }: TerminalProps) {
         )}
       </div>
 
-      <pre
-        role="region"
-        aria-label={label}
-        tabIndex={0}
+      <TerminalRegion
+        label={label}
         className="min-h-0 min-w-0 flex-1 overflow-auto whitespace-pre-wrap p-5 [overflow-wrap:anywhere]"
       >
         <code className="grid min-w-0 gap-y-1.5 font-mono text-sm leading-relaxed">
@@ -45,7 +45,7 @@ export function Terminal({ lines, label, window, className }: TerminalProps) {
             </span>
           ))}
         </code>
-      </pre>
+      </TerminalRegion>
     </div>
   )
 }
