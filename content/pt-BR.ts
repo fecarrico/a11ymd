@@ -33,6 +33,7 @@ export const ptBR = {
     timeline: "Linha do tempo",
     study: "Estudos 1–2",
     study3: "Estudo 3",
+    studies: "Estudos",
     github: "GitHub",
     aria: {
       main: "Principal",
