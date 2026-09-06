@@ -464,4 +464,40 @@ export const timeline: TimelineEntry[] = [
       label: { "pt-BR": "Notas da versão", en: "Release notes" },
     },
   },
+  {
+    id: "v2-0-1",
+    date: "2026-09-06",
+    kind: "release",
+    title: {
+      "pt-BR": "v2.0.1 — a consequência do Estudo 3",
+      en: "v2.0.1 — the Study 3 consequence",
+    },
+    description: {
+      "pt-BR":
+        "O critério mais duro do Estudo 3 falhou, e a tabela de consequências escrita antes da coleta cobrou o combinado: a Seção 6 passa a nomear o molde exato que sobreviveu às duas versões — o carrossel anunciado como abas sem os papéis de aba — com as duas saídas honestas. Nada mais mudou.",
+      en: "Study 3's hardest criterion failed, and the consequence table written before collection collected on the promise: Section 6 now names the exact mold that survived both versions — the carousel announced as tabs without the tab roles — with its two honest exits. Nothing else changed.",
+    },
+    link: {
+      href: changelog("201---2026-09-06"),
+      label: { "pt-BR": "Notas da versão", en: "Release notes" },
+    },
+  },
+  {
+    id: "estudo-3",
+    date: "2026-09-06",
+    kind: "milestone",
+    title: {
+      "pt-BR": "Estudo 3 — a versão nova volta à bancada",
+      en: "Study 3 — the new version returns to the bench",
+    },
+    description: {
+      "pt-BR":
+        "O segundo movimento formal: a 2.0.0 contra a 1.8.0, nos mesmos agentes, com registro público antes do primeiro dado. As duas empatam no teto da régua automática, o critério mais duro falha dos dois lados — e a medição que não empata é a da prestação de contas: 19 de 19 com o padrão, 0 de 20 sem.",
+      en: "The second formal movement: 2.0.0 against 1.8.0, on the same agents, publicly registered before the first data point. Both tie at the automatic ruler's ceiling, the hardest criterion fails on both sides — and the measurement that does not tie is accountability: 19 of 19 with the standard, 0 of 20 without.",
+    },
+    link: {
+      href: "/pt-BR/estudo3/",
+      label: { "pt-BR": "Ler o relato completo", en: "Read the full report" },
+    },
+  },
 ]

@@ -17,6 +17,11 @@ export const ptBR = {
     ogAlt: "A11Y.md — o sistema de contexto persistente para acessibilidade",
   },
 
+  study3Page: {
+    metaTitle: "O antes, o depois e o teto",
+    metaDescription:
+      "O Estudo 3, pré-registrado, põe a versão 2.0.0 do A11Y.md contra a 1.8.0 nos mesmos agentes — e as duas empatam no teto da régua automática. O que falhou, o que sobreviveu e por que a camada que cobra não expira. Dados abertos, erros documentados, resultado sem desconto.",
+  },
   studyPage: {
     metaTitle: "O remédio, o placebo e a frase mágica",
     metaDescription:

@@ -13,6 +13,11 @@ export const en: Dictionary = {
     ogAlt: "A11Y.md — the persistent context system for accessibility",
   },
 
+  study3Page: {
+    metaTitle: "The before, the after and the ceiling",
+    metaDescription:
+      "Study 3, preregistered, puts A11Y.md 2.0.0 against 1.8.0 on the same agents — and they tie at the ceiling of the automatic ruler. What failed, what survived, and why the demanding layer does not expire. Open data, documented defects, undiscounted results.",
+  },
   studyPage: {
     metaTitle: "The remedy, the placebo and the magic phrase",
     metaDescription:
