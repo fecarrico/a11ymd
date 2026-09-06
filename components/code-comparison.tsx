@@ -71,7 +71,7 @@ export function CodeComparison({ dict, lang }: { dict: Dictionary; lang: Locale 
             <div className="grid md:grid-cols-2">
               <div className="border-b border-border md:border-b-0 md:border-r">
                 {/* Estado por ícone + texto + cor, nunca cor sozinha. */}
-                <p className="flex items-center gap-2 border-b border-border bg-destructive/10 px-4 py-3 font-mono text-sm font-medium text-destructive">
+                <p className="flex items-center gap-2 border-b border-border bg-destructive/10 px-4 py-3 font-mono text-sm font-medium text-[#f59d9d]">
                   <X className="h-4 w-4 shrink-0" aria-hidden="true" />
                   {dict.code.without}
                 </p>

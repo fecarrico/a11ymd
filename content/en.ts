@@ -29,6 +29,7 @@ export const en: Dictionary = {
     timeline: "Timeline",
     study: "Studies 1–2",
     study3: "Study 3",
+    studies: "Studies",
     github: "GitHub",
     aria: {
       main: "Main",
