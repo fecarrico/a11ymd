@@ -23,6 +23,7 @@ Registrados aqui porque a pergunta "por que isso não está no log?" é legítim
 | Links de citação de fonte com 18–20px de altura | Enquadram-se na **exceção *inline*** da própria SC 2.5.5/2.5.8: alvo dentro de um bloco de texto. Exceção prevista pela norma não é desvio da norma | `A11Y-DECISIONS.md` |
 | Bordas de card e divisores em 1,48:1 | Superfície decorativa, não componente de interface nem gráfico essencial (SC 1.4.11 não se aplica). O agrupamento é dado por título, lista e espaçamento. É relaxamento de **House Rule†**, e o padrão manda registrar isso em decisões, não em exceções | `A11Y-DECISIONS.md` |
 | `text-xs` (12px) fora da escala | Não é desvio: é o piso de 14px† do Shield sendo **cumprido** por remoção do degrau | `tailwind.config.ts` |
+| Espécime de contraste na Figura 5 da rota `/estudo3` | O "Aa" do chip é a amostra do par reprovado em discussão — texto incidental sob a exceção da própria SC 1.4.6, `aria-hidden`, com a informação em texto adjacente. O axe (que não conhece intenção) segue apontando 1 nó, de propósito | `A11Y-DECISIONS.md` |
 
 ---
 
