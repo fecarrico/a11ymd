@@ -126,7 +126,7 @@ export const ptBR = {
       lines: [
         "> Adicione ao arquivo de regras do seu agente:",
         '"Ao desenvolver o frontend, siga estritamente',
-        "as regras de acessibilidade definidas no A11Y.md:",
+        "as regras de acessibilidade do arquivo",
         `${product.coreFile["pt-BR"]}"`,
         "✔ Contexto de acessibilidade carregado",
         "✔ WCAG 2.2 AA — perfil Standard ativo",
@@ -137,7 +137,7 @@ export const ptBR = {
     copyRule: "Copiar a regra",
     copied: "Regra copiada",
     setupCta: "Guia de setup completo na Wiki",
-    ruleText: `Ao desenvolver o frontend, siga estritamente as regras de acessibilidade definidas no A11Y.md: ${product.coreFile["pt-BR"]}`,
+    ruleText: `Ao desenvolver o frontend, siga estritamente as regras de acessibilidade do arquivo ${product.coreFile["pt-BR"]}`,
   },
 
   howItWorks: {

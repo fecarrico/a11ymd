@@ -122,7 +122,7 @@ export const en: Dictionary = {
       lines: [
         "> Add to your agent's rules file:",
         '"When developing the frontend, follow strictly',
-        "the accessibility rules defined in A11Y.md:",
+        "the accessibility rules in the file",
         `${product.coreFile.en}"`,
         "✔ Accessibility context loaded",
         "✔ WCAG 2.2 AA — Standard profile active",
@@ -133,7 +133,7 @@ export const en: Dictionary = {
     copyRule: "Copy the rule",
     copied: "Rule copied",
     setupCta: "Full setup guide on the Wiki",
-    ruleText: `When developing the frontend, follow strictly the accessibility rules defined in A11Y.md: ${product.coreFile.en}`,
+    ruleText: `When developing the frontend, follow strictly the accessibility rules in the file ${product.coreFile.en}`,
   },
 
   howItWorks: {
