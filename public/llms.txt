@@ -15,7 +15,7 @@ Unlike traditional accessibility documentation (e.g. WCAG), A11Y.md is designed 
 
 ## Docs
 
-- [A11Y.md Specification](https://github.com/fecarrico/A11Y.md/blob/main/docs/en/A11Y.md): Rules for generating accessible UI code
+- [A11Y.md Specification](https://raw.githubusercontent.com/fecarrico/A11Y.md/main/docs/en/A11Y.md): Rules for generating accessible UI code
 
 ## Examples
 

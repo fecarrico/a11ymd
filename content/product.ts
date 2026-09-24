@@ -30,8 +30,8 @@ export const product = {
 
   /** Caminho do arquivo núcleo por idioma — é para cá que a regra do agente aponta. */
   coreFile: {
-    "pt-BR": "https://github.com/fecarrico/A11Y.md/blob/main/docs/pt-BR/A11Y.md",
-    en: "https://github.com/fecarrico/A11Y.md/blob/main/docs/en/A11Y.md",
+    "pt-BR": "https://raw.githubusercontent.com/fecarrico/A11Y.md/main/docs/pt-BR/A11Y.md",
+    en: "https://raw.githubusercontent.com/fecarrico/A11Y.md/main/docs/en/A11Y.md",
   },
 
   /** Exemplos para humanos, por idioma. */
