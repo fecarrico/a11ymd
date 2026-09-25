@@ -11,11 +11,11 @@
  */
 
 export const product = {
-  version: "2.0.2",
+  version: "2.1.0",
   versionDate: "2026-09-25",
 
   /** Contagens verificadas contra o CHANGELOG e a árvore do repositório. */
-  behaviorContractRules: 18,
+  behaviorContractRules: 19,
   referenceGuides: 30,
   complianceProfiles: 3,
 

@@ -1,0 +1,4 @@
+{
+  "bad": "<div onClick={() => navigate('/checkout')}>\n  Finish purchase\n</div>",
+  "good": "<button onClick={() => navigate('/checkout')}>\n  Finish purchase\n</button>"
+}

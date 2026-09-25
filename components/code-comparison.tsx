@@ -2,6 +2,13 @@ import { Check, X } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 import { ExternalLink } from "@/components/external-link"
 import { product, type Dictionary, type Locale } from "@/content"
+/*
+ * As duas amostras vivem em content/code-snippets.json: são conteúdo exibido,
+ * não código de interface. Dentro deste .tsx, o div com handler de clique da
+ * amostra ruim era lido pela varredura estática do A11Y.md como se fosse um
+ * elemento real — o anti-padrão mostrado de propósito virava achado.
+ */
+import snippet from "@/content/code-snippets.json"
 
 /**
  * UM exemplo, o mais icônico — não um catálogo. Quem precisa de quatro
@@ -11,15 +18,6 @@ import { product, type Dictionary, type Locale } from "@/content"
  * Snippets em inglês nos dois idiomas (idioma real do código), com lang="en"
  * no <pre> — decisão registrada em A11Y-DECISIONS.md.
  */
-const snippet = {
-  bad: `<div onClick={() => navigate('/checkout')}>
-  Finish purchase
-</div>`,
-  good: `<button onClick={() => navigate('/checkout')}>
-  Finish purchase
-</button>`,
-}
-
 export function CodeComparison({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   return (
     <section aria-labelledby="code-heading" className="px-8 py-24">

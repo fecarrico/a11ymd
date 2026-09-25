@@ -518,4 +518,22 @@ export const timeline: TimelineEntry[] = [
       label: { "pt-BR": "Notas da versão", en: "Release notes" },
     },
   },
+  {
+    id: "v2-1-0",
+    date: "2026-09-25",
+    kind: "release",
+    title: {
+      "pt-BR": "v2.1.0 — o recibo",
+      en: "v2.1.0 — the receipt",
+    },
+    description: {
+      "pt-BR":
+        "Os estudos mediram o que o modelo faz quando lê o padrão. Ninguém media se a evidência que ele escreve depois é verdadeira, nem se a única verificação mecânica do projeto chegou a rodar. Ela nunca rodou. Agora o agente é obrigado a rodá-la antes de entregar e a avisar quando ela for negada, o verificador passou a enxergar o que o axe não vê no código, e cada razão de contraste registrada no relatório é recalculada pela fórmula em vez de acreditada.",
+      en: "The studies measured what the model does when it reads the standard. Nobody measured whether the evidence it writes afterwards is true, or whether the project's one mechanical check ever ran. It never did. Now the agent must run it before delivering and must say so when it is denied, the checker reads what axe cannot see in source, and every contrast ratio recorded in the report is recomputed by the formula instead of believed.",
+    },
+    link: {
+      href: changelog("210---2026-09-25"),
+      label: { "pt-BR": "Notas da versão", en: "Release notes" },
+    },
+  },
 ]

@@ -9,7 +9,7 @@ Relatório de conformidade da própria landing do projeto, construída sob o pad
 ## 📌 Contexto de validação
 
 - **Feature/Epic:** reconstrução da landing (chassi server-first, i18n por rota) + revisão editorial com foco em adoção — a página caiu de 9 seções/~14 mil caracteres para 6 seções/~4,8 mil, com a profundidade delegada à Wiki; a versão revisada passou por um painel crítico de 5 lentes (conversão, voz, prova social, fidelidade factual, visual) antes desta verificação
-- **Padrão aplicado:** `A11Y.md` v1.1.0
+- **Padrão aplicado:** `A11Y.md` v1.1.0 na construção; revisado sob a v2.1.0 em 2026-09-25
 - **Perfil de conformidade:** 🛡️ **Shield (AAA)** — 7:1 texto / 3:1 componentes, piso tipográfico 14px†, alvo 44×44 (SC 2.5.5)
 - **Data do teste:** 2026-07-20
 - **Revisão 2026-08-15 (conteúdo, sem mudança estrutural):** versão exibida no rodapé atualizada de v1.1.0 para v1.8.0 e contagens do `product.ts` (18 regras, 29 guias) sincronizadas com o repositório. Nenhum componente, estilo ou comportamento alterado — nenhum checkpoint deste relatório é invalidado pela mudança.
@@ -17,8 +17,11 @@ Relatório de conformidade da própria landing do projeto, construída sob o pad
   - Adendo (mesma revisão): entradas de origem (TDC 24/04), primeira palestra (Meetup Design Imparável, 23/06) e case CEU; logotipos decorativos em chip (decisão registrada no DECISIONS, pendente de confirmação do autor); quadriculado do hero replicado no topo da página (decorativo, `aria-hidden`).
 - **Revisão 2026-09-06 (rotas dos estudos + item de menu):** as rotas `/[lang]/estudo` e `/[lang]/estudo3` entram formalmente no escopo deste relatório — dívida flagrada por pergunta do autor: as crônicas nunca tiveram entrada própria aqui. Varredura com axe-core 4.13.0 (o mesmo binário fixado do benchmark), tags até `wcag2aaa` + `best-practice`, viewport 1280px, sobre o export estático servido sob `/a11ymd`. A primeira passada **reprovou** os rótulos mono das duas rotas (`color-contrast-enhanced`, 7:1 do Shield): 75/76 nós em `/estudo` — no ar desde agosto sem esta medição — e 23/25 em `/estudo3`, todos no token `--dim:#8f8f8f` (5,4:1 no pior fundo). Token corrigido na fonte única das crônicas para `#a6a6a6` (7,15:1 no pior fundo) e re-varredura **zerada nas quatro rotas**, exceto 1 nó deliberado: o espécime de cor da Figura 5 (registrado em `EXCEPTIONS.md` e `A11Y-DECISIONS.md`). O header ganha o link "Estudo 3" (links planos, decisão registrada). **Pendente de validação humana:** leitor de tela e passada de teclado nas rotas dos estudos (lightbox incluído) — checkpoints reabertos para essas rotas, como na revisão da /timeline. Verificação self-reported (gerador e verificador na mesma sessão). **Correção de causa raiz (mesma revisão):** a frase de invocação do padrão — a mesma que o site manda o usuário colar no arquivo de regras — entra no `CLAUDE.md` deste repositório e no do ambiente que produz as crônicas. As rotas editoriais nasceram fora do ciclo exatamente porque essa frase não existia em nenhum dos dois ambientes: o produto não estava instalado na própria casa. A mesma varredura, apontada para a home, mediu a pendência declarada na revisão de 15/08 (contraste dos badges/chips): 5 nós reprovados no 7:1 — os chips `code` em coral sobre `bg-muted` (6,28:1) e o cabeçalho "reprovado" da comparação de código (6,57:1). Corrigidos preservando a identidade: chips para `bg-card` com borda (7,9:1) e o vermelho um degrau mais claro (`#f59d9d`, 7,6:1). Menu revisto pelo autor no mesmo dia: um único disclosure "Estudos" (decisão registrada); axe zerado na home nos dois idiomas, com o submenu fechado e aberto. Adendo (mesma data, flagrado pelo autor por Tab): o terminal do quick-start era parada de tabulação mesmo sem transbordar — violação da regra §6 "Focus Traps Nobody Asked For" do próprio padrão. Foco agora condicionado ao transbordo real via ResizeObserver, com o lado seguro (focável) no primeiro paint e sem JavaScript; decisão revista em A11Y-DECISIONS.md.
 - **Revisão 2026-09-25 (conteúdo, sem mudança estrutural):** versão exibida no rodapé atualizada de v2.0.0 para v2.0.2 e contagem de guias do `product.ts` corrigida de 29 para 30, verificada nominalmente contra a árvore da tag `v2.0.2` (29 na 1.8.0, mais `guide-agentic-web` e `guide-sign-language-br`, menos um guia fundido na dieta da 2.0.0); a `versionDate` trazia a data da 1.8.0 e passa à data da release. Entrada `v2-0-2` na timeline, resumo menor que a nota de release. A frase de invocação já havia sido atualizada em 24/09 (#40). Nenhum componente novo, nenhum checkpoint afetado. Fecha a issue #39.
+- **Revisão 2026-09-25 (v2.1.0 — migração do relatório + amostras de código viram conteúdo):** versão exibida no rodapé de v2.0.2 para v2.1.0 e regras do contrato de 18 para 19 no `product.ts` (verificadas na árvore da tag); entrada `v2-1-0` na timeline. Este relatório migra para o que a 2.1.0 exige: campo *Independência da Verificação* (self-reported, declarado), campo *Gate estático* com o resultado da execução, e a tabela de contraste passa a trazer o hex resolvido de cada token, porque o gate recalcula as razões e não consegue recalcular uma variável (as razões mudaram na segunda casa decimal em relação à medição anterior sobre tokens computados no navegador; todas dentro do piso). As duas amostras de código da seção de comparação saem do `.tsx` para `content/code-snippets.json`: o `<div onClick>` da amostra ruim, mostrado de propósito, era lido pela varredura estática como um div clicável real. Nenhum componente novo; a seção de comparação renderiza o mesmo HTML
 - **Ferramentas:** axe-core 4.x via Chrome headless (150.0), ESLint com `eslint-plugin-jsx-a11y`, TypeScript 5.9, medição de contraste sobre os tokens computados
 - **Escopo:** rotas `/pt-BR` e `/en`, viewports de 1280px, 390px e 320px
+- **Independência da Verificação:** self-reported ⚠️ — quem verificou: Claude Code (Fable 5.1), na mesma sessão que produziu esta revisão. Teto CONDICIONAL, que já é o status; a validação humana com leitor de tela continua pendente (§3)
+- **Gate estático (`verify-a11y.py`):** PASS (0 erro(s), 6 aviso(s)) — rodado em: 2026-09-25
 - **Status de conformidade:** ⚠️ **CONDICIONAL** — passa em toda a verificação automatizável e por teclado; **falta validação humana com leitor de tela** (ver §3)
 
 ---
@@ -52,19 +55,21 @@ Validado por teclado, sem mouse.
 
 ## 4. Percepção visual e compreensão
 
-Contraste medido sobre os tokens computados, contra `--background`:
+Pares medidos com `tools/contrast-check.py` (hex resolvido dos tokens HSL do `globals.css`), contra `--background` salvo indicação. O gate estático recalcula cada linha pela fórmula da WCAG:
 
-| Token | Medido | Piso Shield | |
-|---|---|---|---|
-| `--foreground` | **16,73:1** | 7:1 | ✅ |
-| `--muted-foreground` | **7,70:1** | 7:1 | ✅ |
-| `--primary` | **8,67:1** | 7:1 | ✅ |
-| `--success` | **9,52:1** | 7:1 | ✅ |
-| `--destructive` | **7,62:1** | 7:1 | ✅ |
-| `--warning` | **11,18:1** | 7:1 | ✅ |
-| `--border-strong` (componentes) | **3,95:1** | 3:1 | ✅ |
-| `--border` (divisor decorativo) | 1,48:1 | — | ver `A11Y-DECISIONS.md` |
-| texto sobre botão primário | **8,67:1** | 7:1 | ✅ |
+| Par | Primeiro plano | Fundo | Razão | Piso | Resultado |
+| :--- | :--- | :--- | ---: | ---: | :--- |
+| `--foreground` (texto) | #f2f2f2 | #121212 | 16,79:1 | 7:1 | ✅ |
+| `--muted-foreground` (texto secundário) | #a6a6a6 | #121212 | 7,68:1 | 7:1 | ✅ |
+| `--primary` (links, rótulos) | #e2a18d | #121212 | 8,67:1 | 7:1 | ✅ |
+| `--success` | #47d17a | #121212 | 9,54:1 | 7:1 | ✅ |
+| `--destructive` | #f48585 | #121212 | 7,64:1 | 7:1 | ✅ |
+| `--warning` | #e8c468 | #121212 | 11,21:1 | 7:1 | ✅ |
+| `--border-strong` (componentes) | #737373 | #121212 | 3,94:1 | 3:1 | ✅ |
+| texto sobre botão primário | #121212 | #e2a18d | 8,67:1 | 7:1 | ✅ |
+| rótulo «Sem A11Y.md» sobre a faixa `destructive/10` composta | #f59d9d | #291d1d | 7,90:1 | 7:1 | ✅ |
+
+Fora da tabela por não carregar significado: `--border` (#333333), divisor decorativo a 1,48:1 contra o fundo, sem requisito de contraste por ser não-textual e não-funcional — decisão registrada no `A11Y-DECISIONS.md`.
 
 - [x] **Redundância semântica:** estado sempre por **ícone + texto + cor**. Os rótulos "Sem A11Y.md" e "Com A11Y.md" trazem ícone e palavra; a faixa de credibilidade usa texto e separador, nunca cor
 - [x] **Tipografia:** **zero** ocorrências de texto abaixo de 14px, o piso do Shield. O degrau `text-xs` foi removido do tema para impedir uso por descuido

@@ -9,7 +9,7 @@ Conformance report for the project's own landing page, built under the standard 
 ## 📌 Validation context
 
 - **Feature/Epic:** landing rebuild (server-first architecture, route-based i18n) + editorial revision focused on adoption — the page went from 9 sections/~14k characters to 6 sections/~4.8k, with depth delegated to the Wiki; the revised version went through a 5-lens critique panel (conversion, voice, social proof, factual fidelity, visual) before this verification
-- **Standard applied:** `A11Y.md` v1.1.0
+- **Standard applied:** `A11Y.md` v1.1.0 at build time; revised under v2.1.0 on 2026-09-25
 - **Compliance profile:** 🛡️ **Shield (AAA)** — 7:1 text / 3:1 components, 14px† typographic floor, 44×44 targets (SC 2.5.5)
 - **Test date:** 2026-07-20
 - **Revision 2026-08-15 (content-only, no structural change):** footer version string updated from v1.1.0 to v1.8.0 and `product.ts` counts (18 rules, 29 guides) synced with the repository. No component, style or behavior changed — no checkpoint in this report is invalidated by the change.
@@ -17,8 +17,11 @@ Conformance report for the project's own landing page, built under the standard 
   - Addendum (same revision): origin entries (TDC 04-24), first talk (Design Imparável meetup, 06-23) and the CEU case; decorative logos on chips (decision recorded in DECISIONS, pending author confirmation); the hero grid replicated at the top of the page (decorative, `aria-hidden`).
 - **Revision 2026-09-06 (study routes + menu item):** the `/[lang]/estudo` and `/[lang]/estudo3` routes formally enter this report's scope — a debt caught by the author's question: the chronicles never had their own entry here. Swept with axe-core 4.13.0 (the same pinned binary as the benchmark), tags up to `wcag2aaa` + `best-practice`, 1280px viewport, over the static export served under `/a11ymd`. The first pass **failed** the mono labels on both routes (`color-contrast-enhanced`, the Shield 7:1 floor): 75/76 nodes on `/estudo` — live since August without this measurement — and 23/25 on `/estudo3`, all on the `--dim:#8f8f8f` token (5.4:1 on the worst ground). Token fixed at the chronicles' single source to `#a6a6a6` (7.15:1 on the worst ground) and the re-sweep came back **clean on all four routes**, except 1 deliberate node: the color specimen in Figure 5 (logged in `EXCEPTIONS.md` and `A11Y-DECISIONS.md`). The header gains the "Study 3" link (flat links, decision logged). **Pending human validation:** screen reader and keyboard pass on the study routes (lightbox included) — checkpoints reopened for those routes, as in the /timeline revision. Verification self-reported (generator and verifier in the same session). **Root-cause fix (same revision):** the standard's invocation sentence — the very one the site tells users to paste into their rules file — enters this repository's `CLAUDE.md` and the one of the environment that produces the chronicles. The editorial routes were born outside the loop precisely because that sentence existed in neither environment: the product was not installed in its own house. The same sweep, pointed at the home, measured the pending item declared in the 08-15 revision (badge/chip contrast): 5 nodes failing the 7:1 floor — the coral `code` chips on `bg-muted` (6.28:1) and the "fails" header of the code comparison (6.57:1). Fixed preserving the identity: chips moved to bordered `bg-card` (7.9:1) and the red one step lighter (`#f59d9d`, 7.6:1). Menu revised by the author the same day: a single "Studies" disclosure (decision logged); axe clean on the home in both languages, submenu closed and open. Addendum (same date, caught by the author via Tab): the quick-start terminal was a tab stop even without overflowing — a violation of the standard's own §6 rule, "Focus Traps Nobody Asked For". Focus is now conditioned on actual overflow via ResizeObserver, with the safe side (focusable) at first paint and without JavaScript; decision revised in A11Y-DECISIONS.md.
 - **Revision 2026-09-25 (content-only, no structural change):** footer version updated from v2.0.0 to v2.0.2 and the `product.ts` guide count corrected from 29 to 30, verified name by name against the `v2.0.2` tag tree (29 at 1.8.0, plus `guide-agentic-web` and `guide-sign-language-br`, minus one guide merged in the 2.0.0 diet); `versionDate` carried the 1.8.0 date and now carries the release date. `v2-0-2` entry in the timeline, summary smaller than the release note. The invocation phrase had already been updated on 09-24 (#40). No new component, no checkpoint affected. Closes issue #39.
+- **Revision 2026-09-25 (v2.1.0 — report migration + code samples become content):** footer version from v2.0.2 to v2.1.0 and contract rules from 18 to 19 in `product.ts` (verified against the tag tree); `v2-1-0` entry in the timeline. This report migrates to what 2.1.0 requires: a *Verification Independence* field (self-reported, declared), a *Static gate* field with the run's outcome, and the contrast table now carries the resolved hex of every token, because the gate recomputes ratios and cannot recompute a variable (ratios moved in the second decimal against the earlier measurement on browser-computed tokens; all within the floor). The two code samples of the comparison section move out of the `.tsx` into `content/code-snippets.json`: the bad sample's `<div onClick>`, shown on purpose, was read by the static scan as a real clickable div. No new component; the comparison section renders the same HTML
 - **Tooling:** axe-core 4.x via headless Chrome (150.0), ESLint with `eslint-plugin-jsx-a11y`, TypeScript 5.9, contrast measured on computed tokens
 - **Scope:** `/pt-BR` and `/en` routes, 1280px, 390px and 320px viewports
+- **Verification Independence:** self-reported ⚠️ — who verified: Claude Code (Fable 5.1), in the same session that produced this revision. Ceiling is CONDITIONAL, which is already the status; human screen-reader validation is still pending (§3)
+- **Static gate (`verify-a11y.py`):** PASS (0 error(s), 6 warning(s)) — run on: 2026-09-25
 - **Compliance status:** ⚠️ **CONDITIONAL** — passes all automatable and keyboard verification; **human screen reader validation is still missing** (see §3)
 
 ---
@@ -52,19 +55,21 @@ Validated by keyboard, without a mouse.
 
 ## 4. Visual perception and comprehension
 
-Contrast measured on computed tokens, against `--background`:
+Pairs measured with `tools/contrast-check.py` (hex resolved from the HSL tokens in `globals.css`), against `--background` unless stated. The static gate recomputes every row with the WCAG formula:
 
-| Token | Measured | Shield floor | |
-|---|---|---|---|
-| `--foreground` | **16.73:1** | 7:1 | ✅ |
-| `--muted-foreground` | **7.70:1** | 7:1 | ✅ |
-| `--primary` | **8.67:1** | 7:1 | ✅ |
-| `--success` | **9.52:1** | 7:1 | ✅ |
-| `--destructive` | **7.62:1** | 7:1 | ✅ |
-| `--warning` | **11.18:1** | 7:1 | ✅ |
-| `--border-strong` (components) | **3.95:1** | 3:1 | ✅ |
-| `--border` (decorative divider) | 1.48:1 | — | see `A11Y-DECISIONS.md` |
-| text on primary button | **8.67:1** | 7:1 | ✅ |
+| Pair | Foreground | Background | Ratio | Floor | Result |
+| :--- | :--- | :--- | ---: | ---: | :--- |
+| `--foreground` (text) | #f2f2f2 | #121212 | 16.79:1 | 7:1 | ✅ |
+| `--muted-foreground` (secondary text) | #a6a6a6 | #121212 | 7.68:1 | 7:1 | ✅ |
+| `--primary` (links, labels) | #e2a18d | #121212 | 8.67:1 | 7:1 | ✅ |
+| `--success` | #47d17a | #121212 | 9.54:1 | 7:1 | ✅ |
+| `--destructive` | #f48585 | #121212 | 7.64:1 | 7:1 | ✅ |
+| `--warning` | #e8c468 | #121212 | 11.21:1 | 7:1 | ✅ |
+| `--border-strong` (components) | #737373 | #121212 | 3.94:1 | 3:1 | ✅ |
+| text on primary button | #121212 | #e2a18d | 8.67:1 | 7:1 | ✅ |
+| "Without A11Y.md" label over the composited `destructive/10` strip | #f59d9d | #291d1d | 7.90:1 | 7:1 | ✅ |
+
+Outside the table because it carries no meaning: `--border` (#333333), a decorative divider at 1.48:1 against the background, with no contrast requirement as non-text, non-functional — decision recorded in `A11Y-DECISIONS.md`.
 
 - [x] **Semantic redundancy:** state always via **icon + text + color**. The "Without A11Y.md" / "With A11Y.md" labels carry icon and word; the credibility band uses text and separator, never color alone
 - [x] **Typography:** **zero** occurrences of text below 14px, the Shield floor. The `text-xs` step was removed from the theme to prevent accidental use
