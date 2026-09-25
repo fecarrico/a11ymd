@@ -500,4 +500,22 @@ export const timeline: TimelineEntry[] = [
       label: { "pt-BR": "Ler o relato completo", en: "Read the full report" },
     },
   },
+  {
+    id: "v2-0-2",
+    date: "2026-09-25",
+    kind: "release",
+    title: {
+      "pt-BR": "v2.0.2 — os endereços que o agente busca",
+      en: "v2.0.2 — the addresses an agent fetches",
+    },
+    description: {
+      "pt-BR":
+        "Nenhuma obrigação mudou. Mudou o endereço de tudo o que um agente busca: a frase de invocação, os guias carregados sob demanda e os scripts passam a apontar para o arquivo puro no GitHub, e não mais para a página. A frase também deixa de dizer \"A11Y.md\" antes do link, porque .md é um domínio de internet e o chat de uma IDE podia transformar o nome em link para o site errado.",
+      en: "No obligation changed. What changed is the address of everything an agent fetches: the invocation phrase, the lazily loaded guides and the scripts now point at the plain file on GitHub, not at the page. The phrase also stops naming \"A11Y.md\" before the link, because .md is an internet domain and an IDE chat could turn the name into a link to the wrong site.",
+    },
+    link: {
+      href: changelog("202---2026-09-25"),
+      label: { "pt-BR": "Notas da versão", en: "Release notes" },
+    },
+  },
 ]
