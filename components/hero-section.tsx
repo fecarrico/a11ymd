@@ -59,7 +59,7 @@ export function HeroSection({ dict }: { dict: Dictionary }) {
               {dict.hero.heading}
             </h1>
 
-            <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
+            <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl sm:leading-relaxed">
               {dict.hero.description}
             </p>
 
@@ -135,7 +135,7 @@ export function HeroSection({ dict }: { dict: Dictionary }) {
 
           {/* A porta de quem não programa, no ponto da conversão — no teste de
               leitura leiga, deixá-la só no Quick Start chegava tarde demais. */}
-          <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-[80ch] text-sm leading-relaxed text-muted-foreground">
             {dict.howto.noCode}
           </p>
 

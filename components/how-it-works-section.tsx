@@ -51,7 +51,7 @@ export function HowItWorksSection({ dict }: { dict: Dictionary }) {
                 {/* Ramificação: a decisão que o protocolo toma neste estágio. */}
                 <div className="mt-3 rounded-lg border border-border bg-card/50 p-5">
                   <p className="font-medium text-foreground">{step.condition}</p>
-                  <p className="mt-1.5 text-pretty leading-relaxed text-muted-foreground">
+                  <p className="mt-1.5 max-w-[80ch] text-pretty leading-relaxed text-muted-foreground">
                     <span aria-hidden="true" className="mr-2 font-mono text-primary">
                       →
                     </span>
