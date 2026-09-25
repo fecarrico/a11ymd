@@ -107,7 +107,7 @@ export function SocialProofSection({ dict, lang }: { dict: Dictionary; lang: Loc
         */}
         <Reveal>
           <div className="mt-14 rounded-xl border border-primary/30 bg-primary/5 p-6 sm:p-8">
-            <p className="font-mono text-xs uppercase tracking-[0.18em] text-primary">
+            <p className="font-mono text-sm uppercase tracking-[0.18em] text-primary">
               {dict.social.institutionLabel}
             </p>
             <div className="mt-4 flex flex-col gap-5 lg:flex-row lg:items-center lg:gap-10">
@@ -127,7 +127,7 @@ export function SocialProofSection({ dict, lang }: { dict: Dictionary; lang: Loc
                 <ExternalLink
                   href={institution.url}
                   newTabLabel={dict.footer.aria.externalLink}
-                  className="mt-2 inline-block text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground hover:no-underline"
+                  className="mt-2 inline-block py-3 text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground hover:no-underline"
                 >
                   {dict.social.institutionDetail}
                 </ExternalLink>
@@ -160,7 +160,7 @@ export function SocialProofSection({ dict, lang }: { dict: Dictionary; lang: Loc
                     <ExternalLink
                       href={mention.url}
                       newTabLabel={dict.footer.aria.externalLink}
-                      className="mt-2 inline-block underline underline-offset-4 hover:text-foreground hover:no-underline"
+                      className="mt-2 inline-block py-3 underline underline-offset-4 hover:text-foreground hover:no-underline"
                     >
                       {detail}
                     </ExternalLink>

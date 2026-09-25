@@ -76,7 +76,7 @@ export function HowToUseSection({ dict }: { dict: Dictionary }) {
         {/* O caminho sem código escaneável — estava enterrado no fim do passo 3,
             e é a porta de entrada de quem é designer, não dev. */}
         <Reveal delay={0.25}>
-          <p className="mt-12 border-l-2 border-primary pl-4 text-lg text-muted-foreground">
+          <p className="mt-12 max-w-[80ch] border-l-2 border-primary pl-4 text-lg leading-relaxed text-muted-foreground">
             {dict.howto.noCode}
           </p>
         </Reveal>

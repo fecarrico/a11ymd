@@ -99,7 +99,7 @@ export function CodeComparison({ dict, lang }: { dict: Dictionary; lang: Locale 
             e pergunta "e o meu framework?". Mesmo padrão visual da nota
             sem-código do Quick Start. */}
         <Reveal delay={0.1}>
-          <p className="mt-10 border-l-2 border-primary pl-4 text-muted-foreground">
+          <p className="mt-10 max-w-[80ch] border-l-2 border-primary pl-4 text-muted-foreground">
             {dict.code.frameworks}
           </p>
         </Reveal>
