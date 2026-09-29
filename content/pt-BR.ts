@@ -118,6 +118,37 @@ export const ptBR = {
       },
     ],
     noCode: "Não programa? Cole o link do GitHub no Lovable, no v0 ou no Figma Make — funciona igual.",
+    // Um pedido pronto por papel. Quem não escreve código chegava aqui e
+    // encontrava só a regra do dev e uma linha solta sobre o Lovable. Dev
+    // não entra na lista: o pedido do dev é a própria regra, logo acima.
+    roles: {
+      heading: "Um pedido pronto para designer, QA e produto",
+      intro:
+        "O A11Y.md serve a quem não escreve código. Copie o pedido do seu papel e cole na IA que você já usa.",
+      copy: "Copiar o pedido",
+      copied: "Pedido copiado",
+      promptLabel: "Cole na IA",
+      items: [
+        {
+          role: "Designer",
+          description:
+            "Cole o link do padrão no Lovable, no v0 ou no Figma Make e a IA desenha já dentro das regras.",
+          prompt: `Antes de propor este componente ou tela, siga as regras de acessibilidade do arquivo ${product.coreFile["pt-BR"]}. Diga qual perfil de conformidade está usando e o que você não conseguiu verificar.`,
+        },
+        {
+          role: "QA e testes",
+          description:
+            "Cada guia do padrão diz o que deve acontecer por teclado e o que o leitor de tela precisa anunciar. Isso vira roteiro de teste.",
+          prompt: `Consulte o guia deste componente no ${product.coreFile["pt-BR"]} e liste, cenário a cenário, o que deve acontecer por teclado e o que o leitor de tela precisa anunciar, no computador e no celular. Separe o que você já verificou no código do que precisa de uma pessoa.`,
+        },
+        {
+          role: "Produto",
+          description:
+            "Os critérios de aceite de acessibilidade saem do padrão, não da memória de quem escreve a tarefa.",
+          prompt: `Leia o A11Y.md em ${product.coreFile["pt-BR"]}. A partir dele, escreva os critérios de aceite de acessibilidade desta entrega: o que é obrigatório no perfil Standard, o que vira exceção registrada e quem precisa validar com leitor de tela.`,
+        },
+      ],
+    },
     terminal: {
       label: "Demonstração: a regra a adicionar ao arquivo de configuração do agente",
       window: ".cursorrules",

@@ -114,6 +114,36 @@ export const en: Dictionary = {
       },
     ],
     noCode: "Don't code? Paste the GitHub link into Lovable, v0 or Figma Make — it works the same.",
+    // One ready-to-paste request per role. Dev is not in the list: the
+    // developer's request is the rule itself, right above.
+    roles: {
+      heading: "A ready-made request for designers, QA and product",
+      intro:
+        "A11Y.md works for people who don't write code. Copy the request for your role and paste it into the AI you already use.",
+      copy: "Copy the request",
+      copied: "Request copied",
+      promptLabel: "Paste into your AI",
+      items: [
+        {
+          role: "Designer",
+          description:
+            "Paste the standard's link into Lovable, v0 or Figma Make and the AI designs inside the rules from the start.",
+          prompt: `Before proposing this component or screen, follow the accessibility rules in the file ${product.coreFile.en}. Say which compliance profile you are using and what you could not verify.`,
+        },
+        {
+          role: "QA and testing",
+          description:
+            "Every guide in the standard says what must happen by keyboard and what the screen reader must announce. That is a test script.",
+          prompt: `Read the guide for this component in ${product.coreFile.en} and list, scenario by scenario, what must happen by keyboard and what the screen reader must announce, on desktop and on a phone. Separate what you verified in the code from what needs a person.`,
+        },
+        {
+          role: "Product",
+          description:
+            "Accessibility acceptance criteria come from the standard, not from the memory of whoever writes the task.",
+          prompt: `Read A11Y.md at ${product.coreFile.en}. Based on it, write the accessibility acceptance criteria for this delivery: what is mandatory under the Standard profile, what becomes a recorded exception, and who must validate with a screen reader.`,
+        },
+      ],
+    },
     terminal: {
       label: "Demo: the rule to add to your agent's configuration file",
       window: ".cursorrules",
