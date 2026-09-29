@@ -122,6 +122,7 @@ export const en: Dictionary = {
         "A11Y.md works for people who don't write code. Copy the request for your role and paste it into the AI you already use.",
       copy: "Copy the request",
       copied: "Request copied",
+      promptLabel: "Paste into your AI",
       items: [
         {
           role: "Designer",
@@ -139,7 +140,7 @@ export const en: Dictionary = {
           role: "Product",
           description:
             "Accessibility acceptance criteria come from the standard, not from the memory of whoever writes the task.",
-          prompt: `Use ${product.coreFile.en} to write the accessibility acceptance criteria for this delivery. Say what is mandatory under the Standard profile, what becomes a recorded exception, and who must validate with a screen reader.`,
+          prompt: `Read A11Y.md at ${product.coreFile.en}. Based on it, write the accessibility acceptance criteria for this delivery: what is mandatory under the Standard profile, what becomes a recorded exception, and who must validate with a screen reader.`,
         },
       ],
     },

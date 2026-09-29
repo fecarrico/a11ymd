@@ -74,22 +74,29 @@ export function HowToUseSection({ dict }: { dict: Dictionary }) {
         </div>
 
         {/* Um pedido pronto por papel — o caminho de quem não é dev, que antes
-            era uma linha solta sobre o Lovable. Sem cards: filete à esquerda,
-            como a linha que substitui, para não pôr container dentro de
-            container. O pedido fica visível e selecionável; o botão só copia. */}
+            era uma linha solta sobre o Lovable. O pedido vai num bloco com a
+            mesma borda e fundo do terminal da regra: é texto para colar, e
+            precisa parecer isso — como parágrafo, o autor leu o pedido de
+            produto ao contrário. Sem filete: os itens alinham com o título,
+            e no celular nada fica deslocado. O botão só copia. */}
         <Reveal delay={0.25}>
           <div className="mt-16">
             <h3 className="text-xl font-semibold text-foreground">{dict.howto.roles.heading}</h3>
             <p className="mt-2 max-w-2xl text-muted-foreground">{dict.howto.roles.intro}</p>
             <ul className="mt-8 grid gap-8 md:grid-cols-3">
               {dict.howto.roles.items.map((item) => (
-                <li key={item.role} className="flex min-w-0 flex-col border-l-2 border-primary pl-4">
+                <li key={item.role} className="flex min-w-0 flex-col">
                   <h4 className="font-semibold text-foreground">{item.role}</h4>
                   <p className="mt-2 text-muted-foreground">{item.description}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-foreground [overflow-wrap:anywhere]">
-                    {item.prompt}
-                  </p>
-                  <div className="mt-auto pt-3">
+                  <div className="mt-4 min-w-0 rounded-xl border border-border bg-background">
+                    <p className="border-b border-border px-4 py-2 font-mono text-sm text-muted-foreground">
+                      {dict.howto.roles.promptLabel}
+                    </p>
+                    <p className="whitespace-pre-wrap p-4 font-mono text-sm leading-relaxed text-foreground [overflow-wrap:anywhere]">
+                      {item.prompt}
+                    </p>
+                  </div>
+                  <div className="mt-auto pt-4">
                     <CopyRuleButton
                       rule={item.prompt}
                       label={dict.howto.roles.copy}

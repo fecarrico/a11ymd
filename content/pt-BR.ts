@@ -127,6 +127,7 @@ export const ptBR = {
         "O A11Y.md serve a quem não escreve código. Copie o pedido do seu papel e cole na IA que você já usa.",
       copy: "Copiar o pedido",
       copied: "Pedido copiado",
+      promptLabel: "Cole na IA",
       items: [
         {
           role: "Designer",
@@ -144,7 +145,7 @@ export const ptBR = {
           role: "Produto",
           description:
             "Os critérios de aceite de acessibilidade saem do padrão, não da memória de quem escreve a tarefa.",
-          prompt: `Use o ${product.coreFile["pt-BR"]} para escrever os critérios de aceite de acessibilidade desta entrega. Diga o que é obrigatório no perfil Standard, o que vira exceção registrada e quem precisa validar com leitor de tela.`,
+          prompt: `Leia o A11Y.md em ${product.coreFile["pt-BR"]}. A partir dele, escreva os critérios de aceite de acessibilidade desta entrega: o que é obrigatório no perfil Standard, o que vira exceção registrada e quem precisa validar com leitor de tela.`,
         },
       ],
     },
