@@ -11,12 +11,12 @@
  */
 
 export const product = {
-  version: "2.1.0",
-  versionDate: "2026-09-25",
+  version: "2.2.0",
+  versionDate: "2026-09-29",
 
   /** Contagens verificadas contra o CHANGELOG e a árvore do repositório. */
   behaviorContractRules: 19,
-  referenceGuides: 30,
+  referenceGuides: 31,
   complianceProfiles: 3,
 
   targetStandard: "WCAG 2.2 AA",

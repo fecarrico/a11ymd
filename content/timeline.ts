@@ -536,4 +536,22 @@ export const timeline: TimelineEntry[] = [
       label: { "pt-BR": "Notas da versão", en: "Release notes" },
     },
   },
+  {
+    id: "v2-2-0",
+    date: "2026-09-29",
+    kind: "release",
+    title: {
+      "pt-BR": "v2.2.0 — os cenários",
+      en: "v2.2.0 — the scenarios",
+    },
+    description: {
+      "pt-BR":
+        "Desde a v1.7.0 alguém que não escreveu o código precisa testemunhar que a interface funciona, mas nada dizia a essa pessoa o que procurar. Agora cada guia de componente termina com cenários de verificação: o que deve acontecer por teclado e o que o leitor de tela precisa anunciar, no computador e no celular. O formato veio do Magoo, a biblioteca de comportamentos de Marcelo Sales. Entraram também um guia para checkbox, radio, switch, slider e select, o campo que diz contra qual versão do padrão o relatório foi verificado, e dois falsos positivos do verificador corrigidos.",
+      en: "Since v1.7.0 someone who did not write the code has to witness that the interface works, but nothing told that person what to look for. Now every component guide ends with verification scenarios: what must happen by keyboard and what the screen reader must announce, on desktop and on a phone. The shape came from Magoo, Marcelo Sales' behavior library. Also in: a guide for checkbox, radio, switch, slider and select, the field that says which version of the standard a report was verified against, and two false positives fixed in the checker.",
+    },
+    link: {
+      href: changelog("220---2026-09-29"),
+      label: { "pt-BR": "Notas da versão", en: "Release notes" },
+    },
+  },
 ]
