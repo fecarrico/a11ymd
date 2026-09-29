@@ -73,12 +73,34 @@ export function HowToUseSection({ dict }: { dict: Dictionary }) {
           </Reveal>
         </div>
 
-        {/* O caminho sem código escaneável — estava enterrado no fim do passo 3,
-            e é a porta de entrada de quem é designer, não dev. */}
+        {/* Um pedido pronto por papel — o caminho de quem não é dev, que antes
+            era uma linha solta sobre o Lovable. Sem cards: filete à esquerda,
+            como a linha que substitui, para não pôr container dentro de
+            container. O pedido fica visível e selecionável; o botão só copia. */}
         <Reveal delay={0.25}>
-          <p className="mt-12 max-w-[80ch] border-l-2 border-primary pl-4 text-lg leading-relaxed text-muted-foreground">
-            {dict.howto.noCode}
-          </p>
+          <div className="mt-16">
+            <h3 className="text-xl font-semibold text-foreground">{dict.howto.roles.heading}</h3>
+            <p className="mt-2 max-w-2xl text-muted-foreground">{dict.howto.roles.intro}</p>
+            <ul className="mt-8 grid gap-8 md:grid-cols-3">
+              {dict.howto.roles.items.map((item) => (
+                <li key={item.role} className="flex min-w-0 flex-col border-l-2 border-primary pl-4">
+                  <h4 className="font-semibold text-foreground">{item.role}</h4>
+                  <p className="mt-2 text-muted-foreground">{item.description}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-foreground [overflow-wrap:anywhere]">
+                    {item.prompt}
+                  </p>
+                  <div className="mt-auto pt-3">
+                    <CopyRuleButton
+                      rule={item.prompt}
+                      label={dict.howto.roles.copy}
+                      copiedLabel={dict.howto.roles.copied}
+                      srSuffix={item.role}
+                    />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </Reveal>
       </div>
     </section>

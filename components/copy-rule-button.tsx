@@ -7,6 +7,10 @@ type CopyRuleButtonProps = {
   rule: string
   label: string
   copiedLabel: string
+  /** Sufixo só para leitor de tela — três botões "Copiar o pedido" na mesma
+      seção precisam de nomes distintos (SC 2.4.6), e o texto visível continua
+      no início do nome (SC 2.5.3, Label in Name). */
+  srSuffix?: string
 }
 
 /**
@@ -14,7 +18,7 @@ type CopyRuleButtonProps = {
  * para uma região `role="status"`, que leitores de tela anunciam. O texto
  * permanece no DOM por 5s: 1s não sobrevive a uma fila de fala ocupada.
  */
-export function CopyRuleButton({ rule, label, copiedLabel }: CopyRuleButtonProps) {
+export function CopyRuleButton({ rule, label, copiedLabel, srSuffix }: CopyRuleButtonProps) {
   const [copied, setCopied] = useState(false)
   const timeout = useRef<ReturnType<typeof setTimeout>>(undefined)
 
@@ -45,6 +49,7 @@ export function CopyRuleButton({ rule, label, copiedLabel }: CopyRuleButtonProps
           <Copy className="h-4 w-4 shrink-0" aria-hidden="true" />
         )}
         {copied ? copiedLabel : label}
+        {srSuffix && <span className="sr-only">: {srSuffix}</span>}
       </button>
       <span role="status" aria-live="polite" className="sr-only">
         {copied ? copiedLabel : ""}
