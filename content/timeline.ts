@@ -238,8 +238,8 @@ export const timeline: TimelineEntry[] = [
     },
     description: {
       "pt-BR":
-        "Dogfooding no perfil mais exigente (Shield), com relatório de conformidade público. As lacunas que a construção expôs viraram regras do padrão — inclusive a que protege conteúdo refém de JavaScript.",
-      en: "Dogfooding at the strictest profile (Shield), with a public conformance report. The gaps the build exposed became rules of the standard — including the one protecting content held hostage by JavaScript.",
+        "Dogfooding no perfil mais exigente (Shield), com relatório de conformidade público: o site segue o padrão que divulga.",
+      en: "Dogfooding at the most demanding profile (Shield), with a public conformance report: the site follows the standard it promotes.",
     },
     link: {
       href: "https://github.com/fecarrico/a11ymd",
@@ -288,13 +288,13 @@ export const timeline: TimelineEntry[] = [
     date: "2026-08-02",
     kind: "release",
     title: {
-      "pt-BR": "v1.2.0 — nascida de um post-mortem de campo",
-      en: "v1.2.0 — born from a field post-mortem",
+      "pt-BR": "v1.2.0 — a evidência ganha gatilho",
+      en: "v1.2.0 — evidence gets a trigger",
     },
     description: {
       "pt-BR":
-        "Um agente aplicou o padrão por semanas e nunca gerou os artefatos de evidência. A lição — a obrigação existia, o gatilho não — virou regra, e o repositório ganhou seu primeiro verificador executável.",
-      en: "An agent applied the standard for weeks and never produced the evidence artifacts. The lesson — the obligation existed, the trigger did not — became a rule, and the repository gained its first executable checker.",
+        "Os artefatos de evidência deixam de depender de alguém lembrar de pedir: relatório, decisões e exceções passam a ter gatilho no contrato, e o repositório ganha seu primeiro verificador executável.",
+      en: "The evidence artifacts stop depending on someone remembering to ask: report, decisions and exceptions now have a trigger in the contract, and the repository gets its first executable checker.",
     },
     link: {
       href: changelog("120---2026-08-02"),
@@ -324,13 +324,13 @@ export const timeline: TimelineEntry[] = [
     date: "2026-08-10",
     kind: "release",
     title: {
-      "pt-BR": "v1.5.0 — mídia temporal, acessibilidade cognitiva e a auditoria",
-      en: "v1.5.0 — time-based media, cognitive accessibility, and the audit",
+      "pt-BR": "v1.5.0 — mídia temporal e acessibilidade cognitiva",
+      en: "v1.5.0 — time-based media and cognitive accessibility",
     },
     description: {
       "pt-BR":
-        "Vídeo e áudio ganham contrato próprio, os critérios cognitivos da WCAG 2.2 entram no piso — e a auditoria pré-release descobre que o gate de conformidade estava neutralizado pelo próprio template. Consertado e contado no changelog.",
-      en: "Video and audio get their own contract, WCAG 2.2's cognitive criteria join the floor — and the pre-release audit finds the conformance gate neutralized by its own template. Fixed, and told in the changelog.",
+        "Vídeo e áudio ganham contrato próprio, e os critérios cognitivos da WCAG 2.2 entram no piso do padrão.",
+      en: "Video and audio get a contract of their own, and the cognitive criteria of WCAG 2.2 enter the standard's floor.",
     },
     link: {
       href: changelog("150---2026-08-10"),
@@ -528,8 +528,8 @@ export const timeline: TimelineEntry[] = [
     },
     description: {
       "pt-BR":
-        "Os estudos mediram o que o modelo faz quando lê o padrão. Ninguém media se a evidência que ele escreve depois é verdadeira, nem se a única verificação mecânica do projeto chegou a rodar. Ela nunca rodou. Agora o agente é obrigado a rodá-la antes de entregar e a avisar quando ela for negada, o verificador passou a enxergar o que o axe não vê no código, e cada razão de contraste registrada no relatório é recalculada pela fórmula em vez de acreditada.",
-      en: "The studies measured what the model does when it reads the standard. Nobody measured whether the evidence it writes afterwards is true, or whether the project's one mechanical check ever ran. It never did. Now the agent must run it before delivering and must say so when it is denied, the checker reads what axe cannot see in source, and every contrast ratio recorded in the report is recomputed by the formula instead of believed.",
+        "Os estudos mediram o que o modelo faz quando lê o padrão. Agora o padrão também cobra a evidência que o agente escreve depois: o verificador roda antes de toda entrega e avisa quando for negado, enxerga no código o que o axe não vê, e cada razão de contraste do relatório é recalculada pela fórmula em vez de acreditada.",
+      en: "The studies measured what the model does when it reads the standard. Now the standard also holds the evidence the agent writes afterwards to account: the checker runs before every delivery and says so when it is denied, reads in source what axe cannot see, and every contrast ratio in the report is recomputed by the formula instead of believed.",
     },
     link: {
       href: changelog("210---2026-09-25"),
@@ -546,8 +546,8 @@ export const timeline: TimelineEntry[] = [
     },
     description: {
       "pt-BR":
-        "Desde a v1.7.0 alguém que não escreveu o código precisa testemunhar que a interface funciona, mas nada dizia a essa pessoa o que procurar. Agora cada guia de componente termina com cenários de verificação: o que deve acontecer por teclado e o que o leitor de tela precisa anunciar, no computador e no celular. O formato veio do Magoo, a biblioteca de comportamentos de Marcelo Sales. Entraram também um guia para checkbox, radio, switch, slider e select, o campo que diz contra qual versão do padrão o relatório foi verificado, e dois falsos positivos do verificador corrigidos.",
-      en: "Since v1.7.0 someone who did not write the code has to witness that the interface works, but nothing told that person what to look for. Now every component guide ends with verification scenarios: what must happen by keyboard and what the screen reader must announce, on desktop and on a phone. The shape came from Magoo, Marcelo Sales' behavior library. Also in: a guide for checkbox, radio, switch, slider and select, the field that says which version of the standard a report was verified against, and two false positives fixed in the checker.",
+        "Desde a v1.7.0 alguém que não escreveu o código precisa testemunhar que a interface funciona, mas nada dizia a essa pessoa o que procurar. Agora cada guia de componente termina com cenários de verificação: o que deve acontecer por teclado e o que o leitor de tela precisa anunciar, no computador e no celular. O formato veio do Magoo, a biblioteca de comportamentos de Marcelo Sales. Entraram também um guia para checkbox, radio, switch, slider e select e o campo que diz contra qual versão do padrão o relatório foi verificado.",
+      en: "Since v1.7.0 someone who did not write the code has to witness that the interface works, but nothing told that person what to look for. Now every component guide ends with verification scenarios: what must happen by keyboard and what the screen reader must announce, on desktop and on a phone. The shape came from Magoo, Marcelo Sales' behavior library. Also in: a guide for checkbox, radio, switch, slider and select, and the field that says which version of the standard a report was verified against.",
     },
     link: {
       href: changelog("220---2026-09-29"),
@@ -564,8 +564,8 @@ export const timeline: TimelineEntry[] = [
     },
     description: {
       "pt-BR":
-        "Pela primeira vez o projeto é apresentado à comunidade de acessibilidade, e não à de design ou à de tecnologia. Na 28ª Reunião da Liga Voluntária do Web para Todos, Simone Freire conduz as perguntas sobre como o padrão nasceu e o que ele faz, e a conversa abre com a autodescrição porque há pessoas cegas na sala. Da plateia saem duas pendências que o projeto ainda não tinha: a NBR 17060, a norma brasileira para aplicativos de celular, que o padrão não citava, e a validação com quem usa tecnologia assistiva todos os dias, que nenhum estudo do projeto fez até aqui.",
-      en: "For the first time the project is presented to the accessibility community, not to the design or the technology one. At the 28th meeting of the Web para Todos Volunteer League, Simone Freire leads the questions about how the standard was born and what it does, and the conversation opens with a self-description because there are blind people in the room. Two pending items come out of the audience that the project did not have yet: NBR 17060, the Brazilian norm for mobile apps, which the standard did not cite, and validation with people who use assistive technology every day, which no study of the project has done so far.",
+        "Pela primeira vez o projeto é apresentado à comunidade de acessibilidade, e não à de design ou à de tecnologia. A 28ª Reunião da Liga Voluntária do Web para Todos recebe a conversa, conduzida por Simone Freire, fundadora do movimento, sobre como o padrão nasceu, o que ele faz e como se usa. Há pessoas cegas na sala, e a conversa abre pela autodescrição.",
+      en: "For the first time the project is presented to the accessibility community, not to the design or the technology one. The 28th meeting of the Web para Todos Volunteer League hosts the conversation, led by Simone Freire, founder of the movement, about how the standard was born, what it does and how to use it. There are blind people in the room, and the conversation opens with a self-description.",
     },
     link: {
       href: "https://mwpt.com.br/liga-voluntaria/",
