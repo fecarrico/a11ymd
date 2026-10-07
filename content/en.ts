@@ -240,6 +240,20 @@ export const en: Dictionary = {
       "Accessibility cannot be a badge at the end of the process. It needs to be the constraint at the beginning.",
   },
 
+  sources: {
+    label: "Sources",
+    heading: "What feeds the standard",
+    intro:
+      "Every rule in A11Y.md comes from a document that exists outside it. This is the list of what was consulted and used to build version {version}. It holds {count} documents, with country and version, for anyone who wants to check at the source.",
+    columns: { name: "Document", country: "Country", version: "Version" },
+    categories: {
+      standards: "Technical standards and guidelines",
+      law: "Legislation",
+      evaluation: "Evaluation and conformance",
+      platforms: "Platforms, libraries and supporting documents",
+    },
+  },
+
   timeline: {
     invite: {
       label: "History",

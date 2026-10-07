@@ -246,6 +246,20 @@ export const ptBR = {
       "Acessibilidade não pode ser um selo no final do processo. Precisa ser a restrição no começo.",
   },
 
+  sources: {
+    label: "Fontes",
+    heading: "O que alimenta o padrão",
+    intro:
+      "Cada regra do A11Y.md vem de um documento que existe fora dele. Esta é a lista do que foi consultado e usado para construir a versão {version}. São {count} documentos, com país e versão, para quem quiser conferir na fonte.",
+    columns: { name: "Documento", country: "País", version: "Versão" },
+    categories: {
+      standards: "Normas e diretrizes técnicas",
+      law: "Legislação",
+      evaluation: "Avaliação e conformidade",
+      platforms: "Plataformas, bibliotecas e documentos de apoio",
+    },
+  },
+
   timeline: {
     invite: {
       label: "História",
