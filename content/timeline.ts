@@ -554,4 +554,22 @@ export const timeline: TimelineEntry[] = [
       label: { "pt-BR": "Notas da versão", en: "Release notes" },
     },
   },
+  {
+    id: "liga-wpt",
+    date: "2026-10-06",
+    kind: "milestone",
+    title: {
+      "pt-BR": "A conversa chega à Liga Voluntária do Web para Todos",
+      en: "The conversation reaches the Web para Todos Volunteer League",
+    },
+    description: {
+      "pt-BR":
+        "Pela primeira vez o projeto é apresentado à comunidade de acessibilidade, e não à de design ou à de tecnologia. Na 28ª Reunião da Liga Voluntária do Web para Todos, Simone Freire conduz as perguntas sobre como o padrão nasceu e o que ele faz, e a conversa abre com a autodescrição porque há pessoas cegas na sala. Da plateia saem duas pendências que o projeto ainda não tinha: a NBR 17060, a norma brasileira para aplicativos de celular, que o padrão não citava, e a validação com quem usa tecnologia assistiva todos os dias, que nenhum estudo do projeto fez até aqui.",
+      en: "For the first time the project is presented to the accessibility community, not to the design or the technology one. At the 28th meeting of the Web para Todos Volunteer League, Simone Freire leads the questions about how the standard was born and what it does, and the conversation opens with a self-description because there are blind people in the room. Two pending items come out of the audience that the project did not have yet: NBR 17060, the Brazilian norm for mobile apps, which the standard did not cite, and validation with people who use assistive technology every day, which no study of the project has done so far.",
+    },
+    link: {
+      href: "https://mwpt.com.br/liga-voluntaria/",
+      label: { "pt-BR": "Conhecer a Liga Voluntária", en: "Meet the Volunteer League" },
+    },
+  },
 ]
