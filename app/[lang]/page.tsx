@@ -7,6 +7,7 @@ import { ProofSection } from "@/components/proof-section"
 import { HowToUseSection } from "@/components/how-to-use-section"
 import { HowItWorksSection } from "@/components/how-it-works-section"
 import { SocialProofSection } from "@/components/social-proof-section"
+import { SourcesSection } from "@/components/sources-section"
 import { TimelineInviteSection } from "@/components/timeline-invite-section"
 import { CtaSection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
@@ -39,6 +40,7 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
         <HowToUseSection dict={dict} />
         <HowItWorksSection dict={dict} />
         <SocialProofSection dict={dict} lang={locale} />
+        <SourcesSection dict={dict} lang={locale} />
         <TimelineInviteSection dict={dict} lang={locale} />
         <CtaSection dict={dict} />
       </main>
