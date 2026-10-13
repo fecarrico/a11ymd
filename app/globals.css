@@ -101,6 +101,12 @@ header,
 [data-hero-rest] {
   transition: opacity 0.6s ease;
 }
+/* Intro encerrada pelo teclado: o conteúdo aparece de uma vez, para o anel
+   de foco nunca surgir num elemento ainda em transição de opacidade. */
+html.intro-skipped header,
+html.intro-skipped [data-hero-rest] {
+  transition: none;
+}
 html.intro header,
 html.intro [data-hero-rest] {
   opacity: 0;

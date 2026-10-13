@@ -19,6 +19,8 @@ import { cn } from "@/lib/utils"
  *   com movimento reduzido, o nome renderiza direto como A11Y.md.
  * - O resto da página fica em opacity 0 durante a intro (nunca display:none):
  *   permanece no DOM para leitores de tela e para o HTML servido.
+ * - Qualquer tecla ou foco encerra a intro na hora: o teclado nunca anda por
+ *   conteúdo invisível.
  */
 const LETTERS = "CCESSIBILIT".split("")
 
@@ -54,16 +56,38 @@ export function BrandName({ className, badge, badgeSr }: BrandNameProps) {
     setDy(Math.max(0, Math.round(window.innerHeight / 2 - (rect.top + rect.height / 2))))
 
     setPhase("shown")
-    const timers = [
+    let timers: ReturnType<typeof setTimeout>[] = []
+    const stopListening = () => {
+      document.removeEventListener("keydown", skip, true)
+      document.removeEventListener("focusin", skip, true)
+    }
+    const finish = () => {
+      timers.forEach(clearTimeout)
+      stopListening()
+      setPhase("done")
+      // Libera o resto da página (CSS transiciona a opacidade na remoção).
+      root.classList.remove("intro")
+    }
+    // A11Y (SC 2.4.7, 2.4.11): a intro nunca segura o teclado. Uma tecla, ou
+    // o foco movido por tecnologia assistiva, encerra a intro na hora e sem a
+    // transição de opacidade. Antes, o Tab passava por links do cabeçalho
+    // ainda em opacity 0, com o anel de foco invisível (verificação de teclado
+    // de 13/10/2026, guide-loading-skeleton).
+    function skip() {
+      root.classList.add("intro-skipped")
+      finish()
+    }
+    document.addEventListener("keydown", skip, true)
+    document.addEventListener("focusin", skip, true)
+    timers = [
       setTimeout(() => setPhase("selecting"), 500),
       setTimeout(() => setPhase("replaced"), 1500),
-      setTimeout(() => {
-        setPhase("done")
-        // Libera o resto da página (CSS transiciona a opacidade na remoção).
-        root.classList.remove("intro")
-      }, 2000),
+      setTimeout(finish, 2000),
     ]
-    return () => timers.forEach(clearTimeout)
+    return () => {
+      timers.forEach(clearTimeout)
+      stopListening()
+    }
   }, [])
 
   const inIntro = phase === "shown" || phase === "selecting" || phase === "replaced"

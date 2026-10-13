@@ -7,7 +7,8 @@ import type { Locale } from "./types"
  * Disciplina de fonte (a mesma de `mentions.ts`, `evidence.ts` e `timeline.ts`):
  * - Só entra aqui o que o padrão cita por nome em `docs/en/A11Y.md`, nos guias
  *   de `references/` ou nos templates. Inventário feito sobre a árvore do
- *   repositório em 2026-10-07; cada item traz o link oficial, conferido na data.
+ *   repositório em 2026-10-07 e revisto na v2.4.0 (2026-10-13); cada item traz o
+ *   link oficial, conferido na data.
  * - `name` é o título oficial no idioma original, com `nameLang` para o
  *   atributo `lang` (SC 3.1.2). País e versão são localizados.
  * - `version` diz o que a fonte declara: número e ano quando a publicação tem
@@ -148,7 +149,6 @@ export const sources: Source[] = [
     country: BR,
     version: { "pt-BR": "2022", en: "2022" },
     url: "https://www.abntcatalogo.com.br/",
-    pending: true,
   },
 
   // ——— Legislação ———
@@ -237,6 +237,15 @@ export const sources: Source[] = [
     country: W3C,
     version: LIVING,
     url: "https://www.w3.org/WAI/eval/report-tool",
+  },
+  {
+    id: "wai-statements",
+    category: "evaluation",
+    name: "Developing an Accessibility Statement",
+    nameLang: "en",
+    country: W3C,
+    version: LIVING,
+    url: "https://www.w3.org/WAI/planning/statements/",
   },
   {
     id: "vpat",

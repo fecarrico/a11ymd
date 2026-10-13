@@ -130,7 +130,7 @@ export function TimelineList({ dict, lang }: TimelineListProps) {
                     >
                       {formatDate(entry.date, lang)}
                     </time>
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-2.5 py-0.5 font-mono text-xs uppercase tracking-wide text-muted-foreground">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-2.5 py-0.5 font-mono text-sm uppercase tracking-wide text-muted-foreground">
                       <Icon className="h-3 w-3" aria-hidden="true" />
                       {dict.timeline.page.kinds[entry.kind]}
                     </span>
