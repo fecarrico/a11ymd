@@ -11,8 +11,8 @@
  */
 
 export const product = {
-  version: "2.2.0",
-  versionDate: "2026-09-29",
+  version: "2.4.0",
+  versionDate: "2026-10-13",
 
   /** Contagens verificadas contra o CHANGELOG e a árvore do repositório. */
   behaviorContractRules: 19,

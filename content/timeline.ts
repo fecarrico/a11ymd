@@ -572,4 +572,40 @@ export const timeline: TimelineEntry[] = [
       label: { "pt-BR": "Conhecer a Liga Voluntária", en: "Meet the Volunteer League" },
     },
   },
+  {
+    id: "v2-3-0",
+    date: "2026-10-08",
+    kind: "release",
+    title: {
+      "pt-BR": "v2.3.0 — a declaração",
+      en: "v2.3.0 — the statement",
+    },
+    description: {
+      "pt-BR":
+        "O GitHub passou a mostrar um arquivo ACCESSIBILITY.md como uma aba de Acessibilidade na página do repositório. O padrão já produzia tudo o que uma declaração precisa, e agora ganha um quarto template para ela. A declaração nasce do relatório e do registro de exceções e leva o nome de uma pessoa que responde por ela. O próprio repositório do padrão publica a sua. Entrou também a camada brasileira para aplicativos, com a ABNT NBR 17060.",
+      en: "GitHub began showing a file named ACCESSIBILITY.md as an Accessibility tab on the repository page. The standard already produced everything a statement needs, and now it has a fourth template for it. The statement comes from the report and the exceptions log and carries the name of a person who answers for it. The standard's own repository publishes one. Also in: the Brazilian layer for mobile apps, ABNT NBR 17060.",
+    },
+    link: {
+      href: changelog("230---2026-10-08"),
+      label: { "pt-BR": "Notas da versão", en: "Release notes" },
+    },
+  },
+  {
+    id: "v2-4-0",
+    date: "2026-10-13",
+    kind: "release",
+    title: {
+      "pt-BR": "v2.4.0 — o inventário",
+      en: "v2.4.0 — the inventory",
+    },
+    description: {
+      "pt-BR":
+        "Cada componente tem um guia, e agora o guia é escolhido pelos componentes que a interface contém, seja qual for o assunto do pedido. Quem verifica uma entrega faz a lista dos componentes a partir da própria interface e roda os cenários de cada guia, inclusive dos que ninguém abriu durante a construção. Uma prévia compartilhada para avaliação passa a contar como entrega e também pede relatório. O guia de abas ganhou a regra do W3C que diz quando o painel recebe foco.",
+      en: "Every component has a guide, and now the guide is chosen by the components the interface contains, whatever the request was about. Whoever verifies a delivery takes the list of components from the interface itself and runs each guide's scenarios, including the guides nobody opened while building. A preview shared for review now counts as a delivery and needs a report too. The tabs guide gained the W3C rule for when the panel takes focus.",
+    },
+    link: {
+      href: changelog("240---2026-10-13"),
+      label: { "pt-BR": "Notas da versão", en: "Release notes" },
+    },
+  },
 ]

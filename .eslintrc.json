@@ -11,7 +11,7 @@
       "error",
       {
         "tags": [],
-        "roles": ["region"],
+        "roles": ["tabpanel", "region"],
         "allowExpressionValues": true
       }
     ]
