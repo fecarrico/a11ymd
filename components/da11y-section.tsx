@@ -22,8 +22,8 @@ import { BASE_PATH } from "@/content/site"
  * · quem pede mais contraste (`prefers-contrast: more`) fica sem a arte.
  *
  * A11Y: a arte é decorativa (`alt=""`): o que ela mostra está escrito na linha
- * de crédito, como no Same Brain. Classificação proposta pela IA, pendente de
- * confirmação do autor (Image Evidence). O CTA é um link (leva a outra
+ * de crédito, como no Same Brain. Classificação proposta pela IA e confirmada
+ * pelo autor em 13/10/2026 (Image Evidence). O CTA é um link (leva a outra
  * página), com o aviso de nova aba no nome acessível via `ExternalLink`, e
  * alvo de 44px de altura sob Shield (SC 2.5.5).
  */
