@@ -252,8 +252,8 @@ export const ptBR = {
     description:
       "O agente do Figma lê o DA11Y.md por link e aplica as mesmas regras e os mesmos números do A11Y.md enquanto a tela é desenhada.",
     action: "Conhecer o DA11Y.md",
-    imageAlt:
-      "O logotipo dally.md entre dois elefantes de Dalí, numa paisagem desenhada em caracteres ASCII.",
+    credit:
+      "Ao fundo, o hero do DA11Y.md desenhado em ASCII, com o logotipo dally.md.",
   },
 
   sources: {

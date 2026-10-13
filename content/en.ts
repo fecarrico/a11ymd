@@ -246,8 +246,8 @@ export const en: Dictionary = {
     description:
       "The Figma agent reads DA11Y.md by link and applies the same rules and the same numbers as A11Y.md while the screen is being drawn.",
     action: "Explore DA11Y.md",
-    imageAlt:
-      "The dally.md logotype between two of Dalí's elephants, in a landscape drawn in ASCII characters.",
+    credit:
+      "In the background, DA11Y.md's hero drawn in ASCII, with the dally.md logotype.",
   },
 
   sources: {
