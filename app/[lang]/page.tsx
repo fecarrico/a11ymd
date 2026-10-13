@@ -10,6 +10,7 @@ import { SocialProofSection } from "@/components/social-proof-section"
 import { SourcesSection } from "@/components/sources-section"
 import { TimelineInviteSection } from "@/components/timeline-invite-section"
 import { CtaSection } from "@/components/cta-section"
+import { Da11ySection } from "@/components/da11y-section"
 import { Footer } from "@/components/footer"
 import { getDictionary, otherLocale } from "@/content"
 import { isLocale, type Locale } from "@/content/types"
@@ -17,7 +18,8 @@ import { isLocale, type Locale } from "@/content/types"
 /**
  * Uma landing com um job: levar o visitante a colar a regra no agente dele.
  * Funil — entender (hero) → acreditar (números) → ver (antes/depois) →
- * agir (quick start) → confiar (repercussão) → juntar-se (CTA).
+ * agir (quick start) → confiar (repercussão) → juntar-se (CTA) → e, para quem
+ * desenha, o projeto irmão (DA11Y.md).
  * Profundidade (evidência completa, changelog, arquitetura) vive na Wiki.
  */
 export default async function Page({ params }: { params: Promise<{ lang: string }> }) {
@@ -43,6 +45,7 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
         <SourcesSection dict={dict} lang={locale} />
         <TimelineInviteSection dict={dict} lang={locale} />
         <CtaSection dict={dict} />
+        <Da11ySection dict={dict} />
       </main>
 
       <Footer dict={dict} />

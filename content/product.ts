@@ -61,6 +61,14 @@ export const product = {
     },
   },
 
+  /** O projeto irmão: a edição de design do A11Y.md, para o arquivo de design
+      (Figma). A página é o destino de quem chega por aqui; o repositório é
+      onde vive o protocolo. */
+  da11y: {
+    page: "https://fecarrico.github.io/da11ymd/",
+    repo: "https://github.com/fecarrico/DA11Y.md",
+  },
+
   manifesto: {
     "pt-BR":
       "https://medium.com/ux-user-experience-design-em-portugues/a11y-md-acessibilidade-antes-de-qualquer-prompt-5c8778ccb310",

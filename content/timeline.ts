@@ -1,4 +1,5 @@
 import type { Locale } from "./types"
+import { product } from "./product"
 
 /**
  * A linha do tempo do A11Y.md — releases e acontecimentos de campo, juntos.
@@ -606,6 +607,24 @@ export const timeline: TimelineEntry[] = [
     link: {
       href: changelog("240---2026-10-13"),
       label: { "pt-BR": "Notas da versão", en: "Release notes" },
+    },
+  },
+  {
+    id: "da11y-launch",
+    date: "2026-10-13",
+    kind: "milestone",
+    title: {
+      "pt-BR": "O DA11Y.md leva o padrão ao arquivo de design",
+      en: "DA11Y.md takes the standard to the design file",
+    },
+    description: {
+      "pt-BR":
+        "Nasce a edição de design do A11Y.md, com as mesmas regras e os mesmos números. O agente do Figma lê o DA11Y.md por link, do mesmo jeito que um agente de código lê o A11Y.md. Ele aplica primeiro o que a biblioteca já decidiu, calcula o contraste a partir dos tokens e anota cada achado na própria tela, dizendo o que cabe a quem desenha. O relatório sai do arquivo junto com o desenho e chega a quem vai construir, que segue o A11Y.md no código.",
+      en: "The design edition of A11Y.md is born, with the same rules and the same numbers. The Figma agent reads DA11Y.md by link, the same way a coding agent reads A11Y.md. It applies what the library already decided first, computes contrast from the tokens and annotates each finding on the screen itself, saying what is up to the designer. The report leaves the file with the design and reaches whoever builds it, who follows A11Y.md in code.",
+    },
+    link: {
+      href: product.da11y.page,
+      label: { "pt-BR": "Conhecer o DA11Y.md", en: "Explore DA11Y.md" },
     },
   },
 ]
