@@ -48,6 +48,15 @@ function formatDate(iso: string, locale: Locale): string {
   }).format(date)
 }
 
+
+/** O halo na cor exata do fundo não lê como sombra: só apaga o logotipo atrás
+ *  dos glifos, protegendo a leitura. O título sempre leva o halo; a data e o
+ *  fundo opaco do selo, só nas entradas com logotipo, porque no celular o
+ *  logotipo passa por trás dessa linha e o selo caía a 1,8–2,7:1 (13/10/2026).
+ *  Nas outras entradas a linha fica como era. */
+const HALO =
+  "[text-shadow:0_0_2px_hsl(var(--background)),0_0_3px_hsl(var(--background)),0_0_6px_hsl(var(--background)),0_0_12px_hsl(var(--background)),0_0_20px_hsl(var(--background)),0_0_28px_hsl(var(--background))]"
+
 export function TimelineList({ dict, lang }: TimelineListProps) {
   return (
     <div className="relative">
@@ -113,6 +122,9 @@ export function TimelineList({ dict, lang }: TimelineListProps) {
                           // limite global de max-width:100% que espremia a
                           // largura dentro do wrapper absoluto.
                           className="h-[10.5rem] w-auto max-w-none"
+                          // Logotipo largo declara a própria altura (ver o
+                          // tipo em content/timeline.ts).
+                          style={entry.logo.heightRem ? { height: `${entry.logo.heightRem}rem` } : undefined}
                           loading="lazy"
                         />
                       )}
@@ -126,19 +138,22 @@ export function TimelineList({ dict, lang }: TimelineListProps) {
                   >
                     <time
                       dateTime={entry.date}
-                      className="font-mono text-sm text-muted-foreground"
+                      className={cn("font-mono text-sm text-muted-foreground", entry.logo && HALO)}
                     >
                       {formatDate(entry.date, lang)}
                     </time>
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-2.5 py-0.5 font-mono text-sm uppercase tracking-wide text-muted-foreground">
+                    <span
+                      className={cn(
+                        "inline-flex items-center gap-1.5 rounded-full border border-border px-2.5 py-0.5 font-mono text-sm uppercase tracking-wide text-muted-foreground",
+                        entry.logo && "bg-background",
+                      )}
+                    >
                       <Icon className="h-3 w-3" aria-hidden="true" />
                       {dict.timeline.page.kinds[entry.kind]}
                     </span>
                   </div>
 
-                  {/* O halo na cor exata do fundo não lê como sombra — só
-                      apaga o logo atrás dos glifos, protegendo a leitura. */}
-                  <h2 className="text-balance text-lg font-semibold tracking-tight text-foreground [text-shadow:0_0_6px_hsl(var(--background)),0_0_12px_hsl(var(--background)),0_0_20px_hsl(var(--background)),0_0_28px_hsl(var(--background))]">
+                  <h2 className={cn("text-balance text-lg font-semibold tracking-tight text-foreground", HALO)}>
                     {entry.title[lang]}
                   </h2>
                 </div>

@@ -33,7 +33,17 @@ export type TimelineEntry = {
   link?: { href: string; label: Record<Locale, string> }
   /** logotipo decorativo flutuando na diagonal superior do card (o texto da
    *  entrada já nomeia a organização — por isso decorativo, ver DECISIONS) */
-  logo?: { src: string; width: number; height: number } | { claudeSeal: true }
+  logo?:
+    | {
+        src: string
+        width: number
+        height: number
+        /** altura em rem, só para logotipo largo: na altura padrão (10,5rem)
+         *  um logotipo de proporção 2,8:1 passa de 460px e sai da tela. Com
+         *  a altura menor ele ocupa mais ou menos a mesma área dos quadrados. */
+        heightRem?: number
+      }
+    | { claudeSeal: true }
 }
 
 const changelog = (anchor: string) =>
@@ -626,5 +636,6 @@ export const timeline: TimelineEntry[] = [
       href: product.da11y.page,
       label: { "pt-BR": "Conhecer o DA11Y.md", en: "Explore DA11Y.md" },
     },
+    logo: { src: "logo-da11ymd.svg", width: 1127, height: 405, heightRem: 6.25 },
   },
 ]
