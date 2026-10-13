@@ -240,6 +240,16 @@ export const en: Dictionary = {
       "Accessibility cannot be a badge at the end of the process. It needs to be the constraint at the beginning.",
   },
 
+  da11y: {
+    label: "Design edition",
+    heading: "Make your screens and components accessible before the first pixel with DA11Y.md",
+    description:
+      "The Figma agent reads DA11Y.md by link and applies the same rules and the same numbers as A11Y.md while the screen is being drawn.",
+    action: "Explore DA11Y.md",
+    credit:
+      "In the background, DA11Y.md's hero drawn in ASCII, with the dally.md logotype.",
+  },
+
   sources: {
     label: "Sources",
     heading: "What feeds the standard",

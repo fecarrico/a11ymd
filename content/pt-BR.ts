@@ -246,6 +246,16 @@ export const ptBR = {
       "Acessibilidade não pode ser um selo no final do processo. Precisa ser a restrição no começo.",
   },
 
+  da11y: {
+    label: "Edição de design",
+    heading: "Torne suas telas e componentes acessíveis antes do primeiro pixel com o DA11Y.md",
+    description:
+      "O agente do Figma lê o DA11Y.md por link e aplica as mesmas regras e os mesmos números do A11Y.md enquanto a tela é desenhada.",
+    action: "Conhecer o DA11Y.md",
+    credit:
+      "Ao fundo, o hero do DA11Y.md desenhado em ASCII, com o logotipo dally.md.",
+  },
+
   sources: {
     label: "Fontes",
     heading: "O que alimenta o padrão",
