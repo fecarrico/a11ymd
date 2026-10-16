@@ -250,7 +250,7 @@ export const ptBR = {
     label: "Edição de design",
     heading: "Torne suas telas e componentes acessíveis antes do primeiro pixel com o DA11Y.md",
     description:
-      "O agente do Figma lê o DA11Y.md por link e aplica as mesmas regras e os mesmos números do A11Y.md enquanto a tela é desenhada.",
+      "O agente do Figma lê o DA11Y.md por link e aplica as mesmas regras e os mesmos números do A11Y.md enquanto a tela é desenhada. Ele também está na Comunidade do Figma, como skill.",
     action: "Conhecer o DA11Y.md",
     credit:
       "Ao fundo, o hero do DA11Y.md desenhado em ASCII, com o logotipo dally.md.",

@@ -244,7 +244,7 @@ export const en: Dictionary = {
     label: "Design edition",
     heading: "Make your screens and components accessible before the first pixel with DA11Y.md",
     description:
-      "The Figma agent reads DA11Y.md by link and applies the same rules and the same numbers as A11Y.md while the screen is being drawn.",
+      "The Figma agent reads DA11Y.md by link and applies the same rules and the same numbers as A11Y.md while the screen is being drawn. It is also in the Figma Community, as a skill.",
     action: "Explore DA11Y.md",
     credit:
       "In the background, DA11Y.md's hero drawn in ASCII, with the dally.md logotype.",
