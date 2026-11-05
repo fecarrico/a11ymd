@@ -638,4 +638,22 @@ export const timeline: TimelineEntry[] = [
     },
     logo: { src: "logo-da11ymd.svg", width: 1127, height: 405, heightRem: 6.25 },
   },
+  {
+    id: "v2-5-0",
+    date: "2026-10-21",
+    kind: "release",
+    title: {
+      "pt-BR": "v2.5.0 — o verificador lê o que o projeto registrou",
+      en: "v2.5.0 — the checker reads what the project recorded",
+    },
+    description: {
+      "pt-BR":
+        "O verificador agora lê o que o projeto registrou. Uma exceção aprovada ou uma decisão anotada aparece na saída com o seu registro e não conta mais como erro. Ele também confere se o relatório cita o guia dos componentes que encontra no código. O que o padrão pede além da WCAG passa a se chamar regra do A11Y.md, e o texto grande ganha uma medida em pixels.",
+      en: "The checker now reads what the project recorded. An approved exception or a written-down decision shows up in its output with its record and no longer counts as an error. It also checks that the report names the guide for the components it finds in the code. What the standard asks beyond WCAG is now called an A11Y.md rule, and large text gets a size in pixels.",
+    },
+    link: {
+      href: changelog("250---2026-10-21"),
+      label: { "pt-BR": "Notas da versão", en: "Release notes" },
+    },
+  },
 ]

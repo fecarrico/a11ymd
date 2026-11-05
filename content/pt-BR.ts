@@ -195,7 +195,7 @@ export const ptBR = {
         stage: "Fase de validação",
         condition: "Passa nos critérios do nível escolhido?",
         action:
-          "Cada exigência é conferida contra a norma internacional, critério por critério. Quando o A11Y.md pede mais do que a norma, isso aparece identificado como regra da casa",
+          "Cada exigência é conferida contra a norma internacional, critério por critério. Quando o A11Y.md pede mais do que a norma, isso aparece identificado como regra do A11Y.md",
         artifact: "WCAG 2.2",
       },
       {

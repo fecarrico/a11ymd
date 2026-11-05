@@ -190,7 +190,7 @@ export const en: Dictionary = {
         stage: "Validation phase",
         condition: "Does it pass the chosen level's criteria?",
         action:
-          "Every requirement is checked against the international standard, criterion by criterion. When A11Y.md asks for more than the standard does, that shows up labeled as a house rule",
+          "Every requirement is checked against the international standard, criterion by criterion. When A11Y.md asks for more than the standard does, that shows up labeled as an A11Y.md rule",
         artifact: "WCAG 2.2",
       },
       {
